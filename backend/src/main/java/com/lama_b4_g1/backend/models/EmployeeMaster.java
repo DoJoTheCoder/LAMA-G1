@@ -25,6 +25,11 @@ public class EmployeeMaster {
 	
 	private char gender;
 	
+	@Column(length = 30 , name = "user_name")
+	private String userName;
+	
+	private String password;
+	
 	@Column(name = "date_of_birth")
 	private Date dob;
 	
