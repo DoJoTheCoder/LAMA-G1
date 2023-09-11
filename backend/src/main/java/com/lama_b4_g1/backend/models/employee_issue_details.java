@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class employee_issue_details {
@@ -23,6 +24,12 @@ public class employee_issue_details {
 	private Date issue_date;
 	
 	private Date return_date;
+	
+	@ManyToOne
+	private employee_master empMaster;
+	
+	@ManyToOne
+	private item_master itemMaster;
 
 	public String getIssue_id() {
 		return issue_id;

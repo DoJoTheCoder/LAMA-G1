@@ -1,8 +1,11 @@
 package com.lama_b4_g1.backend.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class loan_card_master {
@@ -16,6 +19,9 @@ public class loan_card_master {
 	
 	private int duration_in_years;
 
+	@OneToMany(mappedBy = "loanCardMaster")
+	private Set<employee_card_details> empCardDetail;
+	
 	public int getLoan_id() {
 		return loan_id;
 	}

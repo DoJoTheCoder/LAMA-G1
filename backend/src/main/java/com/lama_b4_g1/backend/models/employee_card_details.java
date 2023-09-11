@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class employee_card_details {
@@ -17,6 +18,13 @@ public class employee_card_details {
 	private String loan_id;
 
 	private Date card_issue_date;	
+	
+	@ManyToOne
+	//@JoinColumn()
+	private loan_card_master loanCardMaster;
+	
+	@ManyToOne
+	private employee_master empMaster;
 	
 	public String getEmployee_id() {
 		return employee_id;

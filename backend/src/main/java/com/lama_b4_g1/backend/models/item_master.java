@@ -1,8 +1,11 @@
 package com.lama_b4_g1.backend.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class item_master {
@@ -24,6 +27,9 @@ public class item_master {
 	
 	@Column(length = 6)
 	private int item_valuation;
+	
+	@OneToMany(mappedBy = "itemMaster")
+	private Set<employee_issue_details> empIssueDetails;
 
 	public String getItem_id() {
 		return item_id;

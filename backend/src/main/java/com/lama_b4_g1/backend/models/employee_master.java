@@ -1,10 +1,12 @@
 package com.lama_b4_g1.backend.models;
 
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class employee_master {
@@ -27,6 +29,12 @@ public class employee_master {
 	private Date date_of_birth;
 	
 	private Date date_of_joining;
+	
+	@OneToMany(mappedBy = "empMaster")
+	private Set<employee_card_details> empCardDetails;
+	
+	@OneToMany(mappedBy = "empMaster")
+	private Set<employee_issue_details> empIssueDetails;
 
 	public String getEmployee_id() {
 		return employee_id;
