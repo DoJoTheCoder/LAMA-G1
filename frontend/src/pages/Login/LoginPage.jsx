@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./LoginPage.css"
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function LoginPage() {
 
@@ -7,37 +9,52 @@ export default function LoginPage() {
     const [password, setPassword] = useState("")
 
     function handleLoginSubmit() {
+
         console.log(userName);
         console.log(password);
 
         const sendBody = {
-            username: userName,
-            password: password,
+            userName: userName,
+            password: password
         };
-        try {
-            (async () => {
-                const response = await fetch("https://localhost:8080/validateLogin", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(sendBody),
-                });
-                const data = await response.json()
-                console.log(data);
-            })();
-        }
-        catch (e) {
-            console.log(e)
-        }
+
+        console.log(sendBody)
+
+        axios
+            .post("http://localhost:8080/validateLogin", {
+                title: "Hello World!",
+                body: JSON.stringify(sendBody)
+            })
+            .then((response) => {
+                console.log(response.data);
+            });
+
+        // try {
+        //     (async () => {
+        //         const res = await fetch("http://localhost:8080/validateLogin", {
+        //             // mode: "no-cors",
+        //             method: "POST",
+        //             headers: { "Content-Type": "application/json" },
+        //             body: JSON.stringify(sendBody),
+        //         });
+        //         const data = res.body;
+        //         console.log(data);
+        //     })();
+        // }
+        // catch (e) {
+        //     console.log(e)
+        // }
     }
     return (
         <div>
             <div className="loginForm">
-                <form onSubmit={handleLoginSubmit}>
+                <h3>Login Page</h3>
+                <form>
+                    Username : <input className="loginInputs" type="text" value={userName} onChange={(e) => setUserName(e.target.value)}></input><br />
+                    Password : <input className="loginInputs" type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br />
+                    <button type="button" className="submitButton" onClick={handleLoginSubmit}>submit</button><br />
 
-                    <h3>Login Page</h3>
-                    <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)}></input>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                    <button type="submit">submit</button>
+                    New User? Register <Link to="/newRegisteration">here</Link>
 
                 </form>
             </div>
