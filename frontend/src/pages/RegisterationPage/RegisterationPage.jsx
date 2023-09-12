@@ -50,7 +50,7 @@ export default function RegisterationPage() {
                 <label  class="form-label fw-bold">Gender(M/F)</label>
                 <input type="text" class="form-control"></input>
             </div>
-            {/* this is a comment */}
+            
 
             <div class="mb-3">
                 <label  class="form-label fw-bold">Date of Birth</label>

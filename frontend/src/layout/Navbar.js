@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
@@ -11,13 +12,13 @@ export default function Navbar() {
     </button>   
 
     <div class="text-cente">
-    <button className="btn btn-outline-light text-center mx-1">Home</button>
-    <button className="btn btn-outline-light text-center mx-1">Get loan</button>
-    <button className="btn btn-outline-light text-center mx-1">Current Loans</button>
-    <button className="btn btn-outline-light text-center mx-1">Items purchased</button>
+    <Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link>
+    <Link className="btn btn-outline-light text-center mx-1" to='/get-loan'>Get loan</Link>
+    <Link className="btn btn-outline-light text-center mx-1" to='/current-loans'>Current Loans</Link>
+    <Link className="btn btn-outline-light text-center mx-1" to='/items-purchased'>Items purchased</Link>
     </div>
 
-    <button className="btn btn-outline-light">Logout</button>
+    <Link className="btn btn-outline-light" to='/login'>Logout</Link>
 
 
     </div>

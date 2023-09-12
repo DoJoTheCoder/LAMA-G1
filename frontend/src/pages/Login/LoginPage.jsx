@@ -58,7 +58,7 @@ export default function LoginPage() {
                 <label class="form-label fw-bold">Password</label>
                 <input type="password" class="form-control"></input>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>
         </div>
