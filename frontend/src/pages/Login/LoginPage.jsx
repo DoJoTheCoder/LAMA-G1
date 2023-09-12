@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./LoginPage.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function LoginPage() {
 
@@ -46,18 +47,20 @@ export default function LoginPage() {
         // }
     }
     return (
-        <div>
-            <div className="loginForm">
-                <h3>Login Page</h3>
-                <form>
-                    Username : <input className="loginInputs" type="text" value={userName} onChange={(e) => setUserName(e.target.value)}></input><br />
-                    Password : <input className="loginInputs" type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br />
-                    <button type="button" className="submitButton" onClick={handleLoginSubmit}>submit</button><br />
-
-                    New User? Register <Link to="/newRegisteration">here</Link>
-
-                </form>
+        <div class="py-5">
+        <div class="card col-lg-4 d-flex mx-auto p-3">
+        <form>
+            <div class="mb-3">
+                <label  class="form-label fw-bold">Employee Id</label>
+                <input type="text" class="form-control"></input>
             </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold">Password</label>
+                <input type="password" class="form-control"></input>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
         </div>
     )
 }
