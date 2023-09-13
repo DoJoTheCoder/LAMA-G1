@@ -27,13 +27,16 @@ function App() {
         
         </Routes> */}
 
-        <Navbar></Navbar>
+        <Navbar callFrom="appPage"></Navbar>
         <Routes>
-        <Route exact path ="/" element={<Home/>}></Route>
-        <Route exact path ="/get-loan" element={<GetLoan/>}></Route>
-        <Route exact path ="/current-loans" element={<CurrentLoans/>}></Route>
-        <Route exact path ="/items-purchased" element={<ItemsPurchased/>}></Route>
-        <Route exact path ="/login" element={<LoginPage/>}></Route>
+          <Route exactpath="/" element={<LoginPage />}></Route>          
+          <Route exact path="/login" element={<LoginPage />}></Route>
+          <Route exact path="newRegister" element={<RegisterationPage></RegisterationPage>}></Route>
+          <Route exact path="/home" element={<Home />}></Route>
+          <Route exact path="/get-loan" element={<GetLoan />}></Route>
+          <Route exact path="/current-loans" element={<CurrentLoans />}></Route>
+          <Route exact path="/items-purchased" element={<ItemsPurchased />}></Route>
+          {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
         </Routes>
 
       </Router>

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./LoginPage.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function LoginPage() {
 
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
+    const [validity, setValidity] = useState("")
+
+    const navigate = useNavigate();
 
     function handleLoginSubmit() {
 
@@ -22,13 +24,22 @@ export default function LoginPage() {
         console.log(sendBody)
 
         axios
-            .post("http://localhost:8080/validateLogin", {
-                title: "Hello World!",
-                body: JSON.stringify(sendBody)
-            })
+            .post("http://localhost:8080/validateLogin", sendBody
+            // {
+            //     title: "Hello World!",
+            //     body: JSON.stringify(sendBody)
+            // })
+            )
             .then((response) => {
-                console.log(response.data);
+                setValidity(response.data);
+                console.log(validity)
+            }).catch(function (error){
+                console.log(error);
             });
+
+            if(validity=== "Valid"){
+                navigate("/home")
+            }
 
         // try {
         //     (async () => {
@@ -47,20 +58,21 @@ export default function LoginPage() {
         // }
     }
     return (
-        <div class="py-5">
-        <div class="card col-lg-4 d-flex mx-auto p-3">
-        <form>
-            <div class="mb-3">
-                <label  class="form-label fw-bold">Employee Id</label>
-                <input type="text" class="form-control"></input>
+        <div>
+            <div>
+                <form>
+                    <div className="loginForm">
+                        Employee Username
+                        <input type="text" className="loginInputs" value={userName} onChange={(e)=>{setUserName(e.target.value)}}></input>
+                        Password
+                        <input type="password" className="loginInputs" value={password} onChange={(e)=>{setPassword(e.target.value)}}></input>
+                    </div>
+                    <div className="outLoginForm">
+                    <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button><br/>
+                    New User? Click <Link to={"/newRegister"}>here</Link>.
+                    </div>
+                </form>
             </div>
-            <div class="mb-3">
-                <label class="form-label fw-bold">Password</label>
-                <input type="password" class="form-control"></input>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-        </div>
         </div>
     )
 }
