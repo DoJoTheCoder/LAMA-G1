@@ -4,7 +4,7 @@ export default function ItemsPurchased() {
   return (
     <div>
     <h1>This is the list of Purchased Items</h1>
-    <table class="table table-dark">
+    <table className="table table-dark">
   <thead>
     <tr>
       <th scope="col">#</th>

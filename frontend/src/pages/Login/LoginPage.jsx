@@ -47,18 +47,18 @@ export default function LoginPage() {
         // }
     }
     return (
-        <div class="py-5">
-        <div class="card col-lg-4 d-flex mx-auto p-3">
+        <div className="py-5">
+        <div className="card col-lg-4 d-flex mx-auto p-3">
         <form>
-            <div class="mb-3">
-                <label  class="form-label fw-bold">Employee Id</label>
-                <input type="text" class="form-control"></input>
+            <div className="mb-3">
+                <label  className="form-label fw-bold">Employee Id</label>
+                <input type="text" className="form-control"></input>
             </div>
-            <div class="mb-3">
-                <label class="form-label fw-bold">Password</label>
-                <input type="password" class="form-control"></input>
+            <div className="mb-3">
+                <label className="form-label fw-bold">Password</label>
+                <input type="password" className="form-control"></input>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" className="btn btn-primary">Login</button>
             </form>
         </div>
         </div>

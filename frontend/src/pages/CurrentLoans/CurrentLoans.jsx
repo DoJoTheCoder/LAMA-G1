@@ -4,7 +4,7 @@ export default function CurrentLoans() {
   return (
     <div>
     <h1>This is a list of Current Loans</h1>
-    <table class="table table-dark">
+    <table className="table table-dark">
   <thead>
     <tr>
       <th scope="col">#</th>
