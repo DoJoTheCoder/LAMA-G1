@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./LoginPage.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function LoginPage() {
 
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
+    const [validity, setValidity] = useState("")
+
+    const navigate = useNavigate();
 
     function handleLoginSubmit() {
 
@@ -22,13 +24,22 @@ export default function LoginPage() {
         console.log(sendBody)
 
         axios
-            .post("http://localhost:8080/validateLogin", {
-                title: "Hello World!",
-                body: JSON.stringify(sendBody)
-            })
+            .post("http://localhost:8080/validateLogin", sendBody
+            // {
+            //     title: "Hello World!",
+            //     body: JSON.stringify(sendBody)
+            // })
+            )
             .then((response) => {
-                console.log(response.data);
+                setValidity(response.data);
+                console.log(validity)
+            }).catch(function (error){
+                console.log(error);
             });
+
+            if(validity=== "Valid"){
+                navigate("/home")
+            }
 
         // try {
         //     (async () => {
