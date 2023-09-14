@@ -1,6 +1,7 @@
 package com.lama_b4_g1.backend.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import com.lama_b4_g1.backend.models.EmployeeCardDetails;
 import com.lama_b4_g1.backend.models.EmployeeLoginCredentials;
 import com.lama_b4_g1.backend.models.EmployeeMaster;
 import com.lama_b4_g1.backend.models.LoanCardMaster;
+import com.lama_b4_g1.backend.repository.EmployeeCardDetailsRepository;
 import com.lama_b4_g1.backend.services.EmployeeCardDetailsService;
 import com.lama_b4_g1.backend.services.EmployeeMasterService;
 import com.lama_b4_g1.backend.services.LoanCardMasterService;
@@ -31,6 +33,9 @@ public class EmployeeMasterController {
 	
 	@Autowired
 	LoanCardMasterService loanCardMasterService;
+	
+	@Autowired 
+	EmployeeCardDetailsRepository empCardDetailsRepository;
 	
 	@PostMapping("/addEmployeeMaster")
 	public EmployeeMaster addEmpMaster(@RequestBody EmployeeMaster empMaster) {
@@ -56,11 +61,15 @@ public class EmployeeMasterController {
 		
 	}
 	
-	@GetMapping("/getLoanList")
-	public List<LoanCardMaster> getLoadList(){
+	@PostMapping("/getLoanList")
+	public List<Map<String,String>> getLoanList(@RequestBody Map<String, String> userID){
 		
-		List<EmployeeCardDetails> empCardList = empCardDetailsService.getEmpCardDetails();
-		List<LoanCardMaster> loanCardList = loanCardMasterService.getLoanCardDetails();
+//		System.out.println("UserId to search "+ userID +" ");
+//		System.out.println(userID.get("searchId"));
+		List<Map<String, String>> loanCardList = empCardDetailsRepository.getLoanListById(userID.get("searchId"));
+		System.out.println(loanCardList);
 		return loanCardList;
 	}
+	
+	
 }

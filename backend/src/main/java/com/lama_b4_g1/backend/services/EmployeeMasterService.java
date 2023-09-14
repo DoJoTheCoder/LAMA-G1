@@ -36,7 +36,7 @@ public class EmployeeMasterService {
 			result ="Invalid";
 		}
 		else
-			result = "Valid";
+			result = empMaster.getEmployeeId();
 		
 		return result;
 	}

@@ -12,10 +12,10 @@ public class LoanCardMaster {
 	
 	@Id
 	@Column(length = 6, name = "loan_id")
-	private int loanId;
+	private String loanId;
 	
 	@Column(length = 15, name = "loan_type")
-	private char loanType;
+	private String loanType;
 	
 	@Column(name = "duration_in_years")
 	private int durationYears;
@@ -23,19 +23,19 @@ public class LoanCardMaster {
 	@OneToMany(mappedBy = "loanCardMaster")
 	private Set<EmployeeCardDetails> empCardDetail;
 
-	public int getLoanId() {
+	public String getLoanId() {
 		return loanId;
 	}
 
-	public void setLoanId(int loanId) {
+	public void setLoanId(String loanId) {
 		this.loanId = loanId;
 	}
 
-	public char getLoanType() {
+	public String getLoanType() {
 		return loanType;
 	}
 
-	public void setLoanType(char loanType) {
+	public void setLoanType(String loanType) {
 		this.loanType = loanType;
 	}
 
