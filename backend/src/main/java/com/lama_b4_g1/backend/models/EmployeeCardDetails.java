@@ -5,14 +5,16 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class EmployeeCardDetails {
-	@Id
+	
 	@Column(length = 6, name="employee_id")
 	private String employeeId;
 	
+	@Id
 	@Column(length=6, name="loan_id")
 	private String loanId;
 
@@ -20,7 +22,7 @@ public class EmployeeCardDetails {
 	private Date cardIssueDate;	
 	
 	@ManyToOne
-	//@JoinColumn()
+//	@JoinColumn(name="loan_id")
 	private LoanCardMaster loanCardMaster;
 	
 	@ManyToOne

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./LoginPage.css"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -11,6 +11,10 @@ export default function LoginPage() {
 
     const navigate = useNavigate();
 
+    function handleResponse(str){
+        setValidity(str)
+    }
+
     function handleLoginSubmit() {
 
         console.log(userName);
@@ -21,25 +25,30 @@ export default function LoginPage() {
             password: password
         };
 
-        console.log(sendBody)
+        (async () => {
 
-        axios
-            .post("http://localhost:8080/validateLogin", sendBody
-            // {
-            //     title: "Hello World!",
-            //     body: JSON.stringify(sendBody)
-            // })
-            )
-            .then((response) => {
-                setValidity(response.data);
-                console.log(validity)
-            }).catch(function (error){
-                console.log(error);
-            });
-
-            if(validity=== "Valid"){
-                navigate("/home")
-            }
+            axios
+                .post("http://localhost:8080/validateLogin", sendBody
+                    // {
+                    //     title: "Hello World!",
+                    //     body: JSON.stringify(sendBody)
+                    // })
+                )
+                .then((response) => {
+                    console.log(response)
+                    // handleResponse(response.data)
+                    setValidity(response.data);
+                    console.log(validity)
+                    if (response.data !== "Invalid" && response.data !== "Null Credentials" && response.data !== "") {
+                        sessionStorage.setItem("UserName", JSON.stringify(userName))
+                        sessionStorage.setItem("UserID", JSON.stringify(response.data))
+                        navigate("/home")
+                    }
+                }).catch(function (error) {
+                    console.log(error);
+                });
+                
+        })();
 
         // try {
         //     (async () => {
@@ -59,19 +68,20 @@ export default function LoginPage() {
     }
     return (
         <div className="py-5">
-        <div className="card col-lg-4 d-flex mx-auto p-3">
-        <form>
-            <div className="mb-3">
-                <label  className="form-label fw-bold">Employee Id</label>
-                <input type="text" className="form-control"></input>
+            <div className="card col-lg-4 d-flex mx-auto p-3">
+                <form>
+                    <div className="loginForm1">
+                        Employee Username
+                        <input type="text" className="loginInputs" value={userName} onChange={(e) => { setUserName(e.target.value) }}></input>
+                        Password
+                        <input type="password" className="loginInputs" value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
+                    </div>
+                    <div className="outLoginForm">
+                        <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button><br />
+                        New User? Click <Link to={"/newRegister"}>here</Link>.
+                    </div>
+                </form>
             </div>
-            <div className="mb-3">
-                <label className="form-label fw-bold">Password</label>
-                <input type="password" className="form-control"></input>
-            </div>
-            <button type="submit" className="btn btn-primary">Login</button>
-            </form>
-        </div>
         </div>
     )
 }
