@@ -29,7 +29,7 @@ function App() {
 
         <Navbar callFrom="appPage"></Navbar>
         <Routes>
-          <Route exactpath="/" element={<LoginPage />}></Route>          
+          <Route exact path="/" element={<LoginPage />}></Route>          
           <Route exact path="/login" element={<LoginPage />}></Route>
           <Route exact path="newRegister" element={<RegisterationPage></RegisterationPage>}></Route>
           <Route exact path="/home" element={<Home />}></Route>
