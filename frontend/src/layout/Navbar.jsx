@@ -1,3 +1,4 @@
+import { Button } from 'bootstrap'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -11,14 +12,14 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>   
 
-          <div className="text-center">
+          {/* <div className="text-center">
             <Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link>
             <Link className="btn btn-outline-light text-center mx-1" to='/get-loan'>Get loan</Link>
             <Link className="btn btn-outline-light text-center mx-1" to='/current-loans'>Current Loans</Link>
             <Link className="btn btn-outline-light text-center mx-1" to='/items-purchased'>Items purchased</Link>
-          </div>
+          </div> */}
 
-          <Link className="btn btn-outline-light" to='/login'>Logout</Link>
+          <Button>Logout</Button>
 
 
         </div>
