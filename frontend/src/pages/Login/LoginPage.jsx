@@ -7,13 +7,9 @@ export default function LoginPage() {
 
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
-    const [validity, setValidity] = useState("")
+    const [validity, setValidity] = useState("Valid")
 
     const navigate = useNavigate();
-
-    function handleResponse(str){
-        setValidity(str)
-    }
 
     function handleLoginSubmit() {
 
@@ -36,18 +32,19 @@ export default function LoginPage() {
                 )
                 .then((response) => {
                     console.log(response)
-                    // handleResponse(response.data)
                     setValidity(response.data);
                     console.log(validity)
                     if (response.data !== "Invalid" && response.data !== "Null Credentials" && response.data !== "") {
                         sessionStorage.setItem("UserName", JSON.stringify(userName))
                         sessionStorage.setItem("UserID", JSON.stringify(response.data))
+                        // const validity = "Valid"
+                        sessionStorage.setItem("Session", validity)
                         navigate("/home")
                     }
                 }).catch(function (error) {
                     console.log(error);
                 });
-                
+
         })();
 
         // try {

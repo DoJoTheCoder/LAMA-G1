@@ -1,25 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import "./CurrentLoans.css"
+import { useNavigate } from 'react-router';
 
 
 export default function CurrentLoans() {
 
-
+  const navigate = useNavigate()
   const [searchId, setSearchId] = useState("")
   const [content, setContent] = useState([])
 
-  function getUserId() {
-    setSearchId(JSON.parse(sessionStorage.getItem("UserID")))
-  }
-  function getLoanList() {
-    // console.log()
+  useEffect(() => {
 
-    getUserId()
+    console.log("Session " + (sessionStorage.getItem("Session")))
+
+    if ((sessionStorage.getItem("Session")) !== "Valid") {
+      navigate("/login")
+    }
+
+    setSearchId(JSON.parse(sessionStorage.getItem("UserID")))
+
     console.log(searchId)
     axios
       .post("http://localhost:8080/getLoanList", {
-        searchId: searchId
+        searchId: JSON.parse(sessionStorage.getItem("UserID"))
       }
       )
       .then((response) => {
@@ -28,12 +32,15 @@ export default function CurrentLoans() {
       }).catch(function (error) {
         console.log(error);
       });
-  }
+  }, []);
+
+
+
 
   return (
     <div>
       <h1>This is a list of Current Loans</h1>
-      <button className="refreshButton" onClick={getLoanList}>Refresh Table</button>
+      {/* <button className="refreshButton" onClick={getLoanList}>Refresh Table</button> */}
       <table className="table table-dark">
         <thead>
           <tr>
@@ -45,7 +52,6 @@ export default function CurrentLoans() {
           </tr>
         </thead>
 
-        {/* {console.log(content)} */}
         <tbody>
           {
             content.map((x, i) => (
