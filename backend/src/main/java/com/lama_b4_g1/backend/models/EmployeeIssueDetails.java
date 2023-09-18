@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,12 +14,6 @@ public class EmployeeIssueDetails {
 	@Column(length = 6, name = "issue_id")
 	private String issueId;
 	
-	@Column(length = 6, name = "employee_id")
-	private String employeeId;
-	
-	@Column(length = 6, name = "item_id")
-	private String itemId;
-	
 	@Column(name = "issue_date")
 	private Date issueDate;
 	
@@ -26,9 +21,11 @@ public class EmployeeIssueDetails {
 	private Date returnDate;
 	
 	@ManyToOne
+	@JoinColumn(name = "employee_id")
 	private EmployeeMaster empMaster;
 	
 	@ManyToOne
+	@JoinColumn(name = "item_id")
 	private ItemMaster itemMaster;
 
 	public String getIssueId() {
@@ -37,22 +34,6 @@ public class EmployeeIssueDetails {
 
 	public void setIssueId(String issueId) {
 		this.issueId = issueId;
-	}
-
-	public String getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(String employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public String getItemId() {
-		return itemId;
-	}
-
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
 	}
 
 	public Date getIssueDate() {

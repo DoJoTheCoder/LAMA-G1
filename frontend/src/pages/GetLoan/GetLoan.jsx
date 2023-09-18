@@ -5,7 +5,7 @@ import axios from 'axios'
 export default function GetLoan() {
 
     //setting default value of emp Id as localstorage val
-    const [employeeId, setEmployeeId] = useState("")
+    const [employeeId, setEmployeeId] = useState("E10001")
     const [itemCategory, setItemCategory] = useState("")
     const [itemDescription, setItemDescription] = useState("")
     const [itemValue, setItemValue] = useState("")
@@ -16,9 +16,6 @@ export default function GetLoan() {
 
     useEffect(() => {
         getItemCategoryData();
-
-        //Hardcoded employee id value
-        setEmployeeId("10001")
 
         //This is to check if user is logged in before allowing apply loan
         //TODO: Uncomment after completing the login and session management
@@ -43,7 +40,7 @@ export default function GetLoan() {
     }
 
     const getItemCategoryData = () => {
-        axios.get("http://localhost:8080/getAllItems")
+        axios.get("http://localhost:8080/getAllItemCategories")
             .then((response) => {setItemCategoryArray(response.data);})
             .catch(error => {alert("error happened:"+error)});
     }
@@ -61,11 +58,6 @@ export default function GetLoan() {
                             value={employeeId} disabled></input>
                     </div>
 
-                    <div className="mb-3">
-                        <label  className="form-label fw-bold">Item Description</label>
-                        <input type="text" className="form-control"onChange={(e) => setItemDescription(e.target.value)}></input>
-                    </div>
-
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <label className="input-group-text" htmlFor="itemCategoryInput">Item Category</label>
@@ -73,7 +65,7 @@ export default function GetLoan() {
                         <select className="custom-select" id="itemCategoryInput">
                             {
                                 itemCategoryArray.map((cat,index) =>(
-                                    <option key={cat.itemId} value={cat.itemCategory}>{cat.itemCategory}</option>
+                                    <option key={cat} value={cat}>{cat}</option>
                                 ))
                             }
                         </select>
@@ -89,9 +81,11 @@ export default function GetLoan() {
                     </div>
 
                     <div className="mb-3">
-                        <label  className="form-label fw-bold">Item make</label>
-                        <input type="text" className="form-control"></input>
+                        <label  className="form-label fw-bold">Item Description</label>
+                        <input type="text" className="form-control"onChange={(e) => setItemDescription(e.target.value)}></input>
                     </div>
+
+                    
 
                     <div className="mb-3">
                         <label  className="form-label fw-bold">Item value</label>

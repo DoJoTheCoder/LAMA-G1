@@ -8,7 +8,8 @@ export default function ItemsPurchased() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getItemCategoryData("E10001");
+    console.log(sessionStorage.getItem("UserID"))
+    getItemCategoryData("E10002");
 
     //This is to check if user is logged in before allowing apply loan
     //TODO: Uncomment after completing the login and session management

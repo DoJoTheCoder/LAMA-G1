@@ -4,18 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lama_b4_g1.backend.models.EmployeeCardDetails;
 import com.lama_b4_g1.backend.models.EmployeeLoginCredentials;
 import com.lama_b4_g1.backend.models.EmployeeMaster;
-import com.lama_b4_g1.backend.models.LoanCardMaster;
 import com.lama_b4_g1.backend.repository.EmployeeCardDetailsRepository;
 import com.lama_b4_g1.backend.services.EmployeeCardDetailsService;
 import com.lama_b4_g1.backend.services.EmployeeMasterService;
