@@ -11,13 +11,13 @@ import javax.persistence.OneToMany;
 public class LoanCardMaster {
 	
 	@Id
-	@Column(length = 6, name = "loan_id")
+	@Column(length = 6)
 	private String loanId;
 	
-	@Column(length = 15, name = "loan_type")
+	@Column(length = 15)
 	private String loanType;
 	
-	@Column(name = "duration_in_years")
+	@Column(nullable = false)
 	private int durationYears;
 
 	@OneToMany(mappedBy = "loanCardMaster")
@@ -47,11 +47,5 @@ public class LoanCardMaster {
 		this.durationYears = durationYears;
 	}
 
-	public Set<EmployeeCardDetails> getEmpCardDetail() {
-		return empCardDetail;
-	}
-
-	public void setEmpCardDetail(Set<EmployeeCardDetails> empCardDetail) {
-		this.empCardDetail = empCardDetail;
-	}
+	
 }

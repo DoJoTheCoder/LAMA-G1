@@ -17,6 +17,7 @@ import AdminHome from './admin_pages/Home/Home';
 import AdminLoanCardManagement from './admin_pages/LoanCardManagement/LoanCardManagement';
 import AddItem from './admin_pages/AddItem/AddItem';
 import AddLoan from './admin_pages/AddLoan/AddLoan';
+import EditLoan from './admin_pages/EditLoan/EditLoan';
 
 
 function App() {
@@ -44,7 +45,10 @@ function App() {
           <Route exact path="/get-loan" element={<GetLoan />}></Route>
           <Route exact path="/current-loans" element={<CurrentLoans />}></Route>
           <Route exact path="/items-purchased" element={<ItemsPurchased />}></Route>
+
+          <Route exact path="/admin-editloan" element={<EditLoan/>}></Route>
           <Route exact path="/employee-admin" element={<EmployeeAdmin />}></Route>
+
           {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
 
 
