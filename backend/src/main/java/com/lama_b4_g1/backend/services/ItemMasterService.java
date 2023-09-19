@@ -17,7 +17,17 @@ public class ItemMasterService {
 		
 		public List<String> getAllItemCategory() {
 			return itemMasterRepo.findDistinctByItemCategories();
-			
 		}
 		
+		public List<String> getItemMakes(String itemCategory){
+			return itemMasterRepo.findDistinctByItemMakes(itemCategory);
+		}
+		
+		public List<String> getItemDescriptions(String itemCategory, String itemMake){
+			return itemMasterRepo.findItemDescriptions(itemCategory, itemMake);
+		}
+		
+		public String getItemValue(String itemDesc) {
+			return itemMasterRepo.findItemValue(itemDesc);
+		}
 }

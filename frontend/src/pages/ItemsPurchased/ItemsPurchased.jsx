@@ -8,24 +8,18 @@ export default function ItemsPurchased() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(sessionStorage.getItem("UserID"))
-    getItemCategoryData("E10002");
+    console.log("Session " + (sessionStorage.getItem("Session")))
 
-    //This is to check if user is logged in before allowing apply loan
-    //TODO: Uncomment after completing the login and session management
-    // checkLoginStatus();
+    if ((sessionStorage.getItem("Session")) !== "Valid") {
+      navigate("/login")
+    }
+
+    console.log("User:"+ (sessionStorage.getItem("UserID")))
+    getEmployeePurchases(JSON.parse(sessionStorage.getItem("UserID"))) 
     
   }, [navigate]);
 
-  function checkLoginStatus(){
-    const isLoggedIn = localStorage.getItem('employeeId');
-    if (!isLoggedIn) {
-        alert("Please login to continue!")
-        navigate('/');
-    }
-  }
-
-  const getItemCategoryData = (empId) => {
+  const getEmployeePurchases = (empId) => {
     
     axios.get("http://localhost:8080/getEmployeeItems/" + empId)
             .then((response) => {setEmployeeItemsArr(response.data);})

@@ -15,4 +15,7 @@ public interface EmployeeIssueDetailsRepository extends JpaRepository<EmployeeIs
 	public Set<EmployeeItemView> getEmployeeItems(String employeeId);
 	
 //	public EmployeeIssueDetails findByEmployeeId(String employeeId);
+	
+	@Query("SELECT MAX(i.issueId) FROM EmployeeIssueDetails i")
+	public String findMaxIssueId();
 }

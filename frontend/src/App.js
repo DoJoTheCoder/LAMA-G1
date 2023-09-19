@@ -9,6 +9,7 @@ import GetLoan from './pages/GetLoan/GetLoan';
 import CurrentLoans from './pages/CurrentLoans/CurrentLoans';
 import ItemsPurchased from './pages/ItemsPurchased/ItemsPurchased';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import EmployeeAdmin from './admin/EmployeeAdmin/EmployeeAdmin';
 
 
 import AdminLoginPage from './admin_pages/Login/LoginPage';
@@ -42,7 +43,10 @@ function App() {
           <Route exact path="/get-loan" element={<GetLoan />}></Route>
           <Route exact path="/current-loans" element={<CurrentLoans />}></Route>
           <Route exact path="/items-purchased" element={<ItemsPurchased />}></Route>
+
           <Route exact path="/admin-editloan" element={<EditLoan/>}></Route>
+          <Route exact path="/employee-admin" element={<EmployeeAdmin />}></Route>
+
           {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
 
 
