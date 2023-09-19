@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-export default function GetLoan() {
+export default function EditLoan() {
 
     //setting default value of emp Id as localstorage val
     const [employeeId, setEmployeeId] = useState("E10001")
