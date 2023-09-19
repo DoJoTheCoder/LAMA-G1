@@ -1,5 +1,7 @@
 package com.lama_b4_g1.backend.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,12 @@ public class EmployeeMasterService {
 	
 	@Autowired
 	private EmployeeMasterRepository empMasterRepo;
+	
+	public List<EmployeeMaster> fetchAllEmployees() {
+		
+		return empMasterRepo.findAll();
+		
+	}
 
 	public EmployeeMaster saveEmpMaster(EmployeeMaster empMaster) {
 		EmployeeMaster obj = empMasterRepo.save(empMaster);

@@ -15,6 +15,8 @@ import EmployeeAdmin from './admin/EmployeeAdmin/EmployeeAdmin';
 import AdminLoginPage from './admin_pages/Login/LoginPage';
 import AdminHome from './admin_pages/Home/Home';
 import AdminLoanCardManagement from './admin_pages/LoanCardManagement/LoanCardManagement';
+import AddItem from './admin_pages/AddItem/AddItem';
+import AddLoan from './admin_pages/AddLoan/AddLoan';
 
 
 function App() {
@@ -52,8 +54,10 @@ function App() {
           <Route exact path="/admin/home" element={<AdminHome />}></Route>
           <Route exact path="/admin/login" element={<AdminLoginPage />}></Route>
           {/* <Route exact path="/admin/customer-data-management" element={<AdminCustomerDataManagement />}></Route> */}
-          <Route exact path="/admin/loan-card-management" element={<AdminLoanCardManagement />}></Route>
+          <Route exact path="/admin/loanCardManagement" element={<AdminLoanCardManagement />}></Route>
           {/* <Route exact path="/admin/item-master-data" element={<AdminItemMasterData />}></Route> */}
+          <Route exact path="/admin/addItemMaster" element={<AddItem/>}></Route>
+          <Route exact path="/admin/addLoanMaster" element={<AddLoan/>}></Route>
           
         </Routes>
 

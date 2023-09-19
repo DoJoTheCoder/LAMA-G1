@@ -19,4 +19,13 @@ public class LoanCardMasterService {
 		return loanCardMasterRepo.findAll();
 	}
 
+	public LoanCardMaster addNewLoanCard(LoanCardMaster newLoanCard) {
+		LoanCardMaster obj = loanCardMasterRepo.save(newLoanCard);
+		return obj;
+	}
+
+	public List<LoanCardMaster> getAllLoans() {
+		return loanCardMasterRepo.findAll();
+	}
+
 }

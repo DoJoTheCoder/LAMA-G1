@@ -18,6 +18,7 @@ import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -29,8 +30,16 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lama_b4_g1.backend.models.EmployeeMaster;
+import com.lama_b4_g1.backend.repository.EmployeeCardDetailsRepository;
+import com.lama_b4_g1.backend.repository.EmployeeIssueDetailsRepository;
 import com.lama_b4_g1.backend.repository.EmployeeMasterRepository;
+import com.lama_b4_g1.backend.repository.ItemMasterRepository;
+import com.lama_b4_g1.backend.repository.LoanCardMasterRepository;
+import com.lama_b4_g1.backend.services.EmployeeCardDetailsService;
+import com.lama_b4_g1.backend.services.EmployeeIssueDetailsService;
 import com.lama_b4_g1.backend.services.EmployeeMasterService;
+import com.lama_b4_g1.backend.services.ItemMasterService;
+import com.lama_b4_g1.backend.services.LoanCardMasterService;
 
 
 @RunWith(SpringRunner.class)
@@ -42,63 +51,90 @@ public class EmployeeControllerTest {
 	@MockBean
 	private EmployeeMasterService employeeService;
 	
-	@MockBean
-	private EmployeeMasterRepository employeeRepository;
+//	@MockBean
+//	private EmployeeMasterRepository employeeRepository;	
+//
+//	@MockBean
+//	private EmployeeCardDetailsService empCardDetailsService;
+//	
+//	@MockBean
+//	private EmployeeCardDetailsRepository empCardDetaillsRepo;
+//	
+//	@MockBean
+//	private  EmployeeIssueDetailsService empIssueDetailsService;
+//	
+//	@MockBean
+//	private EmployeeIssueDetailsRepository empTssueDetailsRepo;
+//	
+//	@MockBean
+//	private LoanCardMasterRepository loanCardMasterRepo;
+//	
+//	@MockBean
+//	private LoanCardMasterService loanCardMasterService;
+//	
+//	@MockBean
+//	private ItemMasterService itemMasterService;
+//	
+//	@MockBean
+//	private ItemMasterRepository itemMasterRepo;
+	
 	
 	
 	private static ObjectMapper mapper = new ObjectMapper();
 
-//	@Test
-//	@Ignore
-//	public void testGetEmployees() throws Exception {
-//		EmployeeMaster employee = new EmployeeMaster();
-//		employee.setId(1);
-//		employee.setFirstName("ssai");
-//		employee.setLastName("sri");
-//		employee.setEmailId("sri@gmail.com");
-//
-//		List<Employee> allEmployees = new ArrayList<>();
-//		allEmployees.add(employee);
-//
-//		Mockito.when(employeeService.fetchEmployees()).thenReturn(allEmployees);
-//
-//		System.out.println("test method");
-//		mvc.perform(get("/api/v1/getAllEmployees").
-//				contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-//				.andExpect(jsonPath("$", Matchers.hasSize(1)))
-//				.andExpect(jsonPath("$[0].firstName", Matchers.equalTo(employee.getFirstName())));
-//	}
-
 	@Test
 //	@Ignore
-	public void testSaveEmployee() throws Exception {
+	public void testGetEmployees() throws Exception {
 		EmployeeMaster employee = new EmployeeMaster();
-		
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(2002,11,12);
-		
-		employee.setEmployeeId("1239");
-		employee.setEmployeeName("henry");
-		employee.setUserName("henry");
-		employee.setPassword("1234");
-		employee.setDepartment("tech");
-		employee.setDesignation("clerk");
+		employee.setEmployeeId("1009");
+		employee.setEmployeeName("srisai");
 		employee.setGender('m');
-		employee.setDob((Date) calendar.getTime());
-		
-		calendar.set(2022,02,10);
-		employee.setDoj((Date) calendar.getTime());
-		
-		
-		Mockito.when(employeeService.saveEmpMaster(ArgumentMatchers.any())).
-		thenReturn(employee);
-		String json = mapper.writeValueAsString(employee);
-		mvc.perform(post("/api/v1/saveEmployee").
-				contentType(MediaType.APPLICATION_JSON).characterEncoding("utf-8")
-				.content(json).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		employee.setUserName("shri");
+		employee.setPassword("1234");
 
+		List<EmployeeMaster> allEmployees = new ArrayList<>();
+		allEmployees.add(employee);
+
+		Mockito.when(employeeService.fetchAllEmployees()).thenReturn(allEmployees);
+
+		System.out.println("test method");
+		mvc.perform(get("/getAllEmployees").
+				contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+				.andExpect(jsonPath("$", Matchers.hasSize(1)))
+				.andExpect(jsonPath("$[0].employeeName", Matchers.equalTo(employee.getEmployeeName())));
 	}
-	
+
+//	@Test
+//	@Ignore
+//	public void testSaveEmployee() throws Exception {
+//		EmployeeMaster employee = new EmployeeMaster();
+//		
+//		Calendar calendar = Calendar.getInstance();
+//		calendar.set(2002,11,12);
+//		
+//		employee.setEmployeeId("1239");
+//		employee.setEmployeeName("henry");
+//		employee.setUserName("henry");
+//		employee.setPassword("1234");
+//		employee.setDepartment("tech");
+//		employee.setDesignation("clerk");
+//		employee.setGender('m');
+//		employee.setDob((Date) calendar.getTime());
+//		
+//		calendar.set(2022,02,10);
+//		employee.setDoj((Date) calendar.getTime());
+//		
+//		
+//		Mockito.when(employeeService.saveEmpMaster(ArgumentMatchers.any())).thenReturn(employee);
+//		
+//		String json = mapper.writeValueAsString(employee);
+//		
+//		mvc.perform(post("/api/v1/saveEmployee").
+//				contentType(MediaType.APPLICATION_JSON).characterEncoding("utf-8")
+//				.content(json).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+//
+//	}
+//	
 	
 //	@Test
 //	public void testGetEmployeById() throws Exception {

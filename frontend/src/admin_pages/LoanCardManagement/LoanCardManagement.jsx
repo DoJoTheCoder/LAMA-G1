@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import "./CurrentLoans.css"
 import { useNavigate } from 'react-router';
 
 
@@ -23,8 +22,7 @@ export default function AdminLoanCardManagement() {
 
     console.log(searchId)
     axios
-      .post("http://localhost:8080/getLoanList", {
-        searchId: JSON.parse(sessionStorage.getItem("UserID"))
+      .get("http://localhost:8080/getLoanMasterList", {
       }
       )
       .then((response) => {
@@ -40,8 +38,7 @@ export default function AdminLoanCardManagement() {
 
   return (
     <div>
-      <h1>Customer Master Details</h1>
-      {/* <button className="refreshButton" onClick={getLoanList}>Refresh Table</button> */}
+      <h1>Loan Card Master Details</h1>
       <table className="table table-dark">
         <thead>
           <tr>
@@ -58,11 +55,13 @@ export default function AdminLoanCardManagement() {
             content.map((x, i) => (
               // Dummy values below
               <tr>
-                <td>1</td>
-                <td>L001</td>
-                <td>Furniture</td>
-                <td>5</td>
-                <td><Link type="button" className="btn btn-primary btn-lg px-4 me-sm-3 bg-dark text-nowrap" to="#">Edit</Link>  <Link type="button" className="btn btn-primary btn-lg px-4 me-sm-3 bg-dark text-nowrap" to="#">Delete</Link> </td>
+                <td>{i+1}</td>
+                <td>{x.loanId}</td>
+                <td>{x.loanType}</td>
+                <td>{x.durationYears}</td>
+                <td>
+                  <Link type="button" className="button1" to="#">Edit</Link> <> </>
+                  <Link type="button" className="button2" to="#">Delete</Link> </td>
               </tr>
             ))
           }

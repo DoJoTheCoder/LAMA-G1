@@ -1,6 +1,7 @@
 package com.lama_b4_g1.backend.services;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,11 @@ public class EmployeeCardDetailsService {
 	public List<EmployeeCardDetails> getEmpCardDetails() {
 		
 		return empCardDetailsRepo.findAll();
+	}
+
+	public List<Map<String, String>> getLoanListById(String UserId) {
+		// TODO Auto-generated method stub
+		return empCardDetailsRepo.getLoanListById(UserId);
 	}
 	
 	//public List<EmployeeCardDetails> getEmpCardDetails(){}

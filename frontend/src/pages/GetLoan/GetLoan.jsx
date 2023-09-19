@@ -43,7 +43,7 @@ export default function GetLoan() {
         axios.post("http://localhost:8080/addNewLoan", sendBody)
             .then((response) => {
                 console.log(response.data)
-                if(response.data =="ok")
+                if(response.data === "ok")
                     alert("Added Loan successfully!")
                 else
                     alert("Failed to add loan! Try again later.")

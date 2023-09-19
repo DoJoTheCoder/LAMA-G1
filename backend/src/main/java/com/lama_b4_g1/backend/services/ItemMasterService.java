@@ -30,4 +30,9 @@ public class ItemMasterService {
 		public String getItemValue(String itemDesc) {
 			return itemMasterRepo.findItemValue(itemDesc);
 		}
+
+		public ItemMaster addItemMaster(ItemMaster itemAdd) {			
+			ItemMaster obj = itemMasterRepo.save(itemAdd);
+			return obj;
+		}
 }
