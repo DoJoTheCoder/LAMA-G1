@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-export default function ItemsPurchased() {
+export default function AdminItemMaster() {
 
   const [employeeItemsArr, setEmployeeItemsArr] = useState([])
   const navigate = useNavigate();
