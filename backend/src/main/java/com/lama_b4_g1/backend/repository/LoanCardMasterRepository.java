@@ -7,4 +7,6 @@ import com.lama_b4_g1.backend.models.LoanCardMaster;
 public interface LoanCardMasterRepository extends JpaRepository<LoanCardMaster, String> {
 	
 	LoanCardMaster findByLoanId(String loanId);
+	
+	LoanCardMaster findByLoanType(String loanType);
 }
