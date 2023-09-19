@@ -51,4 +51,10 @@ public class LoanCardMasterService {
 		return res;
 	}
 
+	public LoanCardMaster findLoanById(String id) {
+		LoanCardMaster l = null;
+		Optional<LoanCardMaster> op =  loanCardMasterRepo.findById(id);
+		if(op.isPresent()) l = op.get();
+		return l;
+	}
 }

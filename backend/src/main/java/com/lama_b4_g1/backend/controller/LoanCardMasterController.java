@@ -38,5 +38,9 @@ public class LoanCardMasterController {
 		return loanService.editLoan(id, lcm);
 	}
 	
+	@GetMapping("/findLoan/{id}")
+	public LoanCardMaster findLoanById(@PathVariable("id") String id) {
+		return loanService.findLoanById(id);
+	}
 	
 }
