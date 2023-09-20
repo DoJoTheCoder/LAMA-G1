@@ -43,6 +43,8 @@ export default function CurrentLoans() {
       {/* <button className="refreshButton" onClick={getLoanList}>Refresh Table</button> */}
       <table className="table table-dark">
         <thead>
+          {/* TODO: Enhancement, after changing schema so that empIssue has issue id as primary key, 
+          update the below table to reflect that*/}
           <tr>
             <th scope="col">#</th>
             <th scope="col">Loan ID</th>
@@ -55,7 +57,7 @@ export default function CurrentLoans() {
         <tbody>
           {
             content.map((x, i) => (
-              <tr>
+              <tr key={x.loan_id}>
                 <td>{i + 1}</td>
                 <td>{x.loan_id}</td>
                 <td>{x.loan_type}</td>

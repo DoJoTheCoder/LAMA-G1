@@ -33,7 +33,7 @@ export default function ItemsPurchased() {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Loan ID</th>
+            <th scope="col">Issue ID</th>
             <th scope="col">Item Description</th>
             <th scope="col">Item make</th>
             <th scope="col">Item category</th>

@@ -35,13 +35,12 @@ function App() {
         
 
         <Routes>
-          <Route exact path="/selectRole" element={<RoleSelect/>}></Route>
+          <Route exact path="/" element={<RoleSelect/>}></Route>
 
 
           {/* USER PAGES BELOW */}
-          <Route exact path="/" element={<LoginPage />}></Route>          
           <Route exact path="/login" element={<LoginPage />}></Route>
-          <Route exact path="/newRegister" element={<RegisterationPage></RegisterationPage>}></Route>
+          <Route exact path="/new-register" element={<RegisterationPage></RegisterationPage>}></Route>
           <Route exact path="/home" element={<div><Navbar /> <Home /></div>}></Route>
           <Route exact path="/get-loan" element={<div><Navbar /><GetLoan /></div>}></Route>
           <Route exact path="/current-loans" element={<div><Navbar /><CurrentLoans /></div>}></Route>
@@ -50,14 +49,13 @@ function App() {
 
           
           {/* ADMIN PAGES BELOW */}
-          <Route exact path="/admin" element={<AdminLoginPage />}></Route>
-          <Route exact path="/admin/home" element={<div><AdminNavbar /> <AdminHome /></div>}></Route>
           <Route exact path="/admin/login" element={<AdminLoginPage />}></Route>
+          <Route exact path="/admin/home" element={<div><AdminNavbar /> <AdminHome /></div>}></Route>
           <Route exact path="/admin/customer-data-management" element={<div><AdminNavbar /> <AdminCustomerDataManagement /></div>}></Route>
-          <Route exact path="/admin/loanCardManagement" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>
+          <Route exact path="/admin/loan-card-management" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>
           <Route exact path="/admin/item-master-data" element={<div><AdminNavbar /><AdminItemMaster /></div>}></Route>
-          <Route exact path="/admin/addItemMaster" element={<AddItem/>}></Route>
-          <Route exact path="/admin/addLoanMaster" element={<AddLoan/>}></Route>
+          <Route exact path="/admin/add-item-master" element={<AddItem/>}></Route>
+          <Route exact path="/admin/add-loan-master" element={<AddLoan/>}></Route>
           
 
           <Route exact path="/admin-editloan" element={<EditLoan/>}></Route>
