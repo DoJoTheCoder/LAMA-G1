@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function AddItem() {
 
@@ -9,31 +10,48 @@ export default function AddItem() {
     const [itemMake, setItemMake] = useState("")
     const [itemCategory, setItemCategory] = useState("")
     const [itemValuation, setItemValuation] = useState(100)
+    const [disabledField, setDisabledField] = useState(false)
+
+    const param = useParams()
+    const navigate = useNavigate()
+
+
+    useEffect(() => {
+        if (param.id === undefined) {
+            setDisabledField(false)
+        }
+        else {
+            console.log("update for " + param.id)
+            setItemId(param.id)
+            setDisabledField(true)
+        }
+    }, []);
 
     function handleNewItemAddSubmit() {
 
         const sendBody = {
-            itemId : itemId,
-            itemDescription : itemDescription,
-            issueStatus : issueStatus,
-            itemMake : itemMake,
-            itemCategory : itemCategory,
-            itemValuation : itemValuation
+            itemId: itemId,
+            itemDescription: itemDescription,
+            issueStatus: issueStatus,
+            itemMake: itemMake,
+            itemCategory: itemCategory,
+            itemValuation: itemValuation
         }
 
         console.log(sendBody)
 
         axios
-        .post("http://localhost:8080/addItemMaster", sendBody
-            // title: "Hello World!",
-            // body: JSON.stringify(sendBody)
-        // }
-        )
-        .then((response) => {
-            console.log(response);
-        }).catch(function (error){
-            console.log(error);
-        });
+            .post("http://localhost:8080/addItemMaster", sendBody
+                // title: "Hello World!",
+                // body: JSON.stringify(sendBody)
+                // }
+            )
+            .then((response) => {
+                console.log(response);
+                navigate("/admin/item-master-management")
+            }).catch(function (error) {
+                console.log(error);
+            });
     }
 
     return (
@@ -42,7 +60,7 @@ export default function AddItem() {
                 <form>
 
                     <label className="form-label fw-bold">Item Id</label>
-                    <input type="text" className="form-control" onChange={(e) => { setItemId(e.target.value) }}></input>
+                    <input type="text" className="form-control" value={itemId} disabled={disabledField} onChange={(e) => { setItemId(e.target.value) }}></input>
 
 
                     <label className="form-label fw-bold">Item Description</label>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,23 +37,29 @@ public class LoanCardMasterController {
 	@PostMapping("/saveLoan")
 	public String saveLoan(@RequestBody LoanCardMaster loan)
 	{
-		return loanService.saveLoan(loan);
+		return loanCardMasterService.saveLoan(loan);
 	}
 	
 	@GetMapping("/findAllLoans")
 	public List<LoanCardMaster> fetchAllLoans()
 	{
-		return loanService.findloans();
+		return loanCardMasterService.findloans();
 	}
 	
 	@PutMapping("/editLoan/{id}")
 	public String editLoan(@PathVariable("id") String id, @RequestBody LoanCardMaster lcm) {
-		return loanService.editLoan(id, lcm);
+		return loanCardMasterService.editLoan(id, lcm);
 	}
 	
 	@GetMapping("/findLoan/{id}")
 	public LoanCardMaster findLoanById(@PathVariable("id") String id) {
-		return loanService.findLoanById(id);
+		return loanCardMasterService.findLoanById(id);
 	}
 	
+	@DeleteMapping("/deleteLoanCard/{id}")
+	public String deleteById(@PathVariable("id") String id) {
+		
+		return loanCardMasterService.deleteLoanById(id);
+
+	}
 }

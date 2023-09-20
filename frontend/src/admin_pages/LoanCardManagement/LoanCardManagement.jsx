@@ -33,7 +33,14 @@ export default function AdminLoanCardManagement() {
       });
   }, []);
 
-
+  const handleDelete = (e, arg) => {
+    e.preventDefault();
+    console.log(arg)
+    axios.delete("http://localhost:8080/deleteLoanCard/"+ arg)
+    .then((response)=>{
+      console.log(response.data)
+    })
+  }
 
 
   return (
@@ -58,10 +65,10 @@ export default function AdminLoanCardManagement() {
                 <td>{i+1}</td>
                 <td>{x.loanId}</td>
                 <td>{x.loanType}</td>
-                <td>{x.durationYears}</td>
+                <td>{x.durationInYears}</td>
                 <td>
-                  <Link type="button" className="button1" to="#">Edit</Link> <> </>
-                  <Link type="button" className="button2" to="#">Delete</Link> </td>
+                  <Link to={"/admin/addLoanMaster/"+x.loanId}>Edit</Link> <> </>
+                  <Link onClick={(e) => handleDelete(e, x.loanId)}>Delete</Link> </td>
               </tr>
             ))
           }

@@ -19,12 +19,11 @@ import EmployeeAdmin from './admin/EmployeeAdmin/EmployeeAdmin';
 import AdminLoginPage from './admin_pages/Login/LoginPage';
 import AdminHome from './admin_pages/Home/Home';
 import AdminLoanCardManagement from './admin_pages/LoanCardManagement/LoanCardManagement';
-import AdminItemMaster from './admin_pages/ItemMaster/ItemMaster';
+import AdminItemMasterManagement from './admin_pages/ItemMasterManagement/ItemMasterManagement';
 import AdminCustomerDataManagement from './admin_pages/CustomerDataManagement/CustomerDataManagement';
 
 import AddItem from './admin_pages/AddItem/AddItem';
 import AddLoan from './admin_pages/AddLoan/AddLoan';
-import EditLoan from './admin_pages/EditLoan/EditLoan';
 
 
 
@@ -54,13 +53,12 @@ function App() {
           <Route exact path="/admin/home" element={<div><AdminNavbar /> <AdminHome /></div>}></Route>
           <Route exact path="/admin/login" element={<AdminLoginPage />}></Route>
           <Route exact path="/admin/customer-data-management" element={<div><AdminNavbar /> <AdminCustomerDataManagement /></div>}></Route>
-          <Route exact path="/admin/loanCardManagement" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>
-          <Route exact path="/admin/item-master-data" element={<div><AdminNavbar /><AdminItemMaster /></div>}></Route>
+          <Route exact path="/admin/loan-card-management" element={<div><AdminLoanCardManagement /></div>}></Route>
+          <Route exact path="/admin/item-master-management" element={<AdminItemMasterManagement />}></Route>
           <Route exact path="/admin/addItemMaster" element={<AddItem/>}></Route>
+          <Route exact path="/admin/addItemMaster/:id" element={<AddItem/>}></Route>
           <Route exact path="/admin/addLoanMaster" element={<AddLoan/>}></Route>
-          
-
-          <Route exact path="/admin-editloan" element={<EditLoan/>}></Route>
+          <Route exact path="/admin/addLoanMaster/:id" element={<AddLoan/>}></Route>
           <Route exact path="/employee-admin" element={<EmployeeAdmin />}></Route>
 
           {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}

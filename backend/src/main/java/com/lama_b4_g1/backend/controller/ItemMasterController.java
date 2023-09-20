@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,10 @@ public class ItemMasterController {
 	@Autowired
 	ItemMasterService itemMasterService;
 	
+	@GetMapping("/getAllItems")
+	public List<ItemMaster> getAllItems(){
+		return itemMasterService.getAllItems();
+	}
 	@GetMapping("/getAllItemCategories")
 	public List<String> getAllItemCategory(){
 		return itemMasterService.getAllItemCategory();
@@ -43,5 +48,11 @@ public class ItemMasterController {
 	@PostMapping("/addItemMaster")
 	public ItemMaster addingNewItem(@RequestBody ItemMaster itemAdd) {
 		return itemMasterService.addItemMaster(itemAdd);
+	}
+	
+	@DeleteMapping("/deleteItemRecord/{id}")
+	public String deleteItemById(@PathVariable("id") String id) {
+		
+		return itemMasterService.deleteItemById(id);
 	}
 }

@@ -66,4 +66,11 @@ public class LoanCardMasterService {
 		if(op.isPresent()) l = op.get();
 		return l;
 	}
+
+	public String deleteLoanById(String id) {
+		// TODO Auto-generated method stub
+		loanCardMasterRepo.deleteById(id);
+		return "Sucessfully deleted loan by ID : "+id;
+		
+	}
 }

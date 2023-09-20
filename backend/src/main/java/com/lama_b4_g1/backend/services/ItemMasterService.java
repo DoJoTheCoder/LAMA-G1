@@ -35,4 +35,15 @@ public class ItemMasterService {
 			ItemMaster obj = itemMasterRepo.save(itemAdd);
 			return obj;
 		}
+
+		public List<ItemMaster> getAllItems() {
+			// TODO Auto-generated method stub
+			return itemMasterRepo.findAll();
+		}
+
+		public String deleteItemById(String id) {
+			// TODO Auto-generated method stub
+			itemMasterRepo.deleteById(id);
+			return "Sucessfully Deleted Item of ID : "+id;
+		}
 }
