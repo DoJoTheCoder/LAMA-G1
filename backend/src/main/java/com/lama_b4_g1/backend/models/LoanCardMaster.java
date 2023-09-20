@@ -47,5 +47,12 @@ public class LoanCardMaster {
 		this.durationYears = durationYears;
 	}
 
+	public Set<EmployeeCardDetails> getEmpCardDetail() {
+		return empCardDetail;
+	}
+
+	public void setEmpCardDetail(Set<EmployeeCardDetails> empCardDetail) {
+		this.empCardDetail = empCardDetail;
+	}
 	
 }

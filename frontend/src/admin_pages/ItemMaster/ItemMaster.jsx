@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link} from 'react-router-dom'
 
-export default function ItemsPurchased() {
+export default function AdminItemMaster() {
 
   const [employeeItemsArr, setEmployeeItemsArr] = useState([])
   const navigate = useNavigate();
@@ -61,6 +62,7 @@ export default function ItemsPurchased() {
           }          
         </tbody>
       </table>
+      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/edit-item'>Add Item</Link>
     </div>
   )
 }

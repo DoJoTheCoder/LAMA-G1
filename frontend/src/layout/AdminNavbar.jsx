@@ -2,8 +2,10 @@ import { Button } from 'bootstrap'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-export default function Navbar() {
 
+export default function AdminNavbar() {
+
+  // TODO: This part needs to be edited, since admin NAVBAR
   const navigate = useNavigate()
   const [username, setUserName] = useState("")
   useEffect(() => {
@@ -22,10 +24,10 @@ export default function Navbar() {
           </button>   
 
           <div className="text-center">
-            <Link className="btn btn-outline-light text-center mx-1" to='/home'>Home</Link>
-            <Link className="btn btn-outline-light text-center mx-1" to='/get-loan'>Get loan</Link>
-            <Link className="btn btn-outline-light text-center mx-1" to='/current-loans'>Current Loans</Link>
-            <Link className="btn btn-outline-light text-center mx-1" to='/items-purchased'>Items purchased</Link>
+            <Link className="btn btn-outline-light text-center mx-1" to='/admin/home'>Home</Link>
+            <Link className="btn btn-outline-light text-center mx-1" to='/admin/customer-data-management'>Customer Data</Link>
+            <Link className="btn btn-outline-light text-center mx-1" to='/admin/loan-card-management'>Loan Cards</Link>
+            <Link className="btn btn-outline-light text-center mx-1" to='/admin/item-master-data'>Items Data</Link>
           </div>
 
           {/* <Button>Logout</Button> */}
