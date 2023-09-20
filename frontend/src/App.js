@@ -13,19 +13,19 @@ import RegisterationPage from './pages/RegisterationPage/RegisterationPage';
 import GetLoan from './pages/GetLoan/GetLoan';
 import CurrentLoans from './pages/CurrentLoans/CurrentLoans';
 import ItemsPurchased from './pages/ItemsPurchased/ItemsPurchased';
-import EmployeeAdmin from './admin/EmployeeAdmin/EmployeeAdmin';
 
 
 import AdminLoginPage from './admin_pages/Login/LoginPage';
 import AdminHome from './admin_pages/Home/Home';
-import AdminLoanCardManagement from './admin_pages/LoanCardManagement/LoanCardManagement';
+import AdminLoanCardManagement from './admin_pages/LoanMaster/LoanCardManagement';
 import AdminItemMaster from './admin_pages/ItemMaster/ItemMaster';
-import AdminCustomerDataManagement from './admin_pages/CustomerDataManagement/CustomerDataManagement';
+import AdminCustomerDataManagement from './admin_pages/CustomerMaster/CustomerDataManagement';
 
-import AddItem from './admin_pages/AddItem/AddItem';
-import AddLoan from './admin_pages/AddLoan/AddLoan';
-import EditLoan from './admin_pages/EditLoan/EditLoan';
-
+import AddItem from './admin_pages/EditData/AddItem';
+import AddLoan from './admin_pages/EditData/AddLoan';
+import EditLoan from './admin_pages/EditData/EditLoan';
+import EditItem from './admin_pages/EditData/EditItem';
+import EditCustomer from './admin_pages/EditData/EditCustomer';
 
 
 function App() {
@@ -57,13 +57,12 @@ function App() {
           <Route exact path="/admin/add-item-master" element={<AddItem/>}></Route>
           <Route exact path="/admin/add-loan-master" element={<AddLoan/>}></Route>
           
-
-          <Route exact path="/admin-editloan" element={<EditLoan/>}></Route>
-          <Route exact path="/employee-admin" element={<EmployeeAdmin />}></Route>
+          {/* Note ADD and EDIT pages are the same */}
+          <Route exact path="/admin/edit-loan" element={<EditLoan/>}></Route>
+          <Route exact path="/admin/edit-customer" element={<EditCustomer />}></Route>
+          <Route exact path="/admin/edit-item" element={<EditItem />}></Route>
 
           {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
-
-          
 
 
         </Routes>
