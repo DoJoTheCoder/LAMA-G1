@@ -36,23 +36,23 @@ public class LoanCardMasterController {
 	@PostMapping("/saveLoan")
 	public String saveLoan(@RequestBody LoanCardMaster loan)
 	{
-		return loanService.saveLoan(loan);
+		return loanCardMasterService.saveLoan(loan);
 	}
 	
 	@GetMapping("/findAllLoans")
 	public List<LoanCardMaster> fetchAllLoans()
 	{
-		return loanService.findloans();
+		return loanCardMasterService.findloans();
 	}
 	
 	@PutMapping("/editLoan/{id}")
 	public String editLoan(@PathVariable("id") String id, @RequestBody LoanCardMaster lcm) {
-		return loanService.editLoan(id, lcm);
+		return loanCardMasterService.editLoan(id, lcm);
 	}
 	
 	@GetMapping("/findLoan/{id}")
 	public LoanCardMaster findLoanById(@PathVariable("id") String id) {
-		return loanService.findLoanById(id);
+		return loanCardMasterService.findLoanById(id);
 	}
 	
 }

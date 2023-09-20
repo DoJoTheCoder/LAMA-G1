@@ -17,7 +17,7 @@ public class LoanCardMaster {
 	@Column(length = 15)
 	private String loanType;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name="duration_in_years")
 	private int durationYears;
 
 	@OneToMany(mappedBy = "loanCardMaster")
