@@ -11,7 +11,7 @@ export default function CustomerDataManagement() {
 
 
     axios
-      .get("http://localhost:8080/viewAllRecords"
+      .get("http://localhost:8080/viewEmpRecords"
           // title: "Hello World!",
           // body: JSON.stringify(sendBody)
       // }
@@ -53,19 +53,24 @@ export default function CustomerDataManagement() {
             <th scope="col">Password</th>
             <th scope="col">Date of Joining</th>
             <th scope="col">Date of Birth</th>
-            {/* <th scope="col">Loan ID</th> */}
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           {
-            employeeArray.map((item, index)=>(
-              <tr key={item.issueId}>
+            employeeArray.map((employee, index)=>(
+              <tr key={employee.employeeId}>
                 <th scope="row">{index+1}</th>
-                <td>{item.issueId}</td>
-                <td>{item.itemDescription}</td>
-                <td>{item.itemMake}</td>
-                <td>{item.itemCategory}</td>
-                <td>{item.itemValuation}</td>
+                <td>{employee.employeeId}</td>
+                <td>{employee.employeeName}</td>
+                <td>{employee.designation}</td>
+                <td>{employee.department}</td>
+                <td>{employee.gender}</td>
+                <td>{employee.userName}</td>
+                <td>{employee.password}</td>
+                <td>{employee.doj}</td>
+                <td>{employee.dob}</td>
+                <td><Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link></td>
               </tr>
             ))
           }          

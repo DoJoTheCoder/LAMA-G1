@@ -48,4 +48,9 @@ public class EmployeeMasterService {
 		
 		return result;
 	}
+	
+	public List<EmployeeMaster> viewEmployees() {
+		List<EmployeeMaster> list = empMasterRepo.findAll();
+		return list;
+	}
 }
