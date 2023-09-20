@@ -26,8 +26,8 @@ export default function AdminNavbar() {
           <div className="text-center">
             <Link className="btn btn-outline-light text-center mx-1" to='/admin/home'>Home</Link>
             <Link className="btn btn-outline-light text-center mx-1" to='/admin/customer-data-management'>Customer Data</Link>
-            <Link className="btn btn-outline-light text-center mx-1" to='/admin/loanCardManagement'>Loan Cards</Link>
-            <Link className="btn btn-outline-light text-center mx-1" to='/admin/item-master-data'>Items Master Data</Link>
+            <Link className="btn btn-outline-light text-center mx-1" to='/admin/loan-card-management'>Loan Cards</Link>
+            <Link className="btn btn-outline-light text-center mx-1" to='/admin/item-master-data'>Items Data</Link>
           </div>
 
           {/* <Button>Logout</Button> */}

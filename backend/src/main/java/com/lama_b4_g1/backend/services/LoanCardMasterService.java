@@ -35,7 +35,7 @@ public class LoanCardMasterService {
 		}
 		else
 		{
-			LoanCardMaster loanDaata= loanCardMasterRepo.save(loan);
+			LoanCardMaster loanData= loanCardMasterRepo.save(loan);
 			result="Loan added Successfully";
 		}
 		return result;

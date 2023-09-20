@@ -75,7 +75,7 @@ export default function LoginPage() {
                     </div>
                     <div className="outLoginForm">
                         <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button><br />
-                        New User? Click <Link to={"/newRegister"}>here</Link>.
+                        New User? Click <Link to={"/new-register"}>here</Link>.
                     </div>
                 </form>
             </div>

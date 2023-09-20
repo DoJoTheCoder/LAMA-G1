@@ -22,7 +22,7 @@ export default function Navbar() {
           </button>   
 
           <div className="text-center">
-            <Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link>
+            <Link className="btn btn-outline-light text-center mx-1" to='/home'>Home</Link>
             <Link className="btn btn-outline-light text-center mx-1" to='/get-loan'>Get loan</Link>
             <Link className="btn btn-outline-light text-center mx-1" to='/current-loans'>Current Loans</Link>
             <Link className="btn btn-outline-light text-center mx-1" to='/items-purchased'>Items purchased</Link>
