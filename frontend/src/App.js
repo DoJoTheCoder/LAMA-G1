@@ -13,7 +13,6 @@ import RegisterationPage from './pages/RegisterationPage/RegisterationPage';
 import GetLoan from './pages/GetLoan/GetLoan';
 import CurrentLoans from './pages/CurrentLoans/CurrentLoans';
 import ItemsPurchased from './pages/ItemsPurchased/ItemsPurchased';
-import EmployeeAdmin from './admin/EmployeeAdmin/EmployeeAdmin';
 
 
 import AdminLoginPage from './admin_pages/Login/LoginPage';
@@ -25,7 +24,8 @@ import AdminCustomerDataManagement from './admin_pages/CustomerMaster/CustomerDa
 import AddItem from './admin_pages/EditData/AddItem';
 import AddLoan from './admin_pages/EditData/AddLoan';
 import EditLoan from './admin_pages/EditData/EditLoan';
-
+import EditItem from './admin_pages/EditData/EditItem';
+import EditCustomer from './admin_pages/EditData/EditCustomer';
 
 
 function App() {
@@ -61,8 +61,8 @@ function App() {
           
           {/* Note ADD and EDIT pages are the same */}
           <Route exact path="/admin/edit-loan" element={<EditLoan/>}></Route>
-          <Route exact path="/admin/edit-customer" element={<EmployeeAdmin />}></Route>
-          <Route exact path="/admin/edit-item" element={<EmployeeAdmin />}></Route>
+          <Route exact path="/admin/edit-customer" element={<EditCustomer />}></Route>
+          <Route exact path="/admin/edit-item" element={<EditItem />}></Route>
 
           {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
 

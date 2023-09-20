@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 export default function CustomerDataManagement() {
   const [employeeArray, setEmployeeArray] = useState([]);
@@ -70,6 +71,9 @@ export default function CustomerDataManagement() {
           }          
         </tbody>
       </table>
+    
+          
+      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/edit-customer'>Add Customer</Link>
     </div>
   )
 }

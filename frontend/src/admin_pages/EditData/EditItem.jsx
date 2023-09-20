@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-export default function EditLoan() {
+export default function EditItem() {
 
     //setting default value of emp Id as localstorage val
     const [employeeId, setEmployeeId] = useState("E10001")
@@ -35,8 +35,8 @@ export default function EditLoan() {
         }
     }
 
-    function EditLoan() {
-        alert("Edit Loan button clicked!")
+    function EditItem() {
+        alert("Edit Item button clicked!")
     }
 
     const getItemCategoryData = () => {
@@ -92,8 +92,8 @@ export default function EditLoan() {
                         <input type="text" className="form-control"></input>
                     </div>
 
-                            {/* TODO: add onclick functionality */}
-                    <button type="submit" className="btn btn-primary">Save Loan</button>
+                    {/* TODO: add onclick functionality */}
+                    <button type="submit" className="btn btn-primary" >Save Item</button>
                 </form>
             </div>
         </div>
