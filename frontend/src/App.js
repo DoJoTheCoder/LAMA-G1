@@ -23,7 +23,6 @@ import CustomerDataManagement from './admin_pages/CustomerMaster/CustomerDataMan
 
 import AddItem from './admin_pages/EditData/AddItem';
 import AddLoan from './admin_pages/EditData/AddLoan';
-import EditLoan from './admin_pages/EditData/EditLoan';
 import EditItem from './admin_pages/EditData/EditItem';
 import EditCustomer from './admin_pages/EditData/EditCustomer';
 
@@ -61,7 +60,6 @@ function App() {
           <Route exact path="/admin/loan-card-management" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>
           
           {/* Note ADD and EDIT pages are the same */}
-          <Route exact path="/admin/edit-loan" element={<EditLoan/>}></Route>
           <Route exact path="/admin/edit-customer" element={<EditCustomer />}></Route>
           <Route exact path="/admin/edit-item" element={<EditItem />}></Route>
 
