@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 
-export default function EmployeeAdmin() {
+export default function CustomerDataManagement() {
   const [employeeArray, setEmployeeArray] = useState([]);
 
   function viewRecords () {
