@@ -7,7 +7,7 @@ export default function Navbar() {
   const [username, setUserName] = useState("")
 
   useEffect(() => {
-    if ((sessionStorage.getItem("Session")) === "Valid") {
+    if ((sessionStorage.getItem("Session")) === "User") {
       setUserName(JSON.parse(sessionStorage.getItem("UserName")))
     }
     else{

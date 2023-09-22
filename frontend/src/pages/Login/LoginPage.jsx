@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./LoginPage.css"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function LoginPage() {
+export default function AdminLoginPage() {
 
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
-    const [validity, setValidity] = useState("Valid")
 
     const navigate = useNavigate();
 
@@ -31,15 +30,18 @@ export default function LoginPage() {
                     // })
                 )
                 .then((response) => {
-                    console.log(response)
-                    setValidity(response.data);
-                    console.log(validity)
-                    if (response.data !== "Invalid" && response.data !== "Null Credentials" && response.data !== "") {
+                    console.log(response.data)
+                    if (response.data[0] === "User") {
+                        console.log("Hello User")
                         sessionStorage.setItem("UserName", JSON.stringify(userName))
-                        sessionStorage.setItem("UserID", JSON.stringify(response.data))
-                        // const validity = "Valid"
-                        sessionStorage.setItem("Session", validity)
+                        sessionStorage.setItem("UserID", JSON.stringify(response.data[1]))
+                        sessionStorage.setItem("Session", response.data[0])
                         navigate("/home")
+                    }
+                    else{
+                        alert("Invalid credentials, Please try again.")
+                        setPassword("");
+                        setUserName("");
                     }
                 }).catch(function (error) {
                     console.log(error);
@@ -75,7 +77,7 @@ export default function LoginPage() {
                     </div>
                     <div className="outLoginForm">
                         <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button><br />
-                        New User? Click <Link to={"/new-register"}>here</Link>.
+                        New Admin? Click <Link to={"/new-register"}>here</Link>.
                     </div>
                 </form>
             </div>

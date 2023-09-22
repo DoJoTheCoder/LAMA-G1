@@ -1,5 +1,6 @@
 package com.lama_b4_g1.backend.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,13 +42,16 @@ public class EmployeeMasterController {
 	}
 	
 	@PostMapping("/validateLogin")
-	public String loginEmployee(@RequestBody EmployeeLoginCredentials empLoginCred) {
+	public List<String> loginEmployee(@RequestBody EmployeeLoginCredentials empLoginCred) {
+		
+		List<String> result = new ArrayList<String>();
 		if(empLoginCred==null) {
 			System.out.println("emp login cred is null!");
-			return "Null Credentials";
+			result.add("Null Credentials");
+			return result;
 //			return new ResponseEntity<>("Null Credientials", HttpStatus.OK);
 		}
-		String result = empMasterService.authenticateEmployee(empLoginCred);
+		result = empMasterService.authenticateEmployee(empLoginCred);
 		System.out.println("Employee controller info:");
 		System.out.println("Username:"+empLoginCred.getUserName());
 		System.out.println("Password:"+empLoginCred.getPassword());

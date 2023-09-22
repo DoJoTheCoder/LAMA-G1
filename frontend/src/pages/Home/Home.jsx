@@ -9,11 +9,11 @@ export default function Home() {
   useEffect(() => {
     console.log("Session " + (sessionStorage.getItem("Session")))
 
-    if ((sessionStorage.getItem("Session")) !== "Valid") {
-    navigate("/")
+    if ((sessionStorage.getItem("Session")) !== "User") {
+      console.log("User not verified")
+    navigate("/login")
     }
 
-    // console.log("User:"+ (sessionStorage.getItem("UserName")))
     setUsername(JSON.parse(sessionStorage.getItem("UserName")))
 }, [navigate]);
 

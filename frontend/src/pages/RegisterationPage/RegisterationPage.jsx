@@ -13,6 +13,7 @@ export default function RegisterationPage() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [gender, setGender] = useState("");
+    const [accessType, setAccessType] = useState("");
 
     function handleNewRegisterSubmit(){
 
@@ -25,7 +26,8 @@ export default function RegisterationPage() {
             userName : userName,
             password :password,
             doj : doj,
-            dob : dob
+            dob : dob,
+            accessType : accessType
         }
         console.log(sendBody);
         axios
@@ -80,6 +82,10 @@ export default function RegisterationPage() {
 
                     <label className="form-label fw-bold">Date of Joining</label>
                     <input type="date" className="form-control" onChange={(e)=>setDoj(e.target.value)}></input>
+
+                    <label className="form-label fw-bold">Admin</label>
+                    <input type="text" className="form-control" onChange={(e)=>{setAccessType(e.target.value)}}></input>
+
                     <button type="button" className="btn btn-primary" onClick={handleNewRegisterSubmit}>Submit</button>
                 </form>
             </div >

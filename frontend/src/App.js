@@ -48,7 +48,7 @@ function App() {
 
           
           {/* ADMIN PAGES BELOW */}
-          {/* <Route exact path="/admin/login" element={<AdminLoginPage />}></Route> */}
+          <Route exact path="/admin/login" element={<AdminLoginPage />}></Route>
           <Route exact path="/admin/home" element={<div><AdminNavbar /> <AdminHome /></div>}></Route>
           <Route exact path="/admin/customer-data-management" element={<div><AdminNavbar /> <CustomerDataManagement /></div>}></Route>
           <Route exact path="/admin/loan-card-management" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>

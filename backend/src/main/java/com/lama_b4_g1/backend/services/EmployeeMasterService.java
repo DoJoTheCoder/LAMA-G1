@@ -1,5 +1,6 @@
 package com.lama_b4_g1.backend.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class EmployeeMasterService {
 		return obj;
 	}
 	
-	public String authenticateEmployee(EmployeeLoginCredentials empLoginCred) {
-		String result = "";
+	public List<String> authenticateEmployee(EmployeeLoginCredentials empLoginCred) {
+		List<String> result = new ArrayList<String>();
 		String userName = empLoginCred.getUserName();
 		String password = empLoginCred.getPassword();
 		EmployeeMaster empMaster = empMasterRepo.findByUserName(userName);
@@ -40,11 +41,23 @@ public class EmployeeMasterService {
 			}
 			else {
 				System.out.println("emp cred pass:"+password+", retrieved emp cred:"+empMaster.getPassword()+"..");
+				result.add("Invalid Credentials");
 			}
-			result ="Invalid";
+			
 		}
-		else
-			result = empMaster.getEmployeeId();
+		else {
+			
+			System.out.println(empMaster.getAccessType());
+			if(empMaster.getAccessType().equals("admin")) {
+				result.add("Admin");
+			}
+			else {
+				result.add("User");
+			}
+			
+			result.add(empMaster.getEmployeeId());
+			result.add(empMaster.getEmployeeName());
+		}
 		
 		return result;
 	}

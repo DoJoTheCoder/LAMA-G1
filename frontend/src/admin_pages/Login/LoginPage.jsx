@@ -7,7 +7,6 @@ export default function AdminLoginPage() {
 
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
-    const [validity, setValidity] = useState("Valid")
 
     const navigate = useNavigate();
 
@@ -32,14 +31,17 @@ export default function AdminLoginPage() {
                 )
                 .then((response) => {
                     console.log(response)
-                    setValidity(response.data);
-                    console.log(validity)
-                    if (response.data !== "Invalid" && response.data !== "Null Credentials" && response.data !== "") {
+                    if (response.data[0] === "Admin") {
+                        console.log("Hello admin")
                         sessionStorage.setItem("UserName", JSON.stringify(userName))
-                        sessionStorage.setItem("UserID", JSON.stringify(response.data))
-                        // const validity = "Valid"
-                        sessionStorage.setItem("Session", validity)
+                        sessionStorage.setItem("UserID", JSON.stringify(response.data[1]))
+                        sessionStorage.setItem("Session", response.data[0])
                         navigate("/admin/home")
+                    }
+                    else{
+                        alert("Invalid credentials, please try again.")
+                        setPassword("");
+                        setUserName("")
                     }
                 }).catch(function (error) {
                     console.log(error);
@@ -74,7 +76,8 @@ export default function AdminLoginPage() {
                         <input type="password" className="loginInputs" value={password} onChange={(e) => { setPassword(e.target.value) }}></input><br/>
                     </div>
                     <div className="outLoginForm">
-                        <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button>
+                        <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button><br />
+                        New Admin? Click <Link to={"/new-register"}>here</Link>.
                     </div>
                 </form>
             </div>
