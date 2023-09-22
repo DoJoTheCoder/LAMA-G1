@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class EmployeeMaster {
 	@Id
@@ -37,9 +39,11 @@ public class EmployeeMaster {
 	private Date doj;
 	
 	@OneToMany(mappedBy = "empMaster")
+	@JsonManagedReference
 	private Set<EmployeeCardDetails> empCardDetails;
 	
 	@OneToMany(mappedBy = "empMaster")
+	@JsonManagedReference
 	private Set<EmployeeIssueDetails> empIssueDetails;
 
 	public String getEmployeeId() {

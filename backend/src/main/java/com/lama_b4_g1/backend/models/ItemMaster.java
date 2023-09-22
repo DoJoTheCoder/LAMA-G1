@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class ItemMaster {
 
@@ -30,6 +32,7 @@ public class ItemMaster {
 	private int itemValuation;
 	
 	@OneToMany(mappedBy = "itemMaster")
+	//@JsonManagedReference
 	private Set<EmployeeIssueDetails> empIssueDetails;
 
 	public String getItemId() {

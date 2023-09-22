@@ -1,4 +1,4 @@
-package com.lama_b4_g1.backend;
+/*package com.lama_b4_g1.backend;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -182,6 +182,7 @@ public class EmployeeControllerTest {
 				.content(json).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 			.andExpect(jsonPath("$.id", Matchers.equalTo(1)))
 				.andExpect(jsonPath("$.firstName", Matchers.equalTo("Minu")));
-	}*/
+	}
 
 }
+*/

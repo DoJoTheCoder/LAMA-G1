@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class LoanCardMaster {
 	
@@ -21,6 +23,7 @@ public class LoanCardMaster {
 	private int durationYears;
 
 	@OneToMany(mappedBy = "loanCardMaster")
+	@JsonManagedReference
 	private Set<EmployeeCardDetails> empCardDetail;
 
 	public String getLoanId() {

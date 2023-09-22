@@ -21,9 +21,7 @@ export default function AdminLoanCardManagement() {
     setSearchId(JSON.parse(sessionStorage.getItem("UserID")))
 
     console.log(searchId)
-    axios
-      .get("http://localhost:8080/getLoanMasterList", {
-      }
+    axios.get("http://localhost:8080/getLoanMasterList"
       )
       .then((response) => {
         console.log(response.data)

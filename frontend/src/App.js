@@ -32,7 +32,6 @@ function App() {
     <div className="App">
       <Router>
         
-
         <Routes>
           <Route exact path="/" element={<RoleSelect/>}></Route>
 
@@ -44,7 +43,6 @@ function App() {
           <Route exact path="/get-loan" element={<div><Navbar /><GetLoan /></div>}></Route>
           <Route exact path="/current-loans" element={<div><Navbar /><CurrentLoans /></div>}></Route>
           <Route exact path="/items-purchased" element={<div><Navbar /><ItemsPurchased /></div>}></Route>
-
 
           
           {/* ADMIN PAGES BELOW */}
@@ -61,9 +59,7 @@ function App() {
           {/* Note ADD and EDIT pages are the same */}
           <Route exact path="/admin/edit-customer" element={<EditCustomer />}></Route>
           <Route exact path="/admin/edit-item" element={<EditItem />}></Route>
-
-          {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
-
+          {/* TODO: add a route for invalid path (using path="*") and show  a "Page not found" component*/}
 
         </Routes>
 

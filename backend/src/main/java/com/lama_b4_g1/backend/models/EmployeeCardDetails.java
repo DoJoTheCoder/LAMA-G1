@@ -5,8 +5,9 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class EmployeeCardDetails {
@@ -22,10 +23,12 @@ public class EmployeeCardDetails {
 	private Date cardIssueDate;	
 	
 	@ManyToOne
+	@JsonBackReference
 //	@JoinColumn(name="loan_id")
 	private LoanCardMaster loanCardMaster;
 	
 	@ManyToOne
+	@JsonBackReference
 	private EmployeeMaster empMaster;
 	
 	

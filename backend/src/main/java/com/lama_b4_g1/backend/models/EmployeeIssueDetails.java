@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class EmployeeIssueDetails {
 	@Id
@@ -21,10 +23,12 @@ public class EmployeeIssueDetails {
 	private Date returnDate;
 	
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name = "employee_id")
 	private EmployeeMaster empMaster;
 	
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name = "item_id")
 	private ItemMaster itemMaster;
 
