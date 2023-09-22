@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
                     </div>
                     <div className="outLoginForm">
                         <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button><br />
-                        New Admin? Click <Link to={"/new-register"}>here</Link>.
+                        New Admin? Click <Link to={"/admin-new-register"}>here</Link>.
                     </div>
                 </form>
             </div>

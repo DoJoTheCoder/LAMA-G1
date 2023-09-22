@@ -28,6 +28,7 @@ public class EmployeeMasterService {
 	}
 	
 	public List<String> authenticateEmployee(EmployeeLoginCredentials empLoginCred) {
+		
 		List<String> result = new ArrayList<String>();
 		String userName = empLoginCred.getUserName();
 		String password = empLoginCred.getPassword();
