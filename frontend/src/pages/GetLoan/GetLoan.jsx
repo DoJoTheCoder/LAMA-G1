@@ -7,7 +7,7 @@ export default function GetLoan() {
     //setting default value of emp Id as localstorage val
     const [employeeId, setEmployeeId] = useState("")
     const [itemCategory, setItemCategory] = useState("")
-    const [itemMake, setItemMake] = useState("")
+    // const [itemMake, setItemMake] = useState("")
     const [itemDescription, setItemDescription] = useState("")
     const [itemValue, setItemValue] = useState("")
     const [itemCategoryArray, setItemCategoryArray] = useState([])
@@ -21,7 +21,7 @@ export default function GetLoan() {
         console.log("Session " + (sessionStorage.getItem("Session")))
 
         if ((sessionStorage.getItem("Session")) !== "Valid") {
-        navigate("/login")
+            navigate("/")
         }
 
         console.log("User:"+ (sessionStorage.getItem("UserID")))
@@ -146,7 +146,7 @@ export default function GetLoan() {
                             <label className="input-group-text" htmlFor="itemMakeInput">Item Make</label>
                         </div>
                         <select className="custom-select" id="itemMakeInput" defaultValue="Null"
-                         onChange={(e) => {getItemDescriptionData(e.target.value); setItemMake(e.target.value)}} disabled>
+                         onChange={(e) => {getItemDescriptionData(e.target.value)}} disabled>
                             <option key="None" value="Null">None</option>
                             {
                                 itemMakeArray.map((make,index) =>(

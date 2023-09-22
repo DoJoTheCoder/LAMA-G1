@@ -10,7 +10,7 @@ export default function Home() {
     console.log("Session " + (sessionStorage.getItem("Session")))
 
     if ((sessionStorage.getItem("Session")) !== "Valid") {
-    navigate("/login")
+    navigate("/")
     }
 
     // console.log("User:"+ (sessionStorage.getItem("UserName")))

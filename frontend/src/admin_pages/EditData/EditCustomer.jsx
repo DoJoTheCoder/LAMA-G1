@@ -15,25 +15,9 @@ export default function EditCustomer() {
 
 
     useEffect(() => {
-        getItemCategoryData();
-
-        //This is to check if user is logged in before allowing apply loan
-        //TODO: Uncomment after completing the login and session management
-        // checkLoginStatus();
+        getItemCategoryData();       
         
-        //
     }, [navigate]);
-
-    function checkLoginStatus(){
-        const isLoggedIn = localStorage.getItem('employeeId');
-        if (!isLoggedIn) {
-            alert("Please login to continue!")
-            navigate('/');
-        }
-        else{
-          setEmployeeId(isLoggedIn)
-        }
-    }
 
     function EditCustomer() {
         alert("Edit Customer button clicked!")

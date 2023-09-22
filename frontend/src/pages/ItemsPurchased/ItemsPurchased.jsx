@@ -11,7 +11,7 @@ export default function ItemsPurchased() {
     console.log("Session " + (sessionStorage.getItem("Session")))
 
     if ((sessionStorage.getItem("Session")) !== "Valid") {
-      navigate("/login")
+      navigate("/")
     }
 
     console.log("User:"+ (sessionStorage.getItem("UserID")))

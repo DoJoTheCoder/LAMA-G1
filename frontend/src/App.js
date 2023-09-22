@@ -38,7 +38,7 @@ function App() {
 
 
           {/* USER PAGES BELOW */}
-          <Route exact path="/login" element={<LoginPage />}></Route>
+          {/* <Route exact path="/login" element={<LoginPage />}></Route> */}
           <Route exact path="/new-register" element={<RegisterationPage></RegisterationPage>}></Route>
           <Route exact path="/home" element={<div><Navbar /> <Home /></div>}></Route>
           <Route exact path="/get-loan" element={<div><Navbar /><GetLoan /></div>}></Route>
@@ -48,16 +48,15 @@ function App() {
 
           
           {/* ADMIN PAGES BELOW */}
-          <Route exact path="/admin/login" element={<AdminLoginPage />}></Route>
+          {/* <Route exact path="/admin/login" element={<AdminLoginPage />}></Route> */}
           <Route exact path="/admin/home" element={<div><AdminNavbar /> <AdminHome /></div>}></Route>
           <Route exact path="/admin/customer-data-management" element={<div><AdminNavbar /> <CustomerDataManagement /></div>}></Route>
-          <Route exact path="/admin/loan-card-management" element={<div><AdminLoanCardManagement /></div>}></Route>
-          <Route exact path="/admin/item-master-management" element={<AdminItemMasterManagement />}></Route>
+          <Route exact path="/admin/loan-card-management" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>
+          <Route exact path="/admin/item-master-management" element={<div><AdminNavbar/> <AdminItemMasterManagement /></div>}></Route>
           <Route exact path="/admin/addItemMaster" element={<AddItem/>}></Route>
           <Route exact path="/admin/addItemMaster/:id" element={<AddItem/>}></Route>
           <Route exact path="/admin/addLoanMaster" element={<AddLoan/>}></Route>
           <Route exact path="/admin/addLoanMaster/:id" element={<AddLoan/>}></Route>
-          <Route exact path="/admin/loan-card-management" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>
           
           {/* Note ADD and EDIT pages are the same */}
           <Route exact path="/admin/edit-customer" element={<EditCustomer />}></Route>

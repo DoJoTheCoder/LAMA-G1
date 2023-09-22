@@ -15,7 +15,7 @@ export default function AdminLoanCardManagement() {
     console.log("Session " + (sessionStorage.getItem("Session")))
 
     if ((sessionStorage.getItem("Session")) !== "Valid") {
-      navigate("/login")
+      navigate("/")
     }
 
     setSearchId(JSON.parse(sessionStorage.getItem("UserID")))

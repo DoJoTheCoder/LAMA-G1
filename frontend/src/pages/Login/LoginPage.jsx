@@ -64,14 +64,14 @@ export default function LoginPage() {
         // }
     }
     return (
-        <div className="py-5">
+        <div className="py-4">
             <div className="card col-lg-4 d-flex mx-auto p-3">
                 <form>
                     <div className="loginForm1">
-                        Employee Username
-                        <input type="text" className="loginInputs" value={userName} onChange={(e) => { setUserName(e.target.value) }}></input>
-                        Password
-                        <input type="password" className="loginInputs" value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
+                        Employee Username<br/>
+                        <input type="text" className="loginInputs" value={userName} onChange={(e) => { setUserName(e.target.value) }}></input><br/>
+                        Password<br/>
+                        <input type="password" className="loginInputs" value={password} onChange={(e) => { setPassword(e.target.value) }}></input><br/>
                     </div>
                     <div className="outLoginForm">
                         <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button><br />

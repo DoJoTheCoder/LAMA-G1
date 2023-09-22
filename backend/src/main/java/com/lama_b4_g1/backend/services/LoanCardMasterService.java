@@ -15,13 +15,7 @@ public class LoanCardMasterService {
 	@Autowired
 	LoanCardMasterRepository loanCardMasterRepo;
 	
-	public List<LoanCardMaster> findloans(){
-		
-		return loanCardMasterRepo.findAll();
-	}
-	
-	public List<LoanCardMaster> getLoanCardDetails(){
-		
+	public List<LoanCardMaster> getAllLoans() {
 		return loanCardMasterRepo.findAll();
 	}
 	
@@ -56,9 +50,7 @@ public class LoanCardMasterService {
 		return obj;
 	}
 
-	public List<LoanCardMaster> getAllLoans() {
-		return loanCardMasterRepo.findAll();
-	}
+	
 
 	public LoanCardMaster findLoanById(String id) {
 		LoanCardMaster l = null;

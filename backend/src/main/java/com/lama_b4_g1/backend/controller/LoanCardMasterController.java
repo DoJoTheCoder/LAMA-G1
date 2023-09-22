@@ -40,11 +40,7 @@ public class LoanCardMasterController {
 		return loanCardMasterService.saveLoan(loan);
 	}
 	
-	@GetMapping("/findAllLoans")
-	public List<LoanCardMaster> fetchAllLoans()
-	{
-		return loanCardMasterService.findloans();
-	}
+	
 	
 	@PutMapping("/editLoan/{id}")
 	public String editLoan(@PathVariable("id") String id, @RequestBody LoanCardMaster lcm) {
