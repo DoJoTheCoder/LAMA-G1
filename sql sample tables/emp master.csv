@@ -1,0 +1,3 @@
+employee_id,department,designation,date_of_birth,date_of_joining,employee_name,gender,password,user_name
+E10001,Tech,"Program Associate",2001-04-18,2024-05-14,Damien,M,pass123,Damien123
+E10002,Transport,Manager,1995-03-17,2018-04-02,Chris,M,pass567,Chris567

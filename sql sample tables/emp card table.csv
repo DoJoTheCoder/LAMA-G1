@@ -1,0 +1,4 @@
+loan_id,card_issue_date,employee_id,emp_master_employee_id,loan_card_master_loan_id
+L2301,2023-09-19,E10002,E10002,L2301
+L2302,2023-09-19,E10001,E10001,L2302
+L2303,2023-09-19,E10002,E10002,L2303

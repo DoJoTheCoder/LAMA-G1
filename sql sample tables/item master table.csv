@@ -1,0 +1,7 @@
+item_id,issue_status,item_category,item_description,item_make,item_valuation
+IT-1,Y,Furniture,"Tea Table",Wooden,5000
+IT-2,N,Furniture,Cupboard,Glass,7000
+IT-3,Y,Appliance,"Washing Machine",Steel,6000
+IT-4,Y,Vehicle,Car,Steel,12000
+IT-5,Y,Appliance,"Dinner set",Ceramic,3000
+IT-6,Y,Furniture,"Display Table",Glass,65000
