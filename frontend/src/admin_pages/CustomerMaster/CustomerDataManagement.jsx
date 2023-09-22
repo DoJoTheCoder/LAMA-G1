@@ -28,16 +28,17 @@ export default function CustomerDataManagement() {
     viewRecords();
   }, [])
 
-  return (
-    // <div>EmployeeAdmin</div>
+  const handleDelete = (e, arg) => {
+    e.preventDefault();
+    console.log(arg)
+    axios.delete("http://localhost:8080/deleteEmp/"+ arg)
+    .then((response)=>{
+      console.log(response.data)
+    })
+  }
 
-    /*
-    1. edit employee
-    2. remove empoyee
-    3. view employee records
-    
-    
-    */
+
+  return (
 
     <div>
       {/* <h1>This is the list of Purchased Ite/h1> */}
@@ -53,7 +54,7 @@ export default function CustomerDataManagement() {
             <th scope="col">Password</th>
             <th scope="col">Date of Joining</th>
             <th scope="col">Date of Birth</th>
-            <th scope="col"></th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -70,7 +71,11 @@ export default function CustomerDataManagement() {
                 <td>{employee.password}</td>
                 <td>{employee.doj}</td>
                 <td>{employee.dob}</td>
-                <td><Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link></td>
+                <td>
+                  <Link type="button" className="button1" to={"/admin/addCustomer/" + employee.employeeId}>Edit</Link>
+                  <Link onClick={(e) => handleDelete(e, employee.employeeId)}>Delete</Link> 
+                </td>
+                {/* <td><Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link></td> */}
               </tr>
             ))
           }          
@@ -78,7 +83,7 @@ export default function CustomerDataManagement() {
       </table>
     
           
-      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/edit-customer'>Add Customer</Link>
+      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/addCustomer'>Add Customer</Link>
     </div>
   )
 }

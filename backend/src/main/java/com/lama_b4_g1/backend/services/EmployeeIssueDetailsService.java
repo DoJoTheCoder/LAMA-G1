@@ -56,7 +56,7 @@ public class EmployeeIssueDetailsService {
 		System.out.println("empId: "+empId);
 		System.out.println("itemDesc: "+itemDesc);
 		
-		EmployeeMaster empMaster = empMasterRepo.findByEmployeeId(empId);
+		EmployeeMaster empMaster = empMasterRepo.findById(empId).get();
 		ItemMaster itemMasterDetails = itemMasterRepo.findByItemDescription(itemDesc);
 		LoanCardMaster loanCardMasterDetails = loanCardMasterRepo.findByLoanType(itemMasterDetails.getItemCategory());
 		int duration = loanCardMasterDetails.getDurationYears();

@@ -6,13 +6,17 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lama_b4_g1.backend.models.EmployeeLoginCredentials;
 import com.lama_b4_g1.backend.models.EmployeeMaster;
+import com.lama_b4_g1.backend.models.LoanCardMaster;
 import com.lama_b4_g1.backend.repository.EmployeeCardDetailsRepository;
 import com.lama_b4_g1.backend.services.EmployeeCardDetailsService;
 import com.lama_b4_g1.backend.services.EmployeeMasterService;
@@ -76,4 +80,20 @@ public class EmployeeMasterController {
 		List<EmployeeMaster> empRecords = empMasterService.viewEmployees();
 		return empRecords;
 	}
+	
+	@PutMapping("/editEmpRecord/{id}")
+	public String editEmpRecord(@PathVariable("id") String id, @RequestBody EmployeeMaster em) {
+		return empMasterService.editRecord(id, em);
+	}
+	
+	@GetMapping("/findEmp/{id}")
+	public EmployeeMaster findEmpById(@PathVariable("id") String id) {
+		return empMasterService.findEmpById(id);
+	}
+	
+	@DeleteMapping("/deleteEmp/{id}")
+	public String deleteEmpById(@PathVariable("id") String id) {
+		return empMasterService.deleteEmpById(id);
+	}
+
 }

@@ -6,5 +6,5 @@ import com.lama_b4_g1.backend.models.EmployeeMaster;
 
 public interface EmployeeMasterRepository extends JpaRepository<EmployeeMaster, String> {
 	EmployeeMaster findByUserName(String userName);
-	EmployeeMaster findByEmployeeId(String empId);
+//	EmployeeMaster findByEmployeeId(String empId);
 }
