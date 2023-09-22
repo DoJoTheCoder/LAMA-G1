@@ -38,7 +38,7 @@ function App() {
 
           {/* USER PAGES BELOW */}
           {/* <Route exact path="/login" element={<LoginPage />}></Route> */}
-          <Route exact path="/new-register" element={<RegisterationPage></RegisterationPage>}></Route>
+          <Route exact path="/user-new-register" element={<RegisterationPage from="user"></RegisterationPage>}></Route>
           <Route exact path="/home" element={<div><Navbar /> <Home /></div>}></Route>
           <Route exact path="/get-loan" element={<div><Navbar /><GetLoan /></div>}></Route>
           <Route exact path="/current-loans" element={<div><Navbar /><CurrentLoans /></div>}></Route>
@@ -46,7 +46,8 @@ function App() {
 
           
           {/* ADMIN PAGES BELOW */}
-          {/* <Route exact path="/admin/login" element={<AdminLoginPage />}></Route> */}
+          <Route exact path="/admin/login" element={<AdminLoginPage />}></Route>
+          <Route exact path="/admin-new-register" element={<RegisterationPage from="admin"></RegisterationPage>}></Route>
           <Route exact path="/admin/home" element={<div><AdminNavbar /> <AdminHome /></div>}></Route>
           <Route exact path="/admin/customer-data-management" element={<div><AdminNavbar /> <CustomerDataManagement /></div>}></Route>
           <Route exact path="/admin/loan-card-management" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>

@@ -10,7 +10,7 @@ export default function AdminNavbar() {
   const [username, setUserName] = useState("")
 
   useEffect(() => {
-    if ((sessionStorage.getItem("Session")) === "Valid") {
+    if ((sessionStorage.getItem("Session")) === "Admin") {
       setUserName(JSON.parse(sessionStorage.getItem("UserName")))
     }
     else{

@@ -38,6 +38,9 @@ public class EmployeeMaster {
 	@Column(name = "date_of_joining")
 	private Date doj;
 	
+	@Column(length = 6, name = "access_type")
+	private  String accessType;
+	
 	@OneToMany(mappedBy = "empMaster")
 	@JsonManagedReference
 	private Set<EmployeeCardDetails> empCardDetails;
@@ -45,6 +48,15 @@ public class EmployeeMaster {
 	@OneToMany(mappedBy = "empMaster")
 	@JsonManagedReference
 	private Set<EmployeeIssueDetails> empIssueDetails;
+
+	
+	public String getAccessType() {
+		return accessType;
+	}
+
+	public void setAccessType(String accessType) {
+		this.accessType = accessType;
+	}
 
 	public String getEmployeeId() {
 		return employeeId;
