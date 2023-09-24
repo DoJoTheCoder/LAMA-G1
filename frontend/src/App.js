@@ -23,8 +23,7 @@ import CustomerDataManagement from './admin_pages/CustomerMaster/CustomerDataMan
 
 import AddItem from './admin_pages/EditData/AddItem';
 import AddLoan from './admin_pages/EditData/AddLoan';
-import EditItem from './admin_pages/EditData/EditItem';
-import EditCustomer from './admin_pages/EditData/EditCustomer';
+import AddCustomer from './admin_pages/EditData/AddCustomer';
 
 
 function App() {
@@ -58,9 +57,11 @@ function App() {
           <Route exact path="/admin/addLoanMaster/:id" element={<AddLoan/>}></Route>
           
           {/* Note ADD and EDIT pages are the same */}
-          <Route exact path="/admin/edit-customer" element={<EditCustomer />}></Route>
-          <Route exact path="/admin/edit-item" element={<EditItem />}></Route>
-          {/* TODO: add a route for invalid path (using path="*") and show  a "Page not found" component*/}
+          <Route exact path="/admin/addCustomer" element={<AddCustomer />}></Route>
+          <Route exact path="/admin/addCustomer/:id" element={<AddCustomer />}></Route>
+
+          {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
+
 
         </Routes>
 
