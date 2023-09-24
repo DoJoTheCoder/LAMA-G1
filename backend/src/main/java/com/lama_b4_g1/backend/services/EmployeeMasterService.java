@@ -49,7 +49,7 @@ public class EmployeeMasterService {
 		else {
 			
 			System.out.println(empMaster.getAccessType());
-			if(empMaster.getAccessType().equals("admin")) {
+			if(empMaster.getAccessType().equals("Admin")) {
 				result.add("Admin");
 			}
 			else {

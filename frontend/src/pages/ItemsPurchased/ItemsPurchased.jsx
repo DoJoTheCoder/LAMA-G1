@@ -10,7 +10,7 @@ export default function ItemsPurchased() {
   useEffect(() => {
     console.log("Session " + (sessionStorage.getItem("Session")))
 
-    if ((sessionStorage.getItem("Session")) !== "Valid") {
+    if ((sessionStorage.getItem("Session")) !== "User") {
       navigate("/")
     }
 
