@@ -51,13 +51,16 @@ function App() {
           <Route exact path="/admin/customer-data-management" element={<div><AdminNavbar /> <CustomerDataManagement /></div>}></Route>
           <Route exact path="/admin/loan-card-management" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>
           <Route exact path="/admin/item-master-management" element={<div><AdminNavbar/> <AdminItemMasterManagement /></div>}></Route>
-          <Route exact path="/admin/addItemMaster" element={<AddItem/>}></Route>
-          <Route exact path="/admin/addItemMaster/:id" element={<AddItem/>}></Route>
-          <Route exact path="/admin/addLoanMaster" element={<AddLoan/>}></Route>
-          <Route exact path="/admin/addLoanMaster/:id" element={<AddLoan/>}></Route>
           
           {/* Note ADD and EDIT pages are the same */}
-          <Route exact path="/admin/addCustomer" element={<AddCustomer />}></Route>
+          {/* Add Data paths */}
+          <Route exact path="/admin/addItemMaster" element={<AddItem/>}></Route>
+          <Route exact path="/admin/addLoanMaster" element={<AddLoan/>}></Route>
+          <Route exact path="/admin/addCustomer" element={<AddCustomer/>}></Route>
+
+          {/* Edit Data paths */}
+          <Route exact path="/admin/addItemMaster/:id" element={<AddItem/>}></Route>
+          <Route exact path="/admin/addLoanMaster/:id" element={<AddLoan/>}></Route>
           <Route exact path="/admin/addCustomer/:id" element={<AddCustomer />}></Route>
 
           {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
