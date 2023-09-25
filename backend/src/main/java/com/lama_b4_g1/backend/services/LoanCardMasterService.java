@@ -46,8 +46,13 @@ public class LoanCardMasterService {
 	}
 
 	public LoanCardMaster addNewLoanCard(LoanCardMaster newLoanCard) {
-		LoanCardMaster obj = loanCardMasterRepo.save(newLoanCard);
-		return obj;
+		LoanCardMaster obj = null;
+		String id  = newLoanCard.getLoanId();
+		Optional<LoanCardMaster> lcm = loanCardMasterRepo.findById(id);
+		if(lcm.isPresent()) {
+			newLoanCard.setEmpCardDetail(lcm.get().getEmpCardDetail());
+		}
+		return loanCardMasterRepo.save(newLoanCard);
 	}
 
 	

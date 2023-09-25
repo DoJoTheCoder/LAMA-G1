@@ -51,6 +51,101 @@ class EmployeeMasterControllerTest {
     private LoanCardMasterService loanCardMasterService;
 
     /**
+     * Method under test: {@link EmployeeMasterController#addEmpMaster(EmployeeMaster)}
+     */
+    @Test
+    void testAddEmpMaster2() throws Exception {
+        Date dob = mock(Date.class);
+        when(dob.getTime()).thenReturn(10L);
+        Date doj = mock(Date.class);
+        when(doj.getTime()).thenReturn(10L);
+
+        EmployeeMaster employeeMaster = new EmployeeMaster();
+        employeeMaster.setAccessType("Access Type");
+        employeeMaster.setDepartment("Department");
+        employeeMaster.setDesignation("Designation");
+        employeeMaster.setDob(dob);
+        employeeMaster.setDoj(doj);
+        employeeMaster.setEmpCardDetails(new HashSet<>());
+        employeeMaster.setEmpIssueDetails(new HashSet<>());
+        employeeMaster.setEmployeeId("42");
+        employeeMaster.setEmployeeName("Employee Name");
+        employeeMaster.setGender('A');
+        employeeMaster.setPassword("iloveyou");
+        employeeMaster.setUserName("janedoe");
+        when(employeeMasterService.saveEmpMaster(Mockito.<EmployeeMaster>any())).thenReturn(employeeMaster);
+        Date dob2 = mock(Date.class);
+        when(dob2.getTime()).thenReturn(10L);
+        Date doj2 = mock(Date.class);
+        when(doj2.getTime()).thenReturn(10L);
+
+        EmployeeMaster employeeMaster2 = new EmployeeMaster();
+        employeeMaster2.setAccessType("Access Type");
+        employeeMaster2.setDepartment("Department");
+        employeeMaster2.setDesignation("Designation");
+        employeeMaster2.setDob(dob2);
+        employeeMaster2.setDoj(doj2);
+        employeeMaster2.setEmpCardDetails(new HashSet<>());
+        employeeMaster2.setEmpIssueDetails(new HashSet<>());
+        employeeMaster2.setEmployeeId("42");
+        employeeMaster2.setEmployeeName("Employee Name");
+        employeeMaster2.setGender('A');
+        employeeMaster2.setPassword("iloveyou");
+        employeeMaster2.setUserName("janedoe");
+        String content = (new ObjectMapper()).writeValueAsString(employeeMaster2);
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/addEmployeeMaster")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(content);
+        MockMvcBuilders.standaloneSetup(employeeMasterController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.content()
+                        .string(
+                                "{\"employeeId\":\"42\",\"employeeName\":\"Employee Name\",\"designation\":\"Designation\",\"department\":\"Department"
+                                        + "\",\"gender\":\"A\",\"userName\":\"janedoe\",\"password\":\"iloveyou\",\"dob\":10,\"doj\":10,\"accessType\":\"Access"
+                                        + " Type\",\"empCardDetails\":[],\"empIssueDetails\":[]}"));
+    }
+
+    /**
+     * Method under test: {@link EmployeeMasterController#editEmpRecord(String, EmployeeMaster)}
+     */
+    @Test
+    void testEditEmpRecord2() throws Exception {
+        when(employeeMasterService.editRecord(Mockito.<String>any(), Mockito.<EmployeeMaster>any()))
+                .thenReturn("Edit Record");
+        Date dob = mock(Date.class);
+        when(dob.getTime()).thenReturn(10L);
+        Date doj = mock(Date.class);
+        when(doj.getTime()).thenReturn(10L);
+
+        EmployeeMaster employeeMaster = new EmployeeMaster();
+        employeeMaster.setAccessType("Access Type");
+        employeeMaster.setDepartment("Department");
+        employeeMaster.setDesignation("Designation");
+        employeeMaster.setDob(dob);
+        employeeMaster.setDoj(doj);
+        employeeMaster.setEmpCardDetails(new HashSet<>());
+        employeeMaster.setEmpIssueDetails(new HashSet<>());
+        employeeMaster.setEmployeeId("42");
+        employeeMaster.setEmployeeName("Employee Name");
+        employeeMaster.setGender('A');
+        employeeMaster.setPassword("iloveyou");
+        employeeMaster.setUserName("janedoe");
+        String content = (new ObjectMapper()).writeValueAsString(employeeMaster);
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/editEmpRecord/{id}", "42")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(content);
+        MockMvcBuilders.standaloneSetup(employeeMasterController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
+                .andExpect(MockMvcResultMatchers.content().string("Edit Record"));
+    }
+
+    /**
      * Method under test: {@link EmployeeMasterController#findEmpById(String)}
      */
     @Test

@@ -47,12 +47,14 @@ public class ItemMasterController {
 	}
 	
 	@GetMapping("getItemById/{id}")
-	public ItemMaster getItemyId(@PathVariable("id") String id) {
+	public ItemMaster getItemyId(@PathVariable("id") String id)
+	{
 		return itemMasterService.getItemById(id);
 	}
 	
 	@PostMapping("/addItemMaster")
-	public ItemMaster addingNewItem(@RequestBody ItemMaster itemAdd) {
+	public ItemMaster addingNewItem(@RequestBody ItemMaster itemAdd)
+	{
 		return itemMasterService.addItemMaster(itemAdd);
 	}
 	

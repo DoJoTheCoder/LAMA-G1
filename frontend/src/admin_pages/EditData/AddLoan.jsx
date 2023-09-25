@@ -46,6 +46,7 @@ export default function AddLoan() {
 
         console.log(sendBody)
 
+        // if (param.id === undefined) {
         axios
             .post("http://localhost:8080/addLoanCardMaster", sendBody
                 // title: "Hello World!",
@@ -60,7 +61,25 @@ export default function AddLoan() {
             }).catch(function (error) {
                 console.log(error);
             });
-    }
+    // }
+    // else{
+    //     console.log("edit-LoanCard")
+    //     axios
+    //         .put("http://localhost:8080/editLoan/"+{loanId}, sendBody
+    //             // title: "Hello World!",
+    //             // body: JSON.stringify(sendBody)
+    //             // }
+    //         )
+    //         .then((response) => {
+    //             console.log(response);
+
+
+    //             navigate("/admin/loan-card-management")
+    //         }).catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
+}
     // if (param === {}) {
 
     //     return (

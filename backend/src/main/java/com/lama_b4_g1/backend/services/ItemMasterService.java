@@ -32,9 +32,15 @@ public class ItemMasterService {
 			return itemMasterRepo.findItemValue(itemDesc);
 		}
 
-		public ItemMaster addItemMaster(ItemMaster itemAdd) {			
-			ItemMaster obj = itemMasterRepo.save(itemAdd);
-			return obj;
+		public ItemMaster addItemMaster(ItemMaster itemAdd) {
+			ItemMaster obj = null;
+			String Id = itemAdd.getItemId();
+			Optional<ItemMaster> item = itemMasterRepo.findById(Id);
+			if(item.isPresent())
+			{
+				itemAdd.setEmpIssueDetails(item.get().getEmpIssueDetails());
+			}
+			return itemMasterRepo.save(itemAdd);
 		}
 
 		public List<ItemMaster> getAllItems() {

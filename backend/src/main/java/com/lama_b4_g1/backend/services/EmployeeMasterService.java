@@ -38,8 +38,15 @@ public class EmployeeMasterService {
 	}
 
 	public EmployeeMaster saveEmpMaster(EmployeeMaster empMaster) {
-		EmployeeMaster obj = empMasterRepo.save(empMaster);
-		return obj;
+
+		EmployeeMaster obj = null;
+		String Id = empMaster.getEmployeeId();
+		Optional<EmployeeMaster> emp = empMasterRepo.findById(Id);
+		if(emp.isPresent()){
+			empMaster.setEmpCardDetails(emp.get().getEmpCardDetails());
+			empMaster.setEmpIssueDetails(emp.get().getEmpIssueDetails());
+		}
+		return empMasterRepo.save(empMaster);
 	}
 	
 	public List<String> authenticateEmployee(EmployeeLoginCredentials empLoginCred) {
