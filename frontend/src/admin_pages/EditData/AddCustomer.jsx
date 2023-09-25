@@ -14,7 +14,8 @@ export default function AddCustomer() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [gender, setGender] = useState("");
-    const [disabledField, setDisabledField] = useState(false)
+    const [accessType, setAccessType] = useState("");
+    const [disabledField, setDisabledField] = useState(false);
 
     const param = useParams()
     const navigate = useNavigate()
@@ -28,6 +29,28 @@ export default function AddCustomer() {
             console.log("update for " + param.id)
             setEmployeeId(param.id)
             setDisabledField(true)
+
+            async function fetchData() {
+                axios
+                .get("http://localhost:8080/findEmp/" + param.id
+                )
+                .then((response) => {
+                    console.log(response.data)
+                    setEmployeeId(response.data.employeeId)
+                    setEmployeeName(response.data.employeeName)
+                    setAccessType(response.data.accessType)
+                    setDepartment(response.data.department)
+                    setDesignation(response.data.designation)
+                    setDob(response.data.dob)
+                    setDoj(response.data.doj)
+                    setGender(response.data.gender)
+                    setPassword(response.data.password)
+                    setUserName(response.data.userName)
+                })
+
+            }
+
+            fetchData();
         }
     }, []);
 
@@ -43,7 +66,8 @@ export default function AddCustomer() {
             userName : userName,
             password :password,
             doj : doj,
-            dob : dob
+            dob : dob,
+            accessType : accessType
         }
         console.log(sendBody);
         axios
@@ -67,38 +91,35 @@ export default function AddCustomer() {
                 <form>
 
                     <label className="form-label fw-bold">Employee Id</label>
-                    <input type="text" className="form-control" disabled={disabledField} onChange={(e)=>setEmployeeId(e.target.value)}></input>
-
+                    <input type="text" className="form-control" value={employeeId} disabled={disabledField} onChange={(e)=>setEmployeeId(e.target.value)}></input>
 
                     <label className="form-label fw-bold">Employee Name</label>
-                    <input type="text" className="form-control" onChange={(e)=>{setEmployeeName(e.target.value)}}></input>
-
+                    <input type="text" className="form-control" value={employeeName} onChange={(e)=>{setEmployeeName(e.target.value)}}></input>
 
                     <label className="form-label fw-bold">Enter Username</label>
-                    <input type="text" className="form-control" onChange={(e)=>{setUserName(e.target.value)}}></input>
-
+                    <input type="text" className="form-control" value={userName} onChange={(e)=>{setUserName(e.target.value)}}></input>
 
                     <label className="form-label fw-bold">Enter Password</label>
-                    <input type="text" className="form-control" onChange={(e)=>{setPassword(e.target.value)}}></input>
-
+                    <input type="text" className="form-control" value={password} onChange={(e)=>{setPassword(e.target.value)}}></input>
 
                     <label className="form-label fw-bold">Designation</label>
-                    <input type="text" className="form-control" onChange={(e)=>{setDesignation(e.target.value)}}></input>
+                    <input type="text" className="form-control" value={designation} onChange={(e)=>{setDesignation(e.target.value)}}></input>
 
                     <label className="form-label fw-bold">Department</label>
-                    <input type="text" className="form-control" onChange={(e)=>{setDepartment(e.target.value)}}></input>
+                    <input type="text" className="form-control" value={department} onChange={(e)=>{setDepartment(e.target.value)}}></input>
 
                     <label className="form-label fw-bold">Gender(M/F)</label>
-                    <input type="text" className="form-control" onChange={(e)=>setGender(e.target.value)}></input>
-
-
+                    <input type="text" className="form-control" value={gender} onChange={(e)=>setGender(e.target.value)}></input>
 
                     <label className="form-label fw-bold">Date of Birth</label>
-                    <input type="date" className="form-control" onChange={(e)=>setDob(e.target.value)}></input>
-
+                    <input type="date" className="form-control" value={dob} onChange={(e)=>setDob(e.target.value)}></input>
 
                     <label className="form-label fw-bold">Date of Joining</label>
-                    <input type="date" className="form-control" onChange={(e)=>setDoj(e.target.value)}></input>
+                    <input type="date" className="form-control" value={doj} onChange={(e)=>setDoj(e.target.value)}></input>
+
+                    <label className="form-label fw-bold">Access Type (Admin/User)?</label>
+                    <input type="text" className="form-control" value={accessType} onChange={(e)=>setAccessType(e.target.value)}></input><br/>
+
                     <button type="button" className="btn btn-primary" onClick={handleNewRegisterSubmit}>Submit</button>
                 </form>
             </div >

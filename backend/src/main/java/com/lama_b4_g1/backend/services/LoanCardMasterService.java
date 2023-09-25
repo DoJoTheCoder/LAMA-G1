@@ -38,7 +38,7 @@ public class LoanCardMasterService {
 	public String editLoan(String id, LoanCardMaster loan) {
 		String res = "";
 		LoanCardMaster l = loanCardMasterRepo.findById(id).get();
-		l.setDurationYears(loan.getDurationYears());
+		l.setDurationInYears(loan.getDurationInYears());
 		l.setLoanType(loan.getLoanType());
 		loanCardMasterRepo.save(l);
 		res = "Loan Updated Successfully";

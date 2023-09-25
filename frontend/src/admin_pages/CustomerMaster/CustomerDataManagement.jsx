@@ -54,6 +54,7 @@ export default function CustomerDataManagement() {
             <th scope="col">Password</th>
             <th scope="col">Date of Joining</th>
             <th scope="col">Date of Birth</th>
+            <th scope="col">Access Type</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -61,7 +62,6 @@ export default function CustomerDataManagement() {
           {
             employeeArray.map((employee, index)=>(
               <tr key={employee.employeeId}>
-                <th scope="row">{index+1}</th>
                 <td>{employee.employeeId}</td>
                 <td>{employee.employeeName}</td>
                 <td>{employee.designation}</td>
@@ -71,6 +71,7 @@ export default function CustomerDataManagement() {
                 <td>{employee.password}</td>
                 <td>{employee.doj}</td>
                 <td>{employee.dob}</td>
+                <td>{employee.accessType}</td>
                 <td>
                   <Link type="button" className="button1" to={"/admin/addCustomer/" + employee.employeeId}>Edit</Link>
                   <Link onClick={(e) => handleDelete(e, employee.employeeId)}>Delete</Link> 

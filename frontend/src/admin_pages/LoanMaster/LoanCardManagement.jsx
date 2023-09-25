@@ -72,7 +72,7 @@ export default function AdminLoanCardManagement() {
           }
         </tbody>
       </table>
-      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/edit-loan'>Add Loan</Link>
+      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/addLoanMaster'>Add Loan</Link>
     </div>
   )
 }

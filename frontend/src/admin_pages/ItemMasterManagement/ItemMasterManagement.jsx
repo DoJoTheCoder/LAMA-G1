@@ -72,6 +72,7 @@ export default function AdminItemMasterManagement() {
           }
         </tbody>
       </table>
+      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/addItemMaster'>Add Item</Link>
     </div>
   )
 }

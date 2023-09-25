@@ -24,6 +24,23 @@ export default function AddItem() {
             console.log("update for " + param.id)
             setItemId(param.id)
             setDisabledField(true)
+
+            async function fetchData() {
+                axios
+                .get("http://localhost:8080/getItemById/" + param.id
+                )
+                .then((response) => {
+                    console.log(response.data)
+                    setItemDescription(response.data.itemDescription)
+                    setIssueStatus(response.data.issueStatus)
+                    setItemCategory(response.data.itemCategory)
+                    setItemMake(response.data.itemMake)
+                    setItemValuation(response.data.itemValuation)
+                })
+
+            }
+
+            fetchData();
         }
     }, []);
 
@@ -64,22 +81,22 @@ export default function AddItem() {
 
 
                     <label className="form-label fw-bold">Item Description</label>
-                    <input type="text" className="form-control" onChange={(e) => { setItemDescription(e.target.value) }}></input>
+                    <input type="text" className="form-control" value={itemDescription} onChange={(e) => { setItemDescription(e.target.value) }}></input>
 
 
                     <label className="form-label fw-bold">Issue Status (Y/N)</label>
-                    <input type="text" className="form-control" onChange={(e) => { setIssueStatus(e.target.value) }}></input>
+                    <input type="text" className="form-control" value={issueStatus} onChange={(e) => { setIssueStatus(e.target.value) }}></input>
 
 
                     <label className="form-label fw-bold">Item Make</label>
-                    <input type="text" className="form-control" onChange={(e) => { setItemMake(e.target.value) }}></input>
+                    <input type="text" className="form-control" value={itemMake} onChange={(e) => { setItemMake(e.target.value) }}></input>
 
 
                     <label className="form-label fw-bold">Item Category</label>
-                    <input type="text" className="form-control" onChange={(e) => { setItemCategory(e.target.value) }}></input>
+                    <input type="text" className="form-control" value={itemCategory} onChange={(e) => { setItemCategory(e.target.value) }}></input>
 
                     <label className="form-label fw-bold">Item Valuation</label>
-                    <input type="text" className="form-control" onChange={(e) => { setItemValuation(e.target.value) }}></input>
+                    <input type="text" className="form-control" value={itemValuation} onChange={(e) => { setItemValuation(e.target.value) }}></input>
 
                     <button type="button" className="btn btn-primary" onClick={handleNewItemAddSubmit}>Submit</button>
                 </form>

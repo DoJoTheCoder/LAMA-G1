@@ -25,12 +25,12 @@ public class EmployeeCardDetails {
 	private Date cardIssueDate;	
 	
 	@ManyToOne
-	@JsonBackReference
+	@JsonBackReference(value = "loanAndEmpCard")
 	@JoinColumn(name="loan_id")
 	private LoanCardMaster loanCardMaster;
 	
 	@ManyToOne
-	@JsonBackReference
+	@JsonBackReference(value = "masterAndEmpCard")
 	@JoinColumn(name = "employee_id")
 	private EmployeeMaster empMaster;
 	
@@ -53,6 +53,14 @@ public class EmployeeCardDetails {
 
 	public Date getCardIssueDate() {
 		return cardIssueDate;
+	}
+
+	public int getEmpCardId() {
+		return empCardId;
+	}
+
+	public void setEmpCardId(int empCardId) {
+		this.empCardId = empCardId;
 	}
 
 	public void setCardIssueDate(Date cardIssueDate) {

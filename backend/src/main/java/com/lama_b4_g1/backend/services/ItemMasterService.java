@@ -1,6 +1,7 @@
 package com.lama_b4_g1.backend.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,5 +46,15 @@ public class ItemMasterService {
 			// TODO Auto-generated method stub
 			itemMasterRepo.deleteById(id);
 			return "Sucessfully Deleted Item of ID : "+id;
+		}
+
+		public ItemMaster getItemById(String id) {
+			
+			ItemMaster item = null;
+			Optional<ItemMaster> op = itemMasterRepo.findById(id);
+			if(op.isPresent())
+				item = op.get();
+			return item;
+			
 		}
 }

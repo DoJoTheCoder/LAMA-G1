@@ -129,7 +129,7 @@ public class EmployeeMasterService {
 		EmployeeMaster empMaster = empMasterRepo.findById(empId).get();
 		ItemMaster itemMasterDetails = itemMasterRepo.findByItemDescription(itemDesc);
 		LoanCardMaster loanCardMasterDetails = loanCardMasterRepo.findByLoanType(itemMasterDetails.getItemCategory());
-		int duration = loanCardMasterDetails.getDurationYears();
+		int duration = loanCardMasterDetails.getDurationInYears();
 		Calendar c = Calendar.getInstance();
 		c.setTime(issueDate);
 		c.add(Calendar.YEAR, duration);
