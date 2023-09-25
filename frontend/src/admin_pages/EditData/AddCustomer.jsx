@@ -91,6 +91,16 @@ export default function AddCustomer() {
                     <label className="form-label fw-bold">Gender(M/F)</label>
                     <input type="text" className="form-control" onChange={(e)=>setGender(e.target.value)}></input>
 
+                    {/* <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></input>
+                        <label class="form-check-label" for="inlineCheckbox1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> </input>
+                        <label class="form-check-label" for="inlineCheckbox2">2</label>
+                    </div> */}
+
+
 
 
                     <label className="form-label fw-bold">Date of Birth</label>
@@ -99,7 +109,7 @@ export default function AddCustomer() {
 
                     <label className="form-label fw-bold">Date of Joining</label>
                     <input type="date" className="form-control" onChange={(e)=>setDoj(e.target.value)}></input>
-                    <button type="button" className="btn btn-primary" onClick={handleNewRegisterSubmit}>Submit</button>
+                    <button type="button" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap" onClick={handleNewRegisterSubmit}>Submit</button>
                 </form>
             </div >
         </div >

@@ -6,7 +6,7 @@ export default function CustomerDataManagement() {
   const [employeeArray, setEmployeeArray] = useState([]);
 
   function viewRecords () {
-    
+
 
 
 
@@ -42,9 +42,10 @@ export default function CustomerDataManagement() {
 
     <div>
       {/* <h1>This is the list of Purchased Ite/h1> */}
-      <table className="table table-dark">
+      <table className="table table-dark mx-auto w-75 ">
         <thead>
           <tr>
+            <th scope="col">#</th>
             <th scope="col">Employee ID</th>
             <th scope="col">Employee Name</th>
             <th scope="col">Designation</th>
@@ -72,17 +73,17 @@ export default function CustomerDataManagement() {
                 <td>{employee.doj}</td>
                 <td>{employee.dob}</td>
                 <td>
-                  <Link type="button" className="button1" to={"/admin/addCustomer/" + employee.employeeId}>Edit</Link>
-                  <Link onClick={(e) => handleDelete(e, employee.employeeId)}>Delete</Link> 
+                  <Link type="button" className="button1 mx-2" to={"/admin/addCustomer/" + employee.employeeId}>Edit</Link>
+                  <Link onClick={(e) => handleDelete(e, employee.employeeId)}>Delete</Link>
                 </td>
                 {/* <td><Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link></td> */}
               </tr>
             ))
-          }          
+          }
         </tbody>
       </table>
-    
-          
+
+
       <Link className="btn btn-outline-dark text-center mx-1" to='/admin/addCustomer'>Add Customer</Link>
     </div>
   )

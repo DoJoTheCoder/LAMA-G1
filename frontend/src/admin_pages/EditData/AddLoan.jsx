@@ -9,7 +9,7 @@ export default function AddLoan() {
     const [duratinInYears, setDurationInYears] = useState(1)
     const [disabledField, setDisableField] = useState(false)
     const param = useParams()
-    
+
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -41,7 +41,7 @@ export default function AddLoan() {
             )
             .then((response) => {
                 console.log(response);
-                
+
 
             navigate("/admin/loan-card-management")
             }).catch(function (error) {
@@ -78,7 +78,7 @@ export default function AddLoan() {
 
         return (
             <div>
-               
+
                 <div className="card col-lg-4 d-flex mx-auto p-3">
                     <form>
 
@@ -93,11 +93,11 @@ export default function AddLoan() {
                         <label className="form-label fw-bold">Duration in years</label>
                         <input type="number" className="form-control" onChange={(e) => { setDurationInYears(e.target.value) }}></input>
 
-                        <button type="button" className="btn btn-primary" onClick={handleNewItemAddSubmit}>Submit</button>
+                        <button type="button" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap" onClick={handleNewItemAddSubmit}>Submit</button>
                     </form>
                 </div >
             </div>
         )
-    
+
 
 }

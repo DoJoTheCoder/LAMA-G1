@@ -41,7 +41,7 @@ export default function AdminItemMasterManagement() {
   return (
     <div>
       <h1>ItemMaster table</h1>
-      <table className="table table-dark">
+      <table className="table table-dark mx-auto w-75 ">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -63,9 +63,9 @@ export default function AdminItemMasterManagement() {
                 <td>{item.itemMake}</td>
                 <td>{item.itemCategory}</td>
                 <td>{item.itemValuation}</td>
-                <td> 
+                <td>
                   <Link to={"/admin/addItemMaster/"+item.itemId}>Edit</Link> <> </>
-                  <Link onClick={(e) => handleDelete(e, item.itemId)} >Delete</Link> 
+                  <Link onClick={(e) => handleDelete(e, item.itemId)} >Delete</Link>
                   </td>
               </tr>
             ))

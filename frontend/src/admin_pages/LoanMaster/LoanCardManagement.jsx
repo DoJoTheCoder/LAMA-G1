@@ -44,7 +44,7 @@ export default function AdminLoanCardManagement() {
   return (
     <div>
       <h1>Loan Card Master Details</h1>
-      <table className="table table-dark">
+      <table className="table table-dark mx-auto w-75 ">
         <thead>
           <tr>
             <th scope="col">#</th>

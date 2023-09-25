@@ -61,7 +61,7 @@ export default function GetLoan() {
         // console.log("category selected:" + itemCatSelected)
         if(itemCatSelected !== "Null"){
             // console.log("not null")
-            
+
             axios.get("http://localhost:8080/getItemMakes/"+itemCatSelected)
             .then((response) => {
                 setItemMakeArray(response.data)
@@ -76,14 +76,14 @@ export default function GetLoan() {
         itemDescDropdown.disabled = true
         itemDescDropdown.value = "Null"
         setItemValue("")
-        
+
     }
 
     const getItemDescriptionData = (itemMakeSelected) => {
         console.log("Make selected:" + itemMakeSelected)
         if(itemMakeSelected !== "Null"){
             // console.log("not null")
-            
+
             axios.get("http://localhost:8080/getItemDescriptions/"+itemCategory+"/"+itemMakeSelected)
             .then((response) => {
                 setItemDescArray(response.data)
@@ -102,7 +102,7 @@ export default function GetLoan() {
         // console.log("Desc selected:" + itemDescSelected)
         if(itemDescSelected !== "Null"){
             // console.log("not null")
-            
+
             axios.get("http://localhost:8080/getItemValue/"+itemDescSelected)
             .then((response) => {
                 setItemValue(response.data)
@@ -116,21 +116,21 @@ export default function GetLoan() {
 
     return (
 
-        <div className="py-5">
+        <div className="py-5 lead fw-bold align-center">
             <h1>Get Loan</h1>
             <div className="card col-lg-4 d-flex mx-auto p-3">
                 <form id="newLoanForm" onSubmit={(e)=>applyLoanSubmit(e)}>
                     <div className="mb-3">
                         <label  className="form-label fw-bold">Employee Id</label>
-                        <input type="text" className="form-control" 
+                        <input type="text" className="form-control"
                             value={employeeId} disabled></input>
                     </div>
 
-                    <div className="input-group mb-3">
+                    <div className="input-group flex-fill mb-3">
                         <div className="input-group-prepend">
                             <label className="input-group-text" htmlFor="itemCategoryInput">Item Category</label>
                         </div>
-                        <select className="custom-select" id="itemCategoryInput" defaultValue="Null" 
+                        <select className="custom-select" id="itemCategoryInput" defaultValue="Null"
                         onChange={ (e) => { getItemMakeData(e.target.value); setItemCategory(e.target.value)}}>
                             <option key="None" value="Null">None</option>
                             {
@@ -160,7 +160,7 @@ export default function GetLoan() {
                         <div className="input-group-prepend">
                             <label className="input-group-text" htmlFor="itemDescriptionInput">Item Description</label>
                         </div>
-                        <select className="custom-select" id="itemDescriptionInput" defaultValue="Null" 
+                        <select className="custom-select" id="itemDescriptionInput" defaultValue="Null"
                         onChange={(e) =>{ setItemDescription(e.target.value); setItemValueField(e.target.value) } } disabled>
                             <option key="None" value="Null">None</option>
                             {
@@ -169,14 +169,14 @@ export default function GetLoan() {
                                 ))
                             }
                         </select>
-                    </div>                   
+                    </div>
 
                     <div className="mb-3">
                         <label  className="form-label fw-bold">Item value</label>
                         <input id='itemValueInput' type="text" value={itemValue} className="form-control" disabled></input>
                     </div>
 
-                    <button id="submitBtn" type="submit" className="btn btn-primary">Apply Loan</button>
+                    <button id="submitBtn" type="submit" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap">Apply Loan</button>
                 </form>
             </div>
         </div>

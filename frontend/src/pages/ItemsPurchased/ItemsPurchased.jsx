@@ -15,12 +15,12 @@ export default function ItemsPurchased() {
     }
 
     console.log("User:"+ (sessionStorage.getItem("UserID")))
-    getEmployeePurchases(JSON.parse(sessionStorage.getItem("UserID"))) 
-    
+    getEmployeePurchases(JSON.parse(sessionStorage.getItem("UserID")))
+
   }, [navigate]);
 
   const getEmployeePurchases = (empId) => {
-    
+
     axios.get("http://localhost:8080/getEmployeeItems/" + empId)
             .then((response) => {setEmployeeItemsArr(response.data);})
             .catch(error => {alert("error happened:"+error)});
@@ -29,7 +29,7 @@ export default function ItemsPurchased() {
   return (
     <div>
       <h1>This is the list of Purchased Items</h1>
-      <table className="table table-dark">
+      <table className="table table-dark mx-auto w-75 ">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -52,7 +52,7 @@ export default function ItemsPurchased() {
                 <td>{item.itemValuation}</td>
               </tr>
             ))
-          }          
+          }
         </tbody>
       </table>
     </div>

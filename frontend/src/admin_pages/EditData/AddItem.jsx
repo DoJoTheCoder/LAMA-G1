@@ -81,7 +81,7 @@ export default function AddItem() {
                     <label className="form-label fw-bold">Item Valuation</label>
                     <input type="text" className="form-control" onChange={(e) => { setItemValuation(e.target.value) }}></input>
 
-                    <button type="button" className="btn btn-primary" onClick={handleNewItemAddSubmit}>Submit</button>
+                    <button type="button" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap" onClick={handleNewItemAddSubmit}>Submit</button>
                 </form>
             </div >
         </div>
