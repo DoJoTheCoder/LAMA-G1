@@ -32,25 +32,24 @@ export default function Navbar() {
           </button>
 
         <div className="collapse navbar-collapse" id="navbarTogglerContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="btn btn-outline-light text-center mx-1" to='/home'>Home</Link>
+              <Link className="btn btn-outline-light text-center mx-2" to='/home'>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="btn btn-outline-light text-center mx-1" to='/get-loan'>Get loan</Link>
+              <Link className="btn btn-outline-light text-center mx-2" to='/get-loan'>Get loan</Link>
             </li>
             <li className="nav-item">
-              <Link className="btn btn-outline-light text-center mx-1" to='/current-loans'>Current Loans</Link>
+              <Link className="btn btn-outline-light text-center mx-2" to='/current-loans'>Current Loans</Link>
             </li>
             <li className="nav-item">
-              <Link className="btn btn-outline-light text-center mx-1" to='/items-purchased'>Items purchased</Link>
+              <Link className="btn btn-outline-light text-center mx-2" to='/items-purchased'>Items purchased</Link>
             </li>
             <li className='nav-item'>
-              <button className="btn btn-outline-light text-center mx-1" onClick={()=>logoutUser()}>Log out</button>
+              <button className="btn btn-outline-light text-center mx-2" onClick={()=>logoutUser()}>Log out</button>
             </li>
           </ul>
         </div>
-          
 
 
         </div>

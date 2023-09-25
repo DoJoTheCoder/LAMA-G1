@@ -36,21 +36,21 @@ export default function AdminNavbar() {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarTogglerContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="btn btn-outline-light text-center mx-1" to='/admin/home'>Home</Link>
+                <Link className="btn btn-outline-light text-center mx-2" to='/admin/home'>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="btn btn-outline-light text-center mx-1" to='/admin/customer-data-management'>Customer Data</Link>
+                <Link className="btn btn-outline-light text-center mx-2" to='/admin/customer-data-management'>Customer Data</Link>
               </li>
               <li className="nav-item">
-                <Link className="btn btn-outline-light text-center mx-1" to='/admin/loan-card-management'>Loan Cards</Link>
+                <Link className="btn btn-outline-light text-center mx-2" to='/admin/loan-card-management'>Loan Cards</Link>
               </li>
               <li className="nav-item">
-                <Link className="btn btn-outline-light text-center mx-1" to='/admin/item-master-management'>Items Data</Link>
+                <Link className="btn btn-outline-light text-center mx-2" to='/admin/item-master-management'>Items Data</Link>
               </li>
               <li className='nav-item'>
-                <button className="btn btn-outline-light text-center mx-1" onClick={()=>logoutAdmin()}>Log out</button>
+                <button className="btn btn-outline-light text-center mx-2" onClick={()=>logoutAdmin()}>Log out</button>
               </li>
             </ul>
           </div>

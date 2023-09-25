@@ -69,15 +69,15 @@ export default function AdminLoginPage() {
         <div className="py-4">
             <div className="card col-lg-4 d-flex mx-auto p-3">
                 <form>
-                    <div className="loginForm1">
+                    <div className="loginForm1 lead fw-bold">
                         Admin Username<br/>
-                        <input type="text" className="loginInputs" value={userName} onChange={(e) => { setUserName(e.target.value) }}></input><br/>
+                        <input type="text" className="loginInputs lead mb-4 fw-light" value={userName} onChange={(e) => { setUserName(e.target.value) }}></input><br/>
                         Password<br/>
-                        <input type="password" className="loginInputs" value={password} onChange={(e) => { setPassword(e.target.value) }}></input><br/>
+                        <input type="password" className="loginInputs lead mb-2 fw-light" value={password} onChange={(e) => { setPassword(e.target.value) }}></input><br/>
                     </div>
-                    <div className="outLoginForm">
-                        <button type="button" className="submitButton" onClick={handleLoginSubmit}>Login</button><br />
-                        New Admin? Click <Link to={"/admin-new-register"}>here</Link>.
+                    <div className="outLoginForm lead">
+                        <button type="button" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap"  onClick={handleLoginSubmit}>Login</button><br />
+                        New Admin? Click <Link className= "link-dark" to={"/admin-new-register"}>here</Link>.
                     </div>
                 </form>
             </div>
