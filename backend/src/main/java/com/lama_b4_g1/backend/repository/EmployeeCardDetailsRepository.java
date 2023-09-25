@@ -3,14 +3,18 @@ package com.lama_b4_g1.backend.repository;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.lama_b4_g1.backend.models.EmployeeCardDetails;
+import org.springframework.stereotype.Repository;
 
+@Repository
+@Qualifier("empCard")
 public interface EmployeeCardDetailsRepository extends JpaRepository<EmployeeCardDetails, String>{
 	
-	EmployeeCardDetails findByEmployeeId(String employeeId);
+//	EmployeeCardDetails findByEmployeeId(String employeeId);
 	
 //	@Query(value = "Select ecard.loanId, lcard.loanType, lcard.durationYears, ecard.cardIssueDate "+
 //					" from EmployeeCardDetails ecard inner JOIN ecard.loanCardMaster lcard "+

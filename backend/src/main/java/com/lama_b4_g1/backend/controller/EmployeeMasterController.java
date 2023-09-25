@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.lama_b4_g1.backend.models.NewLoanInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,7 +38,7 @@ public class EmployeeMasterController {
 	
 	@Autowired 
 	EmployeeCardDetailsRepository empCardDetailsRepository;
-	
+
 	@PostMapping("/addEmployeeMaster")
 	public EmployeeMaster addEmpMaster(@RequestBody EmployeeMaster empMaster) {
 		System.out.println(empMaster.getPassword());
@@ -96,4 +97,8 @@ public class EmployeeMasterController {
 		return empMasterService.deleteEmpById(id);
 	}
 
+	@PostMapping("/addNewLoan")
+	public String addNewLoanData(@RequestBody NewLoanInfo newLoanInfo) {
+		return empMasterService.addNewLoanData(newLoanInfo);
+	}
 }

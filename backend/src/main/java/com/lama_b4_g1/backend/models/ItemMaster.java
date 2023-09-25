@@ -31,7 +31,7 @@ public class ItemMaster {
 	@Column(length = 6, name = "item_valuation")
 	private int itemValuation;
 	
-	@OneToMany(mappedBy = "itemMaster")
+	@OneToMany
 	//@JsonManagedReference
 	private Set<EmployeeIssueDetails> empIssueDetails;
 

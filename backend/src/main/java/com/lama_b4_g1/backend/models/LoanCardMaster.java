@@ -22,8 +22,8 @@ public class LoanCardMaster {
 	@Column(nullable = false, name="duration_in_years")
 	private int durationYears;
 
-	@OneToMany(mappedBy = "loanCardMaster")
-	@JsonManagedReference
+	@OneToMany
+//	@JsonManagedReference
 	private Set<EmployeeCardDetails> empCardDetail;
 
 	public String getLoanId() {
