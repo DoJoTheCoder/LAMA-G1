@@ -101,8 +101,6 @@ export default function AddCustomer() {
                     </div> */}
 
 
-
-
                     <label className="form-label fw-bold">Date of Birth</label>
                     <input type="date" className="form-control" onChange={(e)=>setDob(e.target.value)}></input>
 

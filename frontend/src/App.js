@@ -24,13 +24,14 @@ import CustomerDataManagement from './admin_pages/CustomerMaster/CustomerDataMan
 import AddItem from './admin_pages/EditData/AddItem';
 import AddLoan from './admin_pages/EditData/AddLoan';
 import AddCustomer from './admin_pages/EditData/AddCustomer';
+import NotFound from './layout/InvalidURL';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        
+
         <Routes>
           <Route exact path="/" element={<RoleSelect/>}></Route>
 
@@ -43,7 +44,7 @@ function App() {
           <Route exact path="/current-loans" element={<div><Navbar /><CurrentLoans /></div>}></Route>
           <Route exact path="/items-purchased" element={<div><Navbar /><ItemsPurchased /></div>}></Route>
 
-          
+
           {/* ADMIN PAGES BELOW */}
           <Route exact path="/admin/login" element={<AdminLoginPage />}></Route>
           <Route exact path="/admin-new-register" element={<RegisterationPage from="admin"></RegisterationPage>}></Route>
@@ -51,7 +52,7 @@ function App() {
           <Route exact path="/admin/customer-data-management" element={<div><AdminNavbar /> <CustomerDataManagement /></div>}></Route>
           <Route exact path="/admin/loan-card-management" element={<div><AdminNavbar /><AdminLoanCardManagement /></div>}></Route>
           <Route exact path="/admin/item-master-management" element={<div><AdminNavbar/> <AdminItemMasterManagement /></div>}></Route>
-          
+
           {/* Note ADD and EDIT pages are the same */}
           {/* Add Data paths */}
           <Route exact path="/admin/addItemMaster" element={<AddItem/>}></Route>
@@ -64,7 +65,7 @@ function App() {
           <Route exact path="/admin/addCustomer/:id" element={<AddCustomer />}></Route>
 
           {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
-
+          <Route path='*' element={<NotFound/>}/>
 
         </Routes>
 

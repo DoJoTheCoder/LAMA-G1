@@ -35,8 +35,8 @@ export default function CurrentLoans() {
     <div>
       <h1 className="mb-4">This is a list of Current Loans</h1>
       {/* <button className="refreshButton" onClick={getLoanList}>Refresh Table</button> */}
-      <table className="table table-dark mx-auto w-75 ">
-        <thead>
+      <table className="table table-striped mx-auto w-75 ">
+        <thead className="thead-dark">
           {/* TODO: Enhancement, after changing schema so that empIssue has issue id as primary key,
           update the below table to reflect that*/}
           <tr>
