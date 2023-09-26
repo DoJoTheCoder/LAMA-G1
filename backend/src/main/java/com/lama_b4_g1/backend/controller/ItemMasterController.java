@@ -1,7 +1,9 @@
 package com.lama_b4_g1.backend.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lama_b4_g1.backend.dto.ItemMasterDto;
 import com.lama_b4_g1.backend.models.ItemMaster;
 import com.lama_b4_g1.backend.services.ItemMasterService;
 
@@ -21,9 +24,20 @@ public class ItemMasterController {
 	@Autowired
 	ItemMasterService itemMasterService;
 	
+	@Autowired
+	private ModelMapper modelMapper;
+	
 	@GetMapping("/getAllItems")
-	public List<ItemMaster> getAllItems(){
-		return itemMasterService.getAllItems();
+	public List<ItemMasterDto> getAllItems(){
+		//return itemMasterService.getAllItems();
+		
+		List<ItemMasterDto> id = itemMasterService.getAllItems().stream().map(i->modelMapper.
+				map(i, ItemMasterDto.class)).
+				collect(Collectors.toList());
+		return id;
+//		return itemMasterService.getAllItems().stream().map(i->modelMapper.
+//				map(i, ItemMasterDto.class)).
+//				collect(Collectors.toList());
 	}
 	@GetMapping("/getAllItemCategories")
 	public List<String> getAllItemCategory(){
@@ -46,8 +60,10 @@ public class ItemMasterController {
 	}
 	
 	@PostMapping("/addItemMaster")
-	public ItemMaster addingNewItem(@RequestBody ItemMaster itemAdd) {
-		return itemMasterService.addItemMaster(itemAdd);
+	public ItemMasterDto addingNewItem(@RequestBody ItemMasterDto itemAdd) {
+		ItemMaster im1 = modelMapper.map(itemAdd,ItemMaster.class);
+		ItemMaster im= itemMasterService.addItemMaster(im1);
+		return modelMapper.map(im, ItemMasterDto.class);
 	}
 	
 	@DeleteMapping("/deleteItemRecord/{id}")

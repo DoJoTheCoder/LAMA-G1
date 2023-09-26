@@ -3,7 +3,9 @@ package com.lama_b4_g1.backend.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lama_b4_g1.backend.dto.EmployeeMasterDto;
+import com.lama_b4_g1.backend.dto.ItemMasterDto;
 import com.lama_b4_g1.backend.models.EmployeeLoginCredentials;
 import com.lama_b4_g1.backend.models.EmployeeMaster;
 import com.lama_b4_g1.backend.models.LoanCardMaster;
@@ -38,11 +42,16 @@ public class EmployeeMasterController {
 	@Autowired 
 	EmployeeCardDetailsRepository empCardDetailsRepository;
 	
+	@Autowired
+	private ModelMapper modelMapper;
+	
 	@PostMapping("/addEmployeeMaster")
-	public EmployeeMaster addEmpMaster(@RequestBody EmployeeMaster empMaster) {
-		System.out.println(empMaster.getPassword());
+	public EmployeeMasterDto addEmpMaster(@RequestBody EmployeeMasterDto ed) {
+		//System.out.println(ed.getPassword());
+		EmployeeMaster empMaster= modelMapper.map(ed, EmployeeMaster.class);
 		EmployeeMaster obj = empMasterService.saveEmpMaster(empMaster);
-		return obj;
+		EmployeeMasterDto d= modelMapper.map(obj, EmployeeMasterDto.class);
+		return d;
 	}
 	
 	@PostMapping("/validateLogin")
@@ -50,10 +59,14 @@ public class EmployeeMasterController {
 		
 		List<String> result = new ArrayList<String>();
 		if(empLoginCred==null) {
-			System.out.println("emp login cred is null!");
+
 			result.add("Null Credentials");
 			return result;
 //			return new ResponseEntity<>("Null Credientials", HttpStatus.OK);
+
+//			return "Null Credentials";
+//			return new ResponseEntity<>("Null Credentials", HttpStatus.OK);
+
 		}
 		result = empMasterService.authenticateEmployee(empLoginCred);
 		System.out.println("Employee controller info:");
@@ -76,19 +89,25 @@ public class EmployeeMasterController {
 	}
 	
 	@GetMapping("/viewEmpRecords")
-	public List<EmployeeMaster> viewEmpRecords() {
+	public List<EmployeeMasterDto> viewEmpRecords() {
 		List<EmployeeMaster> empRecords = empMasterService.viewEmployees();
-		return empRecords;
+		List<EmployeeMasterDto> e = empRecords.stream().map(i->modelMapper.map(i, EmployeeMasterDto.class)).
+				collect(Collectors.toList());			
+		
+		//return empRecords;
+				return e;
 	}
 	
 	@PutMapping("/editEmpRecord/{id}")
-	public String editEmpRecord(@PathVariable("id") String id, @RequestBody EmployeeMaster em) {
-		return empMasterService.editRecord(id, em);
+	public String editEmpRecord(@PathVariable("id") String id, @RequestBody EmployeeMasterDto em) {
+		EmployeeMaster em1 = modelMapper.map(em, EmployeeMaster.class);
+		return empMasterService.editRecord(id, em1);
 	}
 	
 	@GetMapping("/findEmp/{id}")
-	public EmployeeMaster findEmpById(@PathVariable("id") String id) {
-		return empMasterService.findEmpById(id);
+	public EmployeeMasterDto findEmpById(@PathVariable("id") String id) {
+		EmployeeMaster e= empMasterService.findEmpById(id);
+		return modelMapper.map(e, EmployeeMasterDto.class);
 	}
 	
 	@DeleteMapping("/deleteEmp/{id}")
