@@ -50,12 +50,7 @@ public class EmployeeMasterController {
 	public List<String> loginEmployee(@RequestBody EmployeeLoginCredentials empLoginCred) {
 		
 		List<String> result = new ArrayList<String>();
-		if(empLoginCred==null) {
-			System.out.println("emp login cred is null!");
-			result.add("Null Credentials");
-			return result;
-//			return new ResponseEntity<>("Null Credientials", HttpStatus.OK);
-		}
+		
 		result = empMasterService.authenticateEmployee(empLoginCred);
 		System.out.println("Employee controller info:");
 		System.out.println("Username:"+empLoginCred.getUserName());

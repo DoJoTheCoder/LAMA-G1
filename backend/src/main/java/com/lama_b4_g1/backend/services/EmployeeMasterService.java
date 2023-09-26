@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
+import com.lama_b4_g1.backend.exception.ResourceNotFoundException;
 import com.lama_b4_g1.backend.models.*;
 import com.lama_b4_g1.backend.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class EmployeeMasterService {
 		return empMasterRepo.save(empMaster);
 	}
 	
-	public List<String> authenticateEmployee(EmployeeLoginCredentials empLoginCred) {
+	public List<String> authenticateEmployee(EmployeeLoginCredentials empLoginCred) throws ResourceNotFoundException{
 		
 		List<String> result = new ArrayList<String>();
 		String userName = empLoginCred.getUserName();
@@ -64,9 +65,11 @@ public class EmployeeMasterService {
 			}
 			else {
 				System.out.println("emp cred pass:"+password+", retrieved emp cred:"+empMaster.getPassword()+"..");
-				result.add("Invalid Credentials");
+//				result.add("Invalid Credentials");
 			}
 			
+			// Throw exception when null
+			throw new ResourceNotFoundException("Invalid Credentials");
 		}
 		else {
 			

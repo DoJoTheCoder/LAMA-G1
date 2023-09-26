@@ -9,7 +9,7 @@ export default function AddItem() {
     const [issueStatus, setIssueStatus] = useState('')
     const [itemMake, setItemMake] = useState("")
     const [itemCategory, setItemCategory] = useState("")
-    const [itemValuation, setItemValuation] = useState(100)
+    const [itemValuation, setItemValuation] = useState(0)
     const [disabledField, setDisabledField] = useState(false)
 
     const param = useParams()
