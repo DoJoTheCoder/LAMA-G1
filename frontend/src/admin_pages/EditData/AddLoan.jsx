@@ -6,7 +6,7 @@ export default function AddLoan() {
 
     const [loanId, setLoanId] = useState("")
     const [loanType, setLoanType] = useState("")
-    const [duratinInYears, setDurationInYears] = useState()
+    const [duratinInYears, setDurationInYears] = useState(1)
     const [disabledField, setDisableField] = useState(false)
     const param = useParams()
 
@@ -36,7 +36,7 @@ export default function AddLoan() {
         }
     }, []);
 
-    function handleNewItemAddSubmit() {
+    function handleNewLoanddSubmit() {
 
         const sendBody = {
             loanId: loanId,
@@ -108,24 +108,29 @@ export default function AddLoan() {
 
     // else {
 
+    const onSubmit = async(event) => {
+        event.preventDefault();
+        handleNewLoanddSubmit()
+    }
+
     return (
         <div>
 
             <div className="card col-lg-4 d-flex mx-auto p-3">
-                <form>
+                <form onSubmit={onSubmit}>
 
                     <label className="form-label fw-bold">Loan Id</label>
-                    <input type="text" className="form-control" value={loanId} disabled={disabledField} onChange={(e) => { setLoanId(e.target.value) }}></input>
+                    <input type="text" className="form-control" required value={loanId} disabled={disabledField} onChange={(e) => { setLoanId(e.target.value) }}></input>
 
 
                     <label className="form-label fw-bold">Loan type</label>
-                    <input type="text" className="form-control" value={loanType} onChange={(e) => { setLoanType(e.target.value) }}></input>
+                    <input type="text" className="form-control" required value={loanType} disabled={disabledField} onChange={(e) => { setLoanType(e.target.value) }}></input>
 
 
                     <label className="form-label fw-bold">Duration in years</label>
-                    <input type="number" className="form-control" value={duratinInYears} onChange={(e) => { setDurationInYears(e.target.value) }}></input>
+                    <input type="number" className="form-control" required value={duratinInYears} onChange={(e) => { setDurationInYears(e.target.value) }}></input>
 
-                    <button type="button" className="btn btn-primary" onClick={handleNewItemAddSubmit}>Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div >
         </div>
