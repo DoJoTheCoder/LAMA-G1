@@ -42,8 +42,7 @@ public class EmployeeMasterController {
 	@PostMapping("/addEmployeeMaster")
 	public EmployeeMaster addEmpMaster(@RequestBody EmployeeMaster empMaster) {
 		System.out.println(empMaster.getPassword());
-		EmployeeMaster obj = empMasterService.saveEmpMaster(empMaster);
-		return obj;
+        return empMasterService.saveEmpMaster(empMaster);
 	}
 	
 	@PostMapping("/validateLogin")
@@ -78,8 +77,7 @@ public class EmployeeMasterController {
 	
 	@GetMapping("/viewEmpRecords")
 	public List<EmployeeMaster> viewEmpRecords() {
-		List<EmployeeMaster> empRecords = empMasterService.viewEmployees();
-		return empRecords;
+        return empMasterService.viewEmployees();
 	}
 	
 	@PutMapping("/editEmpRecord/{id}")

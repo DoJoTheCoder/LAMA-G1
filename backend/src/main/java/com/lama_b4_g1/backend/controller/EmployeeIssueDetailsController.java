@@ -24,9 +24,8 @@ public class EmployeeIssueDetailsController {
 
 	@GetMapping("/getEmployeeItems/{empId}")
 	public Set<EmployeeItemView> getEmployeePurchasedItems(@PathVariable("empId") String empId ) {
-		Set<EmployeeItemView> empItemViewSet = empIssueDetailsService.getEmployeeItems(empId);
-//		System.out.println(empItemViewSet);
-		return empItemViewSet;
+        //		System.out.println(empItemViewSet);
+		return empIssueDetailsService.getEmployeeItems(empId);
 	}
 
 }
