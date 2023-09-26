@@ -43,7 +43,7 @@ export default function AdminLoanCardManagement() {
 
   return (
     <div>
-      <h1>Loan Card Master Details</h1>
+      <h1>This is a list of Loan Card Details</h1>
       <table className="table table-striped mx-auto w-75 ">
         <thead className="thead-dark">
           <tr>
@@ -72,7 +72,7 @@ export default function AdminLoanCardManagement() {
           }
         </tbody>
       </table>
-      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/edit-loan'>Add Loan</Link>
+      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/addLoanMaster'>Add Loan</Link>
     </div>
   )
 }

@@ -55,14 +55,14 @@ function App() {
 
           {/* Note ADD and EDIT pages are the same */}
           {/* Add Data paths */}
-          <Route exact path="/admin/addItemMaster" element={<AddItem/>}></Route>
-          <Route exact path="/admin/addLoanMaster" element={<AddLoan/>}></Route>
-          <Route exact path="/admin/addCustomer" element={<AddCustomer/>}></Route>
+          <Route exact path="/admin/addItemMaster" element={<div><AdminNavbar /> <AddItem/></div>}></Route>
+          <Route exact path="/admin/addLoanMaster" element={<div><AdminNavbar /> <AddLoan/></div>}></Route>
+          <Route exact path="/admin/addCustomer" element={<div><AdminNavbar /> <AddCustomer/></div>}></Route>
 
           {/* Edit Data paths */}
-          <Route exact path="/admin/addItemMaster/:id" element={<AddItem/>}></Route>
-          <Route exact path="/admin/addLoanMaster/:id" element={<AddLoan/>}></Route>
-          <Route exact path="/admin/addCustomer/:id" element={<AddCustomer />}></Route>
+          <Route exact path="/admin/addItemMaster/:id" element={<div><AdminNavbar /><AddItem/></div>}></Route>
+          <Route exact path="/admin/addLoanMaster/:id" element={<div><AdminNavbar /><AddLoan/></div>}></Route>
+          <Route exact path="/admin/addCustomer/:id" element={<div><AdminNavbar /><AddCustomer /></div>}></Route>
 
           {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
           <Route path='*' element={<NotFound/>}/>

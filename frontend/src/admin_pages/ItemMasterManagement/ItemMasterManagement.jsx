@@ -40,7 +40,7 @@ export default function AdminItemMasterManagement() {
 
   return (
     <div>
-      <h1>ItemMaster table</h1>
+      <h1>This is a list of Item Details</h1>
       <table className="table table-striped mx-auto w-75 ">
         <thead className="thead-dark">
           <tr>
@@ -72,6 +72,7 @@ export default function AdminItemMasterManagement() {
           }
         </tbody>
       </table>
+      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/addItemMaster'>Add Loan</Link>
     </div>
   )
 }

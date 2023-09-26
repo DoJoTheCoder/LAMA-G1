@@ -41,7 +41,7 @@ export default function CustomerDataManagement() {
   return (
 
     <div>
-      {/* <h1>This is the list of Purchased Ite/h1> */}
+      <h1>This is a list of Customer Information</h1>
       <table className="table table-striped mx-auto w-75 ">
         <thead className="thead-dark">
           <tr>
