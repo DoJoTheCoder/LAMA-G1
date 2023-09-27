@@ -261,6 +261,8 @@ class EmployeeMasterControllerTest {
     void testViewEmpRecords() throws Exception {
         when(employeeMasterService.viewEmployees()).thenReturn(new ArrayList<>());
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/viewEmpRecords");
+        
+        // TODO: when emp table is empty, DataNotFoundException is thrown, make changes accordingly
         MockMvcBuilders.standaloneSetup(employeeMasterController)
                 .build()
                 .perform(requestBuilder)

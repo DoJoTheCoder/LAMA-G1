@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
+import com.lama_b4_g1.backend.exception.DataNotFoundException;
 import com.lama_b4_g1.backend.exception.ResourceNotFoundException;
 import com.lama_b4_g1.backend.models.*;
 import com.lama_b4_g1.backend.repository.*;
@@ -65,7 +66,6 @@ public class EmployeeMasterService {
 			}
 			else {
 				System.out.println("emp cred pass:"+password+", retrieved emp cred:"+empMaster.getPassword()+"..");
-//				result.add("Invalid Credentials");
 			}
 			
 			// Throw exception when null
@@ -88,8 +88,10 @@ public class EmployeeMasterService {
 		return result;
 	}
 	
-	public List<EmployeeMaster> viewEmployees() {
+	public List<EmployeeMaster> viewEmployees() throws DataNotFoundException{
 		List<EmployeeMaster> list = empMasterRepo.findAll();
+		if(list.size() ==0)
+			throw new DataNotFoundException("No employee data found!");
 		return list;
 	}
 	
@@ -125,6 +127,7 @@ public class EmployeeMasterService {
 			return "Does not exist";
 		}
 	}
+	
 	@Transactional
 	public String addNewLoanData(NewLoanInfo newLoanInfo) {
 		System.out.println("add loan was called!");

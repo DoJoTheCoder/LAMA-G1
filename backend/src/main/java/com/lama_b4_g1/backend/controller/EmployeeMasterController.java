@@ -75,6 +75,7 @@ public class EmployeeMasterController {
         return empMasterService.viewEmployees();
 	}
 	
+	// TODO: Function not used. remove or use it.
 	@PutMapping("/editEmpRecord/{id}")
 	public String editEmpRecord(@PathVariable("id") String id, @RequestBody EmployeeMaster em) {
 		return empMasterService.editRecord(id, em);

@@ -17,11 +17,12 @@ export default function CustomerDataManagement() {
       .then((response) => {
         console.log(response);
         setEmployeeArray(response.data);
-        if (response.data.length > 0) {
-          setNullTable(false)
-        }
+        // if (response.data.length > 0) {
+          // setNullTable(false)
+        // }
       }).catch(function (error) {
-        console.log(error);
+        console.log(error.response.data.message);
+        setNullTable(false)
       });
   }
 
