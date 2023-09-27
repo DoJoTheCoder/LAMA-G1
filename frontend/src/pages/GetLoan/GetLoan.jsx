@@ -187,8 +187,7 @@ export default function GetLoan() {
                                 ))
                             }
                         </select>
-                    </div>
-                    </div>
+                    </div>     
 
                     <div className="mb-3">
                         <label className="form-label fw-bold">Item value</label>
