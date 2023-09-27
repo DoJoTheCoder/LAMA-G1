@@ -37,6 +37,7 @@ export default function AdminLoanCardManagement() {
     axios.delete("http://localhost:8080/deleteLoanCard/"+ arg)
     .then((response)=>{
       console.log(response.data)
+      window.location.reload()
     })
   }
 

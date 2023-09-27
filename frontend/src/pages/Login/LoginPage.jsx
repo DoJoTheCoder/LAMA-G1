@@ -39,31 +39,18 @@ export default function AdminLoginPage() {
                         navigate("/home")
                     }
                     else{
-                        alert("Invalid credentials, Please try again.")
+                        alert("Invalid credentials")
                         setPassword("");
-                        setUserName("");
+                        setUserName("")
                     }
                 }).catch(function (error) {
-                    console.log(error);
+                    console.log(error.response);
+                    alert(error.response.data.message)
+                    setPassword("");
+                    setUserName("");
                 });
 
         })();
-
-        // try {
-        //     (async () => {
-        //         const res = await fetch("http://localhost:8080/validateLogin", {
-        //             // mode: "no-cors",
-        //             method: "POST",
-        //             headers: { "Content-Type": "application/json" },
-        //             body: JSON.stringify(sendBody),
-        //         });
-        //         const data = res.body;
-        //         console.log(data);
-        //     })();
-        // }
-        // catch (e) {
-        //     console.log(e)
-        // }
     }
     return (
         <div className="py-4">

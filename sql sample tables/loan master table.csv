@@ -1,4 +1,5 @@
 loan_id,duration_in_years,loan_type
-L2301,1,Furniture
-L2302,2,Vehicle
+L2301,2,Furniture
+L2302,3,Vehicle
 L2303,1,Appliance
+L2304,4,Home

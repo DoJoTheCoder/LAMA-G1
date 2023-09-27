@@ -39,12 +39,13 @@ export default function AdminLoginPage() {
                         navigate("/admin/home")
                     }
                     else{
-                        alert("Invalid credentials, please try again.")
+                        alert("Invalid credentials")
                         setPassword("");
                         setUserName("")
                     }
                 }).catch(function (error) {
-                    console.log(error);
+                    console.log(error.response)
+                    alert(error.response.data.message)
                 });
 
         })();

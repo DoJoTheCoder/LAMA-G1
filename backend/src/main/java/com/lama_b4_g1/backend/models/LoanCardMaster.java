@@ -2,10 +2,15 @@ package com.lama_b4_g1.backend.models;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -20,10 +25,11 @@ public class LoanCardMaster {
 	private String loanType;
 	
 	@Column(nullable = false, name="duration_in_years")
-	private int durationYears;
+	private int durationInYears;
 
-	@OneToMany(mappedBy = "loanCardMaster")
-	@JsonManagedReference
+	@OneToMany (mappedBy = "loanCardMaster", orphanRemoval=true, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	@JsonManagedReference(value = "loanAndEmpCard")
 	private Set<EmployeeCardDetails> empCardDetail;
 
 	public String getLoanId() {
@@ -42,12 +48,12 @@ public class LoanCardMaster {
 		this.loanType = loanType;
 	}
 
-	public int getDurationYears() {
-		return durationYears;
+	public int getDurationInYears() {
+		return durationInYears;
 	}
 
-	public void setDurationYears(int durationYears) {
-		this.durationYears = durationYears;
+	public void setDurationInYears(int durationInYears) {
+		this.durationInYears = durationInYears;
 	}
 
 	public Set<EmployeeCardDetails> getEmpCardDetail() {

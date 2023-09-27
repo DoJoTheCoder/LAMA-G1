@@ -23,12 +23,12 @@ public class EmployeeIssueDetails {
 	private Date returnDate;
 	
 	@ManyToOne
-	@JsonBackReference
+	@JsonBackReference(value = "masterAndEmpIssue")
 	@JoinColumn(name = "employee_id")
 	private EmployeeMaster empMaster;
 	
 	@ManyToOne
-	@JsonBackReference
+	@JsonBackReference(value = "itemAndEmpIssue")
 	@JoinColumn(name = "item_id")
 	private ItemMaster itemMaster;
 

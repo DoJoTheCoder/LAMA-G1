@@ -6,7 +6,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import RoleSelect from './layout/SelectUser';
 import Navbar from './layout/Navbar';
 import AdminNavbar from './layout/AdminNavbar';
-
+import PageNotFoundHandler from './layout/PageNotFoundHandler';
 
 import LoginPage from './pages/Login/LoginPage';
 import Home from './pages/Home/Home';
@@ -65,7 +65,7 @@ function App() {
           <Route exact path="/admin/addLoanMaster/:id" element={<div><AdminNavbar /><AddLoan/></div>}></Route>
           <Route exact path="/admin/addCustomer/:id" element={<div><AdminNavbar /><AddCustomer /></div>}></Route>
 
-          {/* <Route exact path = "loanList" element={<CurrentLoans></CurrentLoans>}></Route> */}
+          {/* For Invalid Paths */}
           <Route path='*' element={<NotFound/>}/>
 
         </Routes>

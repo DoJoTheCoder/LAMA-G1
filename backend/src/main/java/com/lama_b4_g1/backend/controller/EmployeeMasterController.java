@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.lama_b4_g1.backend.models.NewLoanInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,24 +38,18 @@ public class EmployeeMasterController {
 	
 	@Autowired 
 	EmployeeCardDetailsRepository empCardDetailsRepository;
-	
+
 	@PostMapping("/addEmployeeMaster")
 	public EmployeeMaster addEmpMaster(@RequestBody EmployeeMaster empMaster) {
 		System.out.println(empMaster.getPassword());
-		EmployeeMaster obj = empMasterService.saveEmpMaster(empMaster);
-		return obj;
+        return empMasterService.saveEmpMaster(empMaster);
 	}
 	
 	@PostMapping("/validateLogin")
 	public List<String> loginEmployee(@RequestBody EmployeeLoginCredentials empLoginCred) {
 		
 		List<String> result = new ArrayList<String>();
-		if(empLoginCred==null) {
-			System.out.println("emp login cred is null!");
-			result.add("Null Credentials");
-			return result;
-//			return new ResponseEntity<>("Null Credientials", HttpStatus.OK);
-		}
+		
 		result = empMasterService.authenticateEmployee(empLoginCred);
 		System.out.println("Employee controller info:");
 		System.out.println("Username:"+empLoginCred.getUserName());
@@ -77,8 +72,7 @@ public class EmployeeMasterController {
 	
 	@GetMapping("/viewEmpRecords")
 	public List<EmployeeMaster> viewEmpRecords() {
-		List<EmployeeMaster> empRecords = empMasterService.viewEmployees();
-		return empRecords;
+        return empMasterService.viewEmployees();
 	}
 	
 	@PutMapping("/editEmpRecord/{id}")
@@ -96,4 +90,8 @@ public class EmployeeMasterController {
 		return empMasterService.deleteEmpById(id);
 	}
 
+	@PostMapping("/addNewLoan")
+	public String addNewLoanData(@RequestBody NewLoanInfo newLoanInfo) {
+		return empMasterService.addNewLoanData(newLoanInfo);
+	}
 }

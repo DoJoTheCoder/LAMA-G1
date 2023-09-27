@@ -2,10 +2,15 @@ package com.lama_b4_g1.backend.models;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -31,8 +36,9 @@ public class ItemMaster {
 	@Column(length = 6, name = "item_valuation")
 	private int itemValuation;
 	
-	@OneToMany(mappedBy = "itemMaster")
-	//@JsonManagedReference
+	@OneToMany(mappedBy = "itemMaster", orphanRemoval=true, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	@JsonManagedReference(value = "itemAndEmpIssue")
 	private Set<EmployeeIssueDetails> empIssueDetails;
 
 	public String getItemId() {

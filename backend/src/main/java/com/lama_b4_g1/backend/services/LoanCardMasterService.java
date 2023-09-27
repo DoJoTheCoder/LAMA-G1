@@ -38,7 +38,7 @@ public class LoanCardMasterService {
 	public String editLoan(String id, LoanCardMaster loan) {
 		String res = "";
 		LoanCardMaster l = loanCardMasterRepo.findById(id).get();
-		l.setDurationYears(loan.getDurationYears());
+		l.setDurationInYears(loan.getDurationInYears());
 		l.setLoanType(loan.getLoanType());
 		loanCardMasterRepo.save(l);
 		res = "Loan Updated Successfully";
@@ -46,8 +46,13 @@ public class LoanCardMasterService {
 	}
 
 	public LoanCardMaster addNewLoanCard(LoanCardMaster newLoanCard) {
-		LoanCardMaster obj = loanCardMasterRepo.save(newLoanCard);
-		return obj;
+		LoanCardMaster obj = null;
+		String id  = newLoanCard.getLoanId();
+		Optional<LoanCardMaster> lcm = loanCardMasterRepo.findById(id);
+		if(lcm.isPresent()) {
+			newLoanCard.setEmpCardDetail(lcm.get().getEmpCardDetail());
+		}
+		return loanCardMasterRepo.save(newLoanCard);
 	}
 
 	

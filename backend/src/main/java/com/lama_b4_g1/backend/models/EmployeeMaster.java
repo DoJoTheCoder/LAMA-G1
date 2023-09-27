@@ -3,10 +3,15 @@ package com.lama_b4_g1.backend.models;
 import java.sql.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -41,12 +46,14 @@ public class EmployeeMaster {
 	@Column(length = 6, name = "access_type")
 	private  String accessType;
 	
-	@OneToMany(mappedBy = "empMaster")
-	@JsonManagedReference
+	@OneToMany(mappedBy = "empMaster", orphanRemoval=true, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	@JsonManagedReference(value = "masterAndEmpCard")
 	private Set<EmployeeCardDetails> empCardDetails;
 	
-	@OneToMany(mappedBy = "empMaster")
-	@JsonManagedReference
+	@OneToMany(mappedBy = "empMaster", orphanRemoval=true, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	@JsonManagedReference(value = "masterAndEmpIssue")
 	private Set<EmployeeIssueDetails> empIssueDetails;
 
 	

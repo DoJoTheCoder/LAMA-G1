@@ -1,6 +1,7 @@
 package com.lama_b4_g1.backend.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -45,8 +46,15 @@ public class ItemMasterController {
 		return itemMasterService.getItemValue(itemDesc);
 	}
 	
+	@GetMapping("getItemById/{id}")
+	public ItemMaster getItemyId(@PathVariable("id") String id)
+	{
+		return itemMasterService.getItemById(id);
+	}
+	
 	@PostMapping("/addItemMaster")
-	public ItemMaster addingNewItem(@RequestBody ItemMaster itemAdd) {
+	public ItemMaster addingNewItem(@RequestBody ItemMaster itemAdd)
+	{
 		return itemMasterService.addItemMaster(itemAdd);
 	}
 	
