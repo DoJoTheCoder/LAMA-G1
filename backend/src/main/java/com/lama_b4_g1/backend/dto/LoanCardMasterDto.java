@@ -13,7 +13,7 @@ public class LoanCardMasterDto {
 	
 	private String loanId;
 	private String loanType;
-	private int durationYears;
+	private int durationInYears;
 	//private Set<EmployeeCardDetails> empCardDetail;
 
 	public String getLoanId() {
@@ -32,12 +32,12 @@ public class LoanCardMasterDto {
 		this.loanType = loanType;
 	}
 
-	public int getDurationYears() {
-		return durationYears;
+	public int getDurationInYears() {
+		return durationInYears;
 	}
 
-	public void setDurationYears(int durationYears) {
-		this.durationYears = durationYears;
+	public void setDurationInYears(int durationInYears) {
+		this.durationInYears = durationInYears;
 	}
 
 //	public Set<EmployeeCardDetails> getEmpCardDetail() {

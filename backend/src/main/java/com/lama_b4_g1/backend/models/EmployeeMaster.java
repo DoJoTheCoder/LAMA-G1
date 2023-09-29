@@ -24,10 +24,10 @@ public class EmployeeMaster {
 	@Column(length = 25, name = "employee_name")
 	private String employeeName;
 	
-	@Column(length = 25)
+	@Column(length = 25,nullable = false)
 	private String designation;
 	
-	@Column(length = 25)
+	@Column(length = 25, nullable = false)
 	private String department;
 	
 	private char gender;

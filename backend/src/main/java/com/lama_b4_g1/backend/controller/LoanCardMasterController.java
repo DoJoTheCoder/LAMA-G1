@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lama_b4_g1.backend.dto.EmployeeMasterDto;
 import com.lama_b4_g1.backend.dto.LoanCardMasterDto;
-import com.lama_b4_g1.backend.models.EmployeeMaster;
 import com.lama_b4_g1.backend.models.LoanCardMaster;
 import com.lama_b4_g1.backend.services.LoanCardMasterService;
 

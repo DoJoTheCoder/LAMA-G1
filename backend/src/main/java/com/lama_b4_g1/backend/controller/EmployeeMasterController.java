@@ -18,10 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lama_b4_g1.backend.dto.EmployeeMasterDto;
-import com.lama_b4_g1.backend.dto.ItemMasterDto;
 import com.lama_b4_g1.backend.models.EmployeeLoginCredentials;
 import com.lama_b4_g1.backend.models.EmployeeMaster;
-import com.lama_b4_g1.backend.models.LoanCardMaster;
 import com.lama_b4_g1.backend.repository.EmployeeCardDetailsRepository;
 import com.lama_b4_g1.backend.services.EmployeeCardDetailsService;
 import com.lama_b4_g1.backend.services.EmployeeMasterService;

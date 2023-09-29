@@ -1,7 +1,6 @@
 package com.lama_b4_g1.backend.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -61,9 +60,10 @@ public class ItemMasterController {
 	}
 	
 	@GetMapping("getItemById/{id}")
-	public ItemMaster getItemyId(@PathVariable("id") String id)
+	public ItemMasterDto getItemyId(@PathVariable("id") String id)
 	{
-		return itemMasterService.getItemById(id);
+		ItemMaster ims = itemMasterService.getItemById(id);
+		return modelMapper.map(ims, ItemMasterDto.class);
 	}
 	
 	@PostMapping("/addItemMaster")
