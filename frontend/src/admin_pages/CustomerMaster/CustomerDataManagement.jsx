@@ -72,6 +72,7 @@ export default function CustomerDataManagement() {
               {
                 employeeArray.map((employee, index) => (
                   <tr key={employee.employeeId}>
+                    <th scope='row'>{index+1}</th>
                     <td>{employee.employeeId}</td>
                     <td>{employee.employeeName}</td>
                     <td>{employee.designation}</td>

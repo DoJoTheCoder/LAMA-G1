@@ -12,7 +12,7 @@ export default function AddCustomer() {
     const [dob, setDob] = useState(Date);
     const [doj, setDoj] = useState(Date);
     const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState("");
     const [gender, setGender] = useState("M");
     const [accessType, setAccessType] = useState("User");
     const [disabledField, setDisabledField] = useState(false);
@@ -136,9 +136,7 @@ export default function AddCustomer() {
                         <option key="User" value="User">User</option>
                     </select><br />
 
-
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <button type="button" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap">Submit</button>
+                    <button type="submit" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap">Submit</button>
                 </form>
             </div >
         </div >

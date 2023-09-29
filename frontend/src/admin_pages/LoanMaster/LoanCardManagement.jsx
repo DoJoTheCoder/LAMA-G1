@@ -61,7 +61,7 @@ export default function AdminLoanCardManagement() {
             content.map((x, i) => (
               // Dummy values below
               <tr>
-                <td>{i+1}</td>
+                <th scope="row">{i+1}</th>
                 <td>{x.loanId}</td>
                 <td>{x.loanType}</td>
                 <td>{x.durationInYears}</td>

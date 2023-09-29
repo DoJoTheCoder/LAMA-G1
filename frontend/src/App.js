@@ -6,9 +6,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import RoleSelect from './layout/SelectUser';
 import Navbar from './layout/Navbar';
 import AdminNavbar from './layout/AdminNavbar';
-import PageNotFoundHandler from './layout/PageNotFoundHandler';
 
-import LoginPage from './pages/Login/LoginPage';
 import Home from './pages/Home/Home';
 import RegisterationPage from './pages/RegisterationPage/RegisterationPage';
 import GetLoan from './pages/GetLoan/GetLoan';

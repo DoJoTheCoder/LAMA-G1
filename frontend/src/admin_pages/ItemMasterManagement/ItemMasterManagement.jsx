@@ -67,7 +67,7 @@ export default function AdminItemMasterManagement() {
             <tbody>
               {
                 employeeItemsArr.map((item, index) => (
-                  <tr key={item.issueId}>
+                  <tr key={item.itemId}>
                     <th scope="row">{index + 1}</th>
                     <td>{item.itemId}</td>
                     <td>{item.itemDescription}</td>
