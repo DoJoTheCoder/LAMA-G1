@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterationPage(props) {
   const [employeeId, setEmployeeId] = useState("");
@@ -11,10 +12,11 @@ export default function RegisterationPage(props) {
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("M");
   const [accessType, setAccessType] = useState("User");
   const [accessTypeField, setAccessTypeField] = useState(true);
 
+  const navigate = useNavigate();
   useEffect(() => {
     console.log(props.from);
     if (props.from === "admin") {
@@ -46,9 +48,12 @@ export default function RegisterationPage(props) {
         // }
       )
       .then((response) => {
+        alert("Registration Successful");
+        navigate("/");
         console.log(response);
       })
       .catch(function (error) {
+        alert("Registration Failed");
         console.log(error);
       });
   }
@@ -170,24 +175,5 @@ export default function RegisterationPage(props) {
       </div>
     </div>
 
-    // <div>
-    //     <div classNameName="registerationForm">
-    //         <form onSubmit={handleLoginSubmit}>
-
-    //             <h3>Registeration Page</h3>
-    //             Employee ID : <input type="text" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}></input><br/>
-    //             Employee Name : <input type="text" value={employeeName} onChange={(e) => setEmployeeName(e.target.value)}></input><br/>
-    //             Enter Username : <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)}></input><br/>
-    //             Enter Password : <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input><br/>
-    //             Designation : <input type="text" value={designation} onChange={(e) => setDesignation(e.target.value)}></input><br/>
-    //             Department : <input type="text" value={department} onChange={(e) => setDepartment(e.target.value)}></input><br/>
-    //             Gender(M/F) : <input type="text" value={gender} onChange={(e) => setGender(e.target.value)}></input><br/>
-    //             Date of Birth : <input type="text" value={dob} onChange={(e) => setDob(e.target.value)}></input><br/>
-    //             Date of Joining : <input type="text" value={doj} onChange={(e) => setDoj(e.target.value)}></input><br/>
-    //             <button type="submit">submit</button>
-
-    //         </form>
-    //     </div>
-    // </div>
   );
 }
