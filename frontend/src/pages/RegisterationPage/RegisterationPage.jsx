@@ -62,18 +62,20 @@ export default function RegisterationPage(props) {
     <div className="py-5">
       <div className="card col-lg-4 d-flex mx-auto p-3 lead fw-bold">
         <h2 class="title">Registration Form</h2>
-        <form>
+        <form  >
           <label className="form-label fw-bold mt-4">Employee Id</label>
           <input
             type="text"
             className="form-control"
             onChange={(e) => setEmployeeId(e.target.value)}
+            required
           ></input>
 
           <label className="form-label fw-bold mt-4">Employee Name</label>
           <input
             type="text"
             className="form-control"
+            required
             onChange={(e) => {
               setEmployeeName(e.target.value);
             }}
@@ -83,6 +85,7 @@ export default function RegisterationPage(props) {
           <input
             type="text"
             className="form-control"
+            required
             onChange={(e) => {
               setUserName(e.target.value);
             }}
@@ -92,6 +95,7 @@ export default function RegisterationPage(props) {
           <input
             type="text"
             className="form-control"
+            required
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -101,6 +105,7 @@ export default function RegisterationPage(props) {
           <input
             type="text"
             className="form-control"
+            required
             onChange={(e) => {
               setDesignation(e.target.value);
             }}
@@ -110,9 +115,13 @@ export default function RegisterationPage(props) {
           <input
             type="text"
             className="form-control"
+            required 
+            value = {department}
             onChange={(e) => {
               setDepartment(e.target.value);
-            }}
+            }
+          }
+         
           ></input>
 
           <label class="form-label fw-bold mt-4 ">Gender</label>
@@ -123,6 +132,7 @@ export default function RegisterationPage(props) {
               checked="checked"
               name="gender"
               value="M"
+              
               onChange={(e) => setGender(e.target.value)}
             ></input>
             <span class="checkmark"></span>
@@ -142,6 +152,7 @@ export default function RegisterationPage(props) {
             type="date"
             className="form-control"
             onChange={(e) => setDob(e.target.value)}
+            required
           ></input>
 
           <label className="form-label fw-bold mt-4">Date of Joining</label>
@@ -149,6 +160,7 @@ export default function RegisterationPage(props) {
             type="date"
             className="form-control"
             onChange={(e) => setDoj(e.target.value)}
+            required
           ></input>
 
           <label className="form-label fw-bold mt-4">
@@ -165,9 +177,9 @@ export default function RegisterationPage(props) {
           ></input>
 
           <button
-            type="button"
+            type="submit"
             className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap"
-            onClick={handleNewRegisterSubmit}
+            onSubmit={handleNewRegisterSubmit}
           >
             Submit
           </button>
