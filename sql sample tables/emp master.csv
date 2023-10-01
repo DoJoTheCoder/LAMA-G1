@@ -1,0 +1,6 @@
+employee_id,access_type,department,designation,date_of_birth,date_of_joining,employee_name,gender,password,user_name
+E10001,User,Tech,"Intern Analyst",2001-04-18,2024-05-14,Damien,M,1234,Damien123
+E10002,User,Transport,Manager,1995-03-17,2018-04-02,Chris,F,pass567,Chris567
+E10003,Admin,Support,Analyst,1999-04-26,2023-06-12,John,M,1234,John
+E10004,User,Support,SWE,2001-03-08,2021-03-21,Bob,M,pass112,Bob
+E10005,User,Technology,Analyst,2001-05-18,2022-07-12,Kiel,F,1234,Kiel
