@@ -121,6 +121,7 @@ class EmployeeMasterControllerTest {
      */
     @Test
     void testAddEmpMaster() throws Exception {
+
         Date dob = mock(Date.class);
         when(dob.getTime()).thenReturn(10L);
         Date doj = mock(Date.class);
