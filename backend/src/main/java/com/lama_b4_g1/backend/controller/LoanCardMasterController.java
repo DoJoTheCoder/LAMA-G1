@@ -3,6 +3,8 @@ package com.lama_b4_g1.backend.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,7 +32,7 @@ public class LoanCardMasterController {
 	private ModelMapper modelMapper;
 	
 	@PostMapping("/addLoanCardMaster")
-	public LoanCardMasterDto addNewLoanCard(@RequestBody LoanCardMasterDto newLoanCard) {
+	public LoanCardMasterDto addNewLoanCard(@RequestBody @Valid LoanCardMasterDto newLoanCard) {
 		LoanCardMaster l = modelMapper.map(newLoanCard, LoanCardMaster.class);
 		LoanCardMaster em= loanCardMasterService.addNewLoanCard(l);
 		LoanCardMasterDto ld=modelMapper.map(em, LoanCardMasterDto.class);

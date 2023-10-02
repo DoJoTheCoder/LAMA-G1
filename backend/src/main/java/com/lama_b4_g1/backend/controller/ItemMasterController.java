@@ -3,6 +3,8 @@ package com.lama_b4_g1.backend.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -67,7 +69,7 @@ public class ItemMasterController {
 	}
 	
 	@PostMapping("/addItemMaster")
-	public ItemMasterDto addingNewItem(@RequestBody ItemMasterDto itemAdd) {
+	public ItemMasterDto addingNewItem(@RequestBody @Valid ItemMasterDto itemAdd) {
 		ItemMaster im1 = modelMapper.map(itemAdd,ItemMaster.class);
 		ItemMaster im= itemMasterService.addItemMaster(im1);
 		return modelMapper.map(im, ItemMasterDto.class);

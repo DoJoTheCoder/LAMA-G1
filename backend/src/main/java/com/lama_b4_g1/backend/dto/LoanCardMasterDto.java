@@ -1,5 +1,9 @@
 package com.lama_b4_g1.backend.dto;
 
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+
 //import java.util.Set;
 //
 //import javax.persistence.Column;
@@ -10,9 +14,13 @@ package com.lama_b4_g1.backend.dto;
 
 public class LoanCardMasterDto {
 	
-	
+	@Id
+	@NotBlank(message = "ID cannot be blank")
 	private String loanId;
+	@NotBlank(message = "Type cannot be blank")
 	private String loanType;
+	@Positive
+	@NotBlank(message = "Duration cannot be blank")
 	private int durationInYears;
 	//private Set<EmployeeCardDetails> empCardDetail;
 

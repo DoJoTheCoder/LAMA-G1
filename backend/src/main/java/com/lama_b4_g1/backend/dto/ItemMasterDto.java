@@ -4,24 +4,27 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 import com.lama_b4_g1.backend.models.EmployeeIssueDetails;
 
 public class ItemMasterDto {
 	
-
+	@NotBlank(message = "ID cannot be blank")
 	private String itemId;
-
+	@NotBlank(message = "Description cannot be blank")
 	private String itemDescription;
-
+	@NotBlank(message = "Status cannot be blank")
 	private char issueStatus;
-
+	@NotBlank(message = "Make cannot be blank")
 	private String itemMake;
 	
-
+	@NotBlank(message = "Category cannot be blank")
 	private String itemCategory;
 	
-
+	@Positive
+	@NotBlank(message = "Valuation cannot be blank")
 	private int itemValuation;
 	
 //	@OneToMany(mappedBy = "itemMaster")

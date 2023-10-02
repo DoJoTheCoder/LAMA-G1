@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import com.lama_b4_g1.backend.models.NewLoanInfo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +47,7 @@ public class EmployeeMasterController {
 	private ModelMapper modelMapper;
 	
 	@PostMapping("/addEmployeeMaster")
-	public EmployeeMasterDto addEmpMaster(@RequestBody EmployeeMasterDto ed) {
+	public EmployeeMasterDto addEmpMaster(@RequestBody @Valid EmployeeMasterDto ed) {
 		//System.out.println(ed.getPassword());
 		EmployeeMaster empMaster= modelMapper.map(ed, EmployeeMaster.class);
 		EmployeeMaster obj = empMasterService.saveEmpMaster(empMaster);
@@ -61,7 +63,7 @@ public class EmployeeMasterController {
 
 			result.add("Null Credentials");
 			return result;
-//			return new ResponseEntity<>("Null Credientials", HttpStatus.OK);
+//			return new ResponseEntity<>("Null Credentials", HttpStatus.OK);
 
 //			return "Null Credentials";
 //			return new ResponseEntity<>("Null Credentials", HttpStatus.OK);
@@ -98,7 +100,7 @@ public class EmployeeMasterController {
 	}
 	
 	@PutMapping("/editEmpRecord/{id}")
-	public String editEmpRecord(@PathVariable("id") String id, @RequestBody EmployeeMasterDto em) {
+	public String editEmpRecord(@PathVariable("id") String id, @RequestBody @Valid EmployeeMasterDto em) {
 		EmployeeMaster em1 = modelMapper.map(em, EmployeeMaster.class);
 		return empMasterService.editRecord(id, em1);
 	}

@@ -4,6 +4,10 @@ import java.sql.Date;
 //import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 //
 //import javax.persistence.OneToMany;
 //
@@ -12,27 +16,28 @@ import javax.persistence.Column;
 
 public class EmployeeMasterDto {
 	
-	
-
+	@Id
+	@NotBlank(message = "ID cannot be blank")
 	private String employeeId;
-
+	@NotBlank(message = "Name cannot be blank")
 	private String employeeName;
-
+	@NotBlank(message = "Designation cannot be blank")
 	private String designation;
-
+	@NotBlank(message = "Department cannot be blank")
 	private String department;
-	
+	@NotBlank(message = "Please choose a gender")
 	private char gender;
-
+	@NotBlank(message = "Please choose a valid username")
 	private String userName;
-	
+	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$",
+            message = "password must be min 4 and max 12 length containing atleast 1 uppercase, 1 lowercase, 1 special character and 1 digit ")
 	private String password;
-	
+	@NotNull(message = "Plesae choose a suitable date")
 	private Date dob;
 	
-
+	@NotNull(message = "Please choose a suitable date")
 	private Date doj;
-	
+	@NotNull(message = "Please choose access type")
 	private String accessType;
 	
 //	@OneToMany(mappedBy = "empMaster")

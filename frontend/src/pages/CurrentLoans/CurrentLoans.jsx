@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import "./CurrentLoans.css"
+// import "./CurrentLoans.css"
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 
