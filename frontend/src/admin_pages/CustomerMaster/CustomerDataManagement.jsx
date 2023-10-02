@@ -10,9 +10,6 @@ export default function CustomerDataManagement() {
     axios
       .get(
         "http://localhost:8080/viewEmpRecords"
-        // title: "Hello World!",
-        // body: JSON.stringify(sendBody)
-        // }
       )
       .then((response) => {
         console.log(response);
@@ -99,7 +96,6 @@ export default function CustomerDataManagement() {
                       Delete
                     </Link>
                   </td>
-                  {/* <td><Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link></td> */}
                 </tr>
               ))}
             </tbody>

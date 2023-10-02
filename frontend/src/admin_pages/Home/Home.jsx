@@ -26,7 +26,6 @@ export default function AdminHome() {
             through the navigation bar at the top.
           </p>
           <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5 text-break">
-            {/* <Link type="button" className="btn btn-primary btn-lg px-4 me-sm-3 bg-dark text-nowrap" to="/admin/home">Home</Link> */}
             <Link
               type="button"
               className="btn btn-primary btn-lg px-4 me-sm-3 bg-dark text-nowrap"

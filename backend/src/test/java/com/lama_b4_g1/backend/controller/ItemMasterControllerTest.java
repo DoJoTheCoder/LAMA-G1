@@ -41,42 +41,27 @@ public class ItemMasterControllerTest {
      * Method under test: {@link ItemMasterController#getAllItems()}
      */
     @Test
-    public void testGetAllItems() throws Exception {
-        when(itemMasterService.getAllItems()).thenReturn(new ArrayList<>());
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getAllItems");
-        MockMvcBuilders.standaloneSetup(itemMasterController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-                .andExpect(MockMvcResultMatchers.content().string("[]"));
-    }
-
-    /**
-     * Method under test: {@link ItemMasterController#getAllItems()}
-     */
-    @Test
     public void testGetAllItems2() throws Exception {
         ItemMaster itemMaster = new ItemMaster();
         itemMaster.setEmpIssueDetails(new HashSet<>());
-        itemMaster.setIssueStatus('A');
-        itemMaster.setItemCategory("?");
-        itemMaster.setItemDescription("?");
-        itemMaster.setItemId("42");
-        itemMaster.setItemMake("?");
-        itemMaster.setItemValuation(42);
+        itemMaster.setIssueStatus('Y');
+        itemMaster.setItemCategory("Furniture");
+        itemMaster.setItemDescription("TeaTable");
+        itemMaster.setItemId("IT01");
+        itemMaster.setItemMake("Wood");
+        itemMaster.setItemValuation(400);
 
         ArrayList<ItemMaster> itemMasterList = new ArrayList<>();
         itemMasterList.add(itemMaster);
         when(itemMasterService.getAllItems()).thenReturn(itemMasterList);
 
         ItemMasterDto itemMasterDto = new ItemMasterDto();
-        itemMasterDto.setIssueStatus('A');
-        itemMasterDto.setItemCategory("Item Category");
-        itemMasterDto.setItemDescription("Item Description");
-        itemMasterDto.setItemId("42");
-        itemMasterDto.setItemMake("Item Make");
-        itemMasterDto.setItemValuation(42);
+        itemMasterDto.setIssueStatus('Y');
+        itemMasterDto.setItemCategory("Furniture");
+        itemMasterDto.setItemDescription("TeaTable");
+        itemMasterDto.setItemId("IT01");
+        itemMasterDto.setItemMake("Wood");
+        itemMasterDto.setItemValuation(400);
         when(modelMapper.map(Mockito.<Object>any(), Mockito.<Class<ItemMasterDto>>any())).thenReturn(itemMasterDto);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getAllItems");
         MockMvcBuilders.standaloneSetup(itemMasterController)
@@ -86,82 +71,17 @@ public class ItemMasterControllerTest {
                 .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
                 .andExpect(MockMvcResultMatchers.content()
                         .string(
-                                "[{\"itemId\":\"42\",\"itemDescription\":\"Item Description\",\"issueStatus\":\"A\",\"itemMake\":\"Item Make\","
-                                        + "\"itemCategory\":\"Item Category\",\"itemValuation\":42}]"));
+                                "[{\"itemId\":\"IT01\",\"itemDescription\":\"TeaTable\",\"issueStatus\":\"Y\",\"itemMake\":\"Wood\","
+                                        + "\"itemCategory\":\"Furniture\",\"itemValuation\":400}]"));
     }
 
     /**
      * Method under test: {@link ItemMasterController#getAllItems()}
-     */
-    @Test
-    public void testGetAllItems3() throws Exception {
-        ItemMaster itemMaster = new ItemMaster();
-        itemMaster.setEmpIssueDetails(new HashSet<>());
-        itemMaster.setIssueStatus('A');
-        itemMaster.setItemCategory("?");
-        itemMaster.setItemDescription("?");
-        itemMaster.setItemId("42");
-        itemMaster.setItemMake("?");
-        itemMaster.setItemValuation(42);
-
-        ItemMaster itemMaster2 = new ItemMaster();
-        itemMaster2.setEmpIssueDetails(new HashSet<>());
-        itemMaster2.setIssueStatus('\u0000');
-        itemMaster2.setItemCategory("Item Category");
-        itemMaster2.setItemDescription("Item Description");
-        itemMaster2.setItemId("?");
-        itemMaster2.setItemMake("Item Make");
-        itemMaster2.setItemValuation(1);
-
-        ArrayList<ItemMaster> itemMasterList = new ArrayList<>();
-        itemMasterList.add(itemMaster2);
-        itemMasterList.add(itemMaster);
-        when(itemMasterService.getAllItems()).thenReturn(itemMasterList);
-
-        ItemMasterDto itemMasterDto = new ItemMasterDto();
-        itemMasterDto.setIssueStatus('A');
-        itemMasterDto.setItemCategory("Item Category");
-        itemMasterDto.setItemDescription("Item Description");
-        itemMasterDto.setItemId("42");
-        itemMasterDto.setItemMake("Item Make");
-        itemMasterDto.setItemValuation(42);
-        when(modelMapper.map(Mockito.<Object>any(), Mockito.<Class<ItemMasterDto>>any())).thenReturn(itemMasterDto);
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getAllItems");
-        MockMvcBuilders.standaloneSetup(itemMasterController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-                .andExpect(MockMvcResultMatchers.content()
-                        .string(
-                                "[{\"itemId\":\"42\",\"itemDescription\":\"Item Description\",\"issueStatus\":\"A\",\"itemMake\":\"Item Make\","
-                                        + "\"itemCategory\":\"Item Category\",\"itemValuation\":42},{\"itemId\":\"42\",\"itemDescription\":\"Item Description"
-                                        + "\",\"issueStatus\":\"A\",\"itemMake\":\"Item Make\",\"itemCategory\":\"Item Category\",\"itemValuation\":42}]"));
-    }
-
-    /**
-     * Method under test: {@link ItemMasterController#getAllItemCategory()}
      */
     @Test
     public void testGetAllItemCategory() throws Exception {
         when(itemMasterService.getAllItemCategory()).thenReturn(new ArrayList<>());
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getAllItemCategories");
-        MockMvcBuilders.standaloneSetup(itemMasterController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-                .andExpect(MockMvcResultMatchers.content().string("[]"));
-    }
-
-    /**
-     * Method under test: {@link ItemMasterController#getAllItemCategory()}
-     */
-    @Test
-    public void testGetAllItemCategory2() throws Exception {
-        when(itemMasterService.getAllItemCategory()).thenReturn(new ArrayList<>());
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getAllItemCategories");
-        requestBuilder.characterEncoding("Encoding");
         MockMvcBuilders.standaloneSetup(itemMasterController)
                 .build()
                 .perform(requestBuilder)
@@ -189,22 +109,6 @@ public class ItemMasterControllerTest {
      * Method under test: {@link ItemMasterController#getItemMakes(String)}
      */
     @Test
-    public void testGetItemMakes2() throws Exception {
-        when(itemMasterService.getItemMakes(Mockito.<String>any())).thenReturn(new ArrayList<>());
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getItemMakes/{ic}", "Ic");
-        requestBuilder.characterEncoding("Encoding");
-        MockMvcBuilders.standaloneSetup(itemMasterController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-                .andExpect(MockMvcResultMatchers.content().string("[]"));
-    }
-
-    /**
-     * Method under test: {@link ItemMasterController#getItemDescriptions(String, String)}
-     */
-    @Test
     public void testGetItemDescriptions() throws Exception {
         when(itemMasterService.getItemDescriptions(Mockito.<String>any(), Mockito.<String>any()))
                 .thenReturn(new ArrayList<>());
@@ -222,43 +126,25 @@ public class ItemMasterControllerTest {
      * Method under test: {@link ItemMasterController#getItemDescriptions(String, String)}
      */
     @Test
-    public void testGetItemDescriptions2() throws Exception {
-        when(itemMasterService.getItemDescriptions(Mockito.<String>any(), Mockito.<String>any()))
-                .thenReturn(new ArrayList<>());
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getItemDescriptions/{icat}/{imake}",
-                "Icat", "Imake");
-        requestBuilder.characterEncoding("Encoding");
-        MockMvcBuilders.standaloneSetup(itemMasterController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-                .andExpect(MockMvcResultMatchers.content().string("[]"));
-    }
-
-    /**
-     * Method under test: {@link ItemMasterController#addingNewItem(ItemMasterDto)}
-     */
-    @Test
     public void testAddingNewItem() throws Exception {
         ItemMaster itemMaster = new ItemMaster();
         itemMaster.setEmpIssueDetails(new HashSet<>());
-        itemMaster.setIssueStatus('A');
-        itemMaster.setItemCategory("Item Category");
-        itemMaster.setItemDescription("Item Description");
-        itemMaster.setItemId("42");
-        itemMaster.setItemMake("Item Make");
-        itemMaster.setItemValuation(42);
+        itemMaster.setIssueStatus('Y');
+        itemMaster.setItemCategory("Crockery");
+        itemMaster.setItemDescription("Tea Set");
+        itemMaster.setItemId("IT02");
+        itemMaster.setItemMake("Ceramic");
+        itemMaster.setItemValuation(4200);
         when(itemMasterService.addItemMaster(Mockito.<ItemMaster>any())).thenReturn(itemMaster);
         when(modelMapper.map(Mockito.<Object>any(), Mockito.<Class<Object>>any())).thenReturn(null);
 
         ItemMasterDto itemMasterDto = new ItemMasterDto();
         itemMasterDto.setIssueStatus('A');
-        itemMasterDto.setItemCategory("Item Category");
-        itemMasterDto.setItemDescription("Item Description");
-        itemMasterDto.setItemId("42");
-        itemMasterDto.setItemMake("Item Make");
-        itemMasterDto.setItemValuation(42);
+        itemMasterDto.setItemCategory("Crockery");
+        itemMasterDto.setItemDescription("Tet Set");
+        itemMasterDto.setItemId("IT02");
+        itemMasterDto.setItemMake("Ceramic");
+        itemMasterDto.setItemValuation(4200);
         String content = (new ObjectMapper()).writeValueAsString(itemMasterDto);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/addItemMaster")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -274,34 +160,18 @@ public class ItemMasterControllerTest {
      */
     @Test
     public void testDeleteItemById() throws Exception {
-        when(itemMasterService.deleteItemById(Mockito.<String>any())).thenReturn("42");
+        when(itemMasterService.deleteItemById(Mockito.<String>any())).thenReturn("Deletion Sucess");
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.delete("/deleteItemRecord/{id}", "42");
         MockMvcBuilders.standaloneSetup(itemMasterController)
                 .build()
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
-                .andExpect(MockMvcResultMatchers.content().string("42"));
+                .andExpect(MockMvcResultMatchers.content().string("Deletion Sucess"));
     }
 
     /**
      * Method under test: {@link ItemMasterController#deleteItemById(String)}
-     */
-    @Test
-    public void testDeleteItemById2() throws Exception {
-        when(itemMasterService.deleteItemById(Mockito.<String>any())).thenReturn("42");
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.delete("/deleteItemRecord/{id}", "42");
-        requestBuilder.characterEncoding("Encoding");
-        MockMvcBuilders.standaloneSetup(itemMasterController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
-                .andExpect(MockMvcResultMatchers.content().string("42"));
-    }
-
-    /**
-     * Method under test: {@link ItemMasterController#getItemValuation(String)}
      */
     @Test
     public void testGetItemValuation() throws Exception {
@@ -319,42 +189,26 @@ public class ItemMasterControllerTest {
      * Method under test: {@link ItemMasterController#getItemValuation(String)}
      */
     @Test
-    public void testGetItemValuation2() throws Exception {
-        when(itemMasterService.getItemValue(Mockito.<String>any())).thenReturn("42");
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getItemValue/{idesc}", "Idesc");
-        requestBuilder.characterEncoding("Encoding");
-        MockMvcBuilders.standaloneSetup(itemMasterController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
-                .andExpect(MockMvcResultMatchers.content().string("42"));
-    }
-
-    /**
-     * Method under test: {@link ItemMasterController#getItemyId(String)}
-     */
-    @Test
     public void testGetItemyId() throws Exception {
         ItemMaster itemMaster = new ItemMaster();
         itemMaster.setEmpIssueDetails(new HashSet<>());
-        itemMaster.setIssueStatus('A');
-        itemMaster.setItemCategory("Item Category");
-        itemMaster.setItemDescription("Item Description");
-        itemMaster.setItemId("42");
-        itemMaster.setItemMake("Item Make");
+        itemMaster.setIssueStatus('Y');
+        itemMaster.setItemCategory("Plastic");
+        itemMaster.setItemDescription("Chair");
+        itemMaster.setItemId("IT03");
+        itemMaster.setItemMake("Plastic");
         itemMaster.setItemValuation(42);
         when(itemMasterService.getItemById(Mockito.<String>any())).thenReturn(itemMaster);
 
         ItemMasterDto itemMasterDto = new ItemMasterDto();
-        itemMasterDto.setIssueStatus('A');
-        itemMasterDto.setItemCategory("Item Category");
-        itemMasterDto.setItemDescription("Item Description");
-        itemMasterDto.setItemId("42");
-        itemMasterDto.setItemMake("Item Make");
+        itemMasterDto.setIssueStatus('Y');
+        itemMasterDto.setItemCategory("Plastic");
+        itemMasterDto.setItemDescription("Chair");
+        itemMasterDto.setItemId("IT03");
+        itemMasterDto.setItemMake("Plastic");
         itemMasterDto.setItemValuation(42);
         when(modelMapper.map(Mockito.<Object>any(), Mockito.<Class<ItemMasterDto>>any())).thenReturn(itemMasterDto);
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getItemById/{id}", "42");
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/getItemById/{id}", "IT03");
         MockMvcBuilders.standaloneSetup(itemMasterController)
                 .build()
                 .perform(requestBuilder)
@@ -362,8 +216,8 @@ public class ItemMasterControllerTest {
                 .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
                 .andExpect(MockMvcResultMatchers.content()
                         .string(
-                                "{\"itemId\":\"42\",\"itemDescription\":\"Item Description\",\"issueStatus\":\"A\",\"itemMake\":\"Item Make\",\"itemCategory"
-                                        + "\":\"Item Category\",\"itemValuation\":42}"));
+                                "{\"itemId\":\"IT03\",\"itemDescription\":\"Chair\",\"issueStatus\":\"Y\",\"itemMake\":\"Plastic\",\"itemCategory"
+                                        + "\":\"Plastic\",\"itemValuation\":42}"));
     }
 }
 

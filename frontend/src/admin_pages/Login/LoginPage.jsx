@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./LoginPage.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function AdminLoginPage() {
@@ -23,10 +23,6 @@ export default function AdminLoginPage() {
         .post(
           "http://localhost:8080/validateLogin",
           sendBody
-          // {
-          //     title: "Hello World!",
-          //     body: JSON.stringify(sendBody)
-          // })
         )
         .then((response) => {
           console.log(response);
@@ -47,22 +43,6 @@ export default function AdminLoginPage() {
           alert(error.response.data.message);
         });
     })();
-
-    // try {
-    //     (async () => {
-    //         const res = await fetch("http://localhost:8080/validateLogin", {
-    //             // mode: "no-cors",
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify(sendBody),
-    //         });
-    //         const data = res.body;
-    //         console.log(data);
-    //     })();
-    // }
-    // catch (e) {
-    //     console.log(e)
-    // }
   }
   return (
     <div className="py-4">
@@ -101,11 +81,6 @@ export default function AdminLoginPage() {
               Login
             </button>
             <br />
-            {/* New Admin? Click{" "}
-            <Link className="link-dark" to={"/admin-new-register"}>
-              Here
-            </Link> */}
-            .
           </div>
         </form>
       </div>

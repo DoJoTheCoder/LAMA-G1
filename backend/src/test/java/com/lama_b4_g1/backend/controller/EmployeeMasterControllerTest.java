@@ -14,10 +14,7 @@ import com.lama_b4_g1.backend.services.EmployeeMasterService;
 import com.lama_b4_g1.backend.services.LoanCardMasterService;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -126,16 +123,16 @@ public class EmployeeMasterControllerTest {
         EmployeeMaster employeeMaster = new EmployeeMaster();
         employeeMaster.setAccessType("User");
         employeeMaster.setDepartment("Technology");
-        employeeMaster.setDesignation("Designation");
+        employeeMaster.setDesignation("Program Associate");
         employeeMaster.setDob(mock(Date.class));
         employeeMaster.setDoj(mock(Date.class));
         employeeMaster.setEmpCardDetails(new HashSet<>());
         employeeMaster.setEmpIssueDetails(new HashSet<>());
-        employeeMaster.setEmployeeId("42");
-        employeeMaster.setEmployeeName("Employee Name");
-        employeeMaster.setGender('A');
-        employeeMaster.setPassword("iloveyou");
-        employeeMaster.setUserName("janedoe");
+        employeeMaster.setEmployeeId("E1002");
+        employeeMaster.setEmployeeName("Flanagan");
+        employeeMaster.setGender('F');
+        employeeMaster.setPassword("pass123");
+        employeeMaster.setUserName("Flan");
         when(employeeMasterService.saveEmpMaster(Mockito.<EmployeeMaster>any())).thenReturn(employeeMaster);
         when(modelMapper.map(Mockito.<Object>any(), Mockito.<Class<Object>>any())).thenReturn(null);
         Date dob = mock(Date.class);
@@ -146,14 +143,14 @@ public class EmployeeMasterControllerTest {
         EmployeeMasterDto employeeMasterDto = new EmployeeMasterDto();
         employeeMasterDto.setAccessType("User");
         employeeMasterDto.setDepartment("Technology");
-        employeeMasterDto.setDesignation("Designation");
+        employeeMasterDto.setDesignation("Program Associate");
         employeeMasterDto.setDob(dob);
         employeeMasterDto.setDoj(doj);
-        employeeMasterDto.setEmployeeId("42");
-        employeeMasterDto.setEmployeeName("Employee Name");
-        employeeMasterDto.setGender('A');
-        employeeMasterDto.setPassword("iloveyou");
-        employeeMasterDto.setUserName("janedoe");
+        employeeMasterDto.setEmployeeId("E1002");
+        employeeMasterDto.setEmployeeName("Flanagan");
+        employeeMasterDto.setGender('F');
+        employeeMasterDto.setPassword("pass123");
+        employeeMasterDto.setUserName("Flan");
         String content = (new ObjectMapper()).writeValueAsString(employeeMasterDto);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/addEmployeeMaster")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -169,11 +166,11 @@ public class EmployeeMasterControllerTest {
      */
     @Test
     public void testAddNewLoanData() throws Exception {
-        when(employeeMasterService.addNewLoanData(Mockito.<NewLoanInfo>any())).thenReturn("Add New Loan Data");
+        when(employeeMasterService.addNewLoanData(Mockito.<NewLoanInfo>any())).thenReturn("Added New Loan Data");
 
         NewLoanInfo newLoanInfo = new NewLoanInfo();
-        newLoanInfo.setEmployeeId("42");
-        newLoanInfo.setItemDescription("Item Description");
+        newLoanInfo.setEmployeeId("E1002");
+        newLoanInfo.setItemDescription("Tea Table");
         String content = (new ObjectMapper()).writeValueAsString(newLoanInfo);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/addNewLoan")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -183,7 +180,7 @@ public class EmployeeMasterControllerTest {
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
-                .andExpect(MockMvcResultMatchers.content().string("Add New Loan Data"));
+                .andExpect(MockMvcResultMatchers.content().string("Added New Loan Data"));
     }
 
     /**
@@ -192,21 +189,21 @@ public class EmployeeMasterControllerTest {
     @Test
     public void testEditEmpRecord() throws Exception {
         when(employeeMasterService.editRecord(Mockito.<String>any(), Mockito.<EmployeeMaster>any()))
-                .thenReturn("Edit Record");
+                .thenReturn("Edit Record Sucess");
 
         EmployeeMaster employeeMaster = new EmployeeMaster();
         employeeMaster.setAccessType("User");
         employeeMaster.setDepartment("Technology");
-        employeeMaster.setDesignation("Designation");
+        employeeMaster.setDesignation("Manager");
         employeeMaster.setDob(mock(Date.class));
         employeeMaster.setDoj(mock(Date.class));
         employeeMaster.setEmpCardDetails(new HashSet<>());
         employeeMaster.setEmpIssueDetails(new HashSet<>());
-        employeeMaster.setEmployeeId("42");
-        employeeMaster.setEmployeeName("Employee Name");
-        employeeMaster.setGender('A');
-        employeeMaster.setPassword("iloveyou");
-        employeeMaster.setUserName("janedoe");
+        employeeMaster.setEmployeeId("E1002");
+        employeeMaster.setEmployeeName("Johnny");
+        employeeMaster.setGender('M');
+        employeeMaster.setPassword("1234");
+        employeeMaster.setUserName("John");
         when(modelMapper.map(Mockito.<Object>any(), Mockito.<Class<EmployeeMaster>>any())).thenReturn(employeeMaster);
         Date dob = mock(Date.class);
         when(dob.getTime()).thenReturn(10L);
@@ -216,16 +213,16 @@ public class EmployeeMasterControllerTest {
         EmployeeMasterDto employeeMasterDto = new EmployeeMasterDto();
         employeeMasterDto.setAccessType("User");
         employeeMasterDto.setDepartment("Technology");
-        employeeMasterDto.setDesignation("Designation");
+        employeeMasterDto.setDesignation("Manager");
         employeeMasterDto.setDob(dob);
         employeeMasterDto.setDoj(doj);
-        employeeMasterDto.setEmployeeId("42");
-        employeeMasterDto.setEmployeeName("Employee Name");
-        employeeMasterDto.setGender('A');
-        employeeMasterDto.setPassword("iloveyou");
-        employeeMasterDto.setUserName("janedoe");
+        employeeMasterDto.setEmployeeId("E1002");
+        employeeMasterDto.setEmployeeName("Johnny");
+        employeeMasterDto.setGender('M');
+        employeeMasterDto.setPassword("1234");
+        employeeMasterDto.setUserName("John");
         String content = (new ObjectMapper()).writeValueAsString(employeeMasterDto);
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/editEmpRecord/{id}", "42")
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/editEmpRecord/{id}", "E1002")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(content);
         MockMvcBuilders.standaloneSetup(employeeMasterController)
@@ -233,7 +230,7 @@ public class EmployeeMasterControllerTest {
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
-                .andExpect(MockMvcResultMatchers.content().string("Edit Record"));
+                .andExpect(MockMvcResultMatchers.content().string("Edit Record Sucess"));
     }
 
     /**
@@ -262,12 +259,14 @@ public class EmployeeMasterControllerTest {
      */
     @Test
     public void testLoginEmployee() throws Exception {
+        List<String> response = new ArrayList<>();
+        response.add("HelloWorld");
         when(employeeMasterService.authenticateEmployee(Mockito.<EmployeeLoginCredentials>any()))
-                .thenReturn(new ArrayList<>());
+                .thenReturn(response);
 
         EmployeeLoginCredentials employeeLoginCredentials = new EmployeeLoginCredentials();
-        employeeLoginCredentials.setPassword("iloveyou");
-        employeeLoginCredentials.setUserName("janedoe");
+        employeeLoginCredentials.setPassword("1234");
+        employeeLoginCredentials.setUserName("Kiel");
         String content = (new ObjectMapper()).writeValueAsString(employeeLoginCredentials);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/validateLogin")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -277,7 +276,7 @@ public class EmployeeMasterControllerTest {
                 .perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-                .andExpect(MockMvcResultMatchers.content().string("[]"));
+                .andExpect(MockMvcResultMatchers.content().string("[\"HelloWorld\"]"));
     }
 
     /**

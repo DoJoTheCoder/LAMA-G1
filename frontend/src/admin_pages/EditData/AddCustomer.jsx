@@ -66,9 +66,6 @@ export default function AddCustomer() {
       .post(
         "http://localhost:8080/addEmployeeMaster",
         sendBody
-        // title: "Hello World!",
-        // body: JSON.stringify(sendBody)
-        // }
       )
       .then((response) => {
         navigate("/admin/customer-data-management");
