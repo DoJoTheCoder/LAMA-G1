@@ -63,16 +63,13 @@ export default function RegisterationPage(props) {
     // console.log(doj.getYear()-dob.getYear())
     if (dob > doj) {
       alert("DOB must be less than DOJ!");
-    }
-    else
-      handleNewRegisterSubmit()
-
-  }
+    } else handleNewRegisterSubmit();
+  };
   return (
-    <div className="py-5">
+    <div className="py-5 lead">
       <div className="card col-lg-4 d-flex mx-auto p-3 lead fw-bold">
         <h2 class="title">Registration Form</h2>
-        <form onSubmit={onSubmit} >
+        <form onSubmit={onSubmit}>
           <label className="form-label fw-bold mt-4">Employee Id</label>
           <input
             type="text"
@@ -129,9 +126,7 @@ export default function RegisterationPage(props) {
             value={department}
             onChange={(e) => {
               setDepartment(e.target.value);
-            }
-            }
-
+            }}
           ></input>
 
           <label class="form-label fw-bold mt-4 ">Gender</label>
@@ -142,7 +137,6 @@ export default function RegisterationPage(props) {
               checked="checked"
               name="gender"
               value="M"
-
               onChange={(e) => setGender(e.target.value)}
             ></input>
             <span class="checkmark"></span>
@@ -186,11 +180,14 @@ export default function RegisterationPage(props) {
             }}
           ></input>
 
-          <button type="submit" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap">Submit</button>
-
+          <button
+            type="submit"
+            className="btn btn-dark btn-lg px-4 mt-4 mb-4 me-sm-3 text-nowrap"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
-
   );
 }
