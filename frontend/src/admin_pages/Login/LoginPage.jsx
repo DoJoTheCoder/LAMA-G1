@@ -101,10 +101,10 @@ export default function AdminLoginPage() {
               Login
             </button>
             <br />
-            New Admin? Click{" "}
+            {/* New Admin? Click{" "}
             <Link className="link-dark" to={"/admin-new-register"}>
               Here
-            </Link>
+            </Link> */}
             .
           </div>
         </form>

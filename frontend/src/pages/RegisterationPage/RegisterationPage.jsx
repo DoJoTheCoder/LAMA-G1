@@ -60,7 +60,9 @@ export default function RegisterationPage(props) {
 
   const onSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
-    // console.log(doj.getYear()-dob.getYear())
+    // console.log(doj.getTime()-dob.getTime())
+    const todayDate = new Date()
+    console.log(todayDate)
     if (dob > doj) {
       alert("DOB must be less than DOJ!");
     } else handleNewRegisterSubmit();

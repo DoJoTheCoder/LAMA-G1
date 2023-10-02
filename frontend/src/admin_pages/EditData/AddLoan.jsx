@@ -103,7 +103,13 @@ export default function AddLoan() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    handleNewLoanddSubmit();
+    if(duratinInYears>0){
+      handleNewLoanddSubmit();
+    }
+    else{
+      alert("Invalid Duration of Years : " + duratinInYears)
+    }
+    
   };
 
   return (
