@@ -19,7 +19,7 @@ import AdminItemMasterManagement from "./admin_pages/ItemMasterManagement/ItemMa
 import CustomerDataManagement from "./admin_pages/CustomerMaster/CustomerDataManagement";
 
 import AddItem from "./admin_pages/EditData/AddItem";
-import AddLoan from "./adminw_pages/EditData/AddLoan";
+import AddLoan from "./admin_pages/EditData/AddLoan";
 import AddCustomer from "./admin_pages/EditData/AddCustomer";
 import NotFound from "./layout/InvalidURL";
 
