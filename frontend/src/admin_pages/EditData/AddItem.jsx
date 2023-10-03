@@ -63,7 +63,14 @@ export default function AddItem() {
 
   const onSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
-    handleNewItemAddSubmit();
+    if(itemValuation < 1){
+      alert("Item valuation is invalid.")
+    }
+    else{
+      handleNewItemAddSubmit()
+    }
+    
+    ;
   };
 
     return (

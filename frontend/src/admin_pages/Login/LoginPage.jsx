@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 export default function AdminLoginPage() {
@@ -56,7 +56,6 @@ export default function AdminLoginPage() {
                     </div>
                     <div className="outLoginForm lead">
                         <button type="button" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap"  onClick={handleLoginSubmit}>Login</button><br />
-                        New Admin? Click <Link className= "link-dark" to={"/admin-new-register"}>here</Link>.
                     </div>
                 </form>
             </div>

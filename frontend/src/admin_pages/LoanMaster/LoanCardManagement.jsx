@@ -24,6 +24,7 @@ export default function AdminLoanCardManagement() {
       .then((response) => {
         console.log(response.data)
         setContent(response.data)
+        setNullTable(false)
       }).catch(function (error) {
         console.log(error);
       });
@@ -48,7 +49,7 @@ export default function AdminLoanCardManagement() {
             <h2>The Loan card Data table is Empty</h2>
             <h3 className="m-4">There are no records to display</h3>
             Click here to go back to{" "}
-            <Link className="link-dark" to={"/home"}>
+            <Link className="link-dark" to={"/admin/home"}>
               Home
             </Link>
             .

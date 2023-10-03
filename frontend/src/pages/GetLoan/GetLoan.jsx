@@ -109,7 +109,7 @@ export default function GetLoan() {
           itemDescDropdown.value = "Null"
       }
       setItemValue("")
-  
+      setItemDescription("")
     };
 
   const setItemValueField = (itemDescSelected) => {

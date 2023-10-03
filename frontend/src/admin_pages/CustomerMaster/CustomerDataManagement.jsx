@@ -42,7 +42,7 @@ export default function CustomerDataManagement() {
             <h2>The Customer Data table is Empty</h2>
             <h3 className="m-4">There are no records to display</h3>
             Click here to go back to{" "}
-            <Link className="link-dark" to={"/home"}>
+            <Link className="link-dark" to={"/admin/home"}>
               Home
             </Link>
             .
@@ -51,7 +51,7 @@ export default function CustomerDataManagement() {
       ) : (
         <>
           <h1>This is a list of Customer Information</h1>
-          <table className="table table-striped mx-auto w-75 ">
+          <table className="table table-striped mx-auto w-75">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">#</th>

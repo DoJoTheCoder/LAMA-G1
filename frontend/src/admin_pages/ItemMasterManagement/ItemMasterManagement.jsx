@@ -52,7 +52,7 @@ export default function AdminItemMasterManagement() {
             <h2> The Item Master table is Empty</h2>
             <h3>There are no records to display</h3>
             Click here to go back to{" "}
-            <Link className="link-dark" to={"/home"}>
+            <Link className="link-dark" to={"/admin/home"}>
               Home
             </Link>
             .

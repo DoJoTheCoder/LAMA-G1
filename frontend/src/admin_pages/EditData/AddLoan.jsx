@@ -62,7 +62,7 @@ export default function AddLoan() {
     else {
       alert("Invalid Duration of Years : " + duratinInYears)
     }
-
+  }
     return (
       <div className="py-5 lead">
       <div className="card col-lg-4 d-flex mx-auto p-3 lead fw-bold">
@@ -113,5 +113,4 @@ export default function AddLoan() {
       </div>
     </div>
   );
-  }
 }
