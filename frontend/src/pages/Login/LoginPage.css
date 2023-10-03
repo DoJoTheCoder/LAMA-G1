@@ -1,25 +1,25 @@
-.loginForm{
-    /* min-width: 100px; */
-    border: solid black 2px;
-    border-radius: 10px;
-    width: 30%;
-    padding: 1%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 10%;
-    margin-left: 35%;
-    flex-wrap: wrap;
+.loginForm {
+  /* min-width: 100px; */
+  border: solid black 2px;
+  border-radius: 10px;
+  width: 30%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  margin-left: 35%;
+  flex-wrap: wrap;
 }
 
-.loginInputs{
-    width: auto;
-    height: 30px;
-    align-items: flex-end;
-    margin: 10px;
+.loginInputs {
+  width: auto;
+  height: 30px;
+  align-items: flex-end;
+  margin: 10px;
 }
-.submitButton{
-    margin: 1%;
-    width: 60px;
-    border-radius: 5px;
-    background-color: rgb(79, 184, 219);
+.submitButton {
+  margin: 1%;
+  width: 60px;
+  border-radius: 5px;
+  background-color: rgb(79, 184, 219);
 }

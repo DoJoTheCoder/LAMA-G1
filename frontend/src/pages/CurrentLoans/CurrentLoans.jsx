@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function CurrentLoans() {
 
@@ -26,23 +25,23 @@ export default function CurrentLoans() {
         searchId: JSON.parse(sessionStorage.getItem("UserID")),
       })
       .then((response) => {
-        console.log(response.data)
-        setContent(response.data)
+        console.log(response.data);
+        setContent(response.data);
         if (response.data.length > 0) {
-          setNullTable(false)
+          setNullTable(false);
         }
-      }).catch(function (error) {
+      })
+      .catch(function (error) {
         console.log(error);
       });
   }, []);
 
   return (
-    <div>
+    <div className="lead">
       <br/>
       {nullTable ? <>
         <div>
-          <h2>The Loan Data table is Empty</h2>
-          <h3>There are no records to display</h3>
+          <h1 className="mb-4">You have no current loans!</h1>
           Click here to go back to <Link to={"/home"}>Home</Link>.
         </div>
       </> : <>
@@ -69,13 +68,12 @@ export default function CurrentLoans() {
                     <td>{x.duration_in_years}</td>
                     <td>{x.card_issue_date}</td>
                   </tr>
-                ))
-              }
-            </tbody>
-          </table>
-        </div>
-      </>}
-
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
     </div>
-  )
+  );
 }

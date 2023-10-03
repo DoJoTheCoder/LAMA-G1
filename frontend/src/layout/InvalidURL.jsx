@@ -13,9 +13,14 @@ export default function NotFound() {
             <div className="contant_box_404">
               <h3 className="h2 lead fw-bold">Looks like you are lost</h3>
 
-              <p className="lead fw-light">The page you are looking for is not available!</p>
+              <p className="lead fw-light">
+                The page you are looking for is not available!
+              </p>
 
-              <a href="/" className="btn btn-dark btn-lg px-4 me-sm-3 text-nowrap">
+              <a
+                href="/"
+                className="btn btn-dark btn-lg px-4 me-sm-3 text-nowrap"
+              >
                 Go Home
               </a>
             </div>

@@ -5,10 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Navbar() {
   const navigate = useNavigate();
   const [username, setUserName] = useState("");
+  const [empId, setEmpId] = useState("")
 
   useEffect(() => {
     if (sessionStorage.getItem("Session") === "User") {
       setUserName(JSON.parse(sessionStorage.getItem("UserName")));
+      setEmpId(JSON.parse(sessionStorage.getItem("UserID")));
     } else {
       navigate("/");
     }
@@ -26,6 +28,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <div className="navbar-brand">{username}</div>
+          {/* <div className="navbar-brand">ID : {empId}</div> */}
           <button
             className="navbar-toggler"
             type="button"

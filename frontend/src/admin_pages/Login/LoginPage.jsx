@@ -1,30 +1,27 @@
-import React, { useEffect, useState } from "react";
-import "./LoginPage.css"
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import "./LoginPage.css";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function AdminLoginPage() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
-    const [userName, setUserName] = useState("")
-    const [password, setPassword] = useState("")
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  function handleLoginSubmit() {
+    console.log(userName);
+    console.log(password);
 
-    function handleLoginSubmit() {
-
-        console.log(userName);
-        console.log(password);
-
-        const sendBody = {
-            userName: userName,
-            password: password
-        };
+    const sendBody = {
+      userName: userName,
+      password: password,
+    };
 
         (async () => {
 
             axios
-                .post("http://localhost:8080/validateLogin", sendBody
-                )
+                .post("http://localhost:8080/validateLogin", sendBody)
                 .then((response) => {
                     console.log(response)
                     if (response.data[0] === "Admin") {
@@ -45,6 +42,7 @@ export default function AdminLoginPage() {
                 });
 
         })();
+
     }
     return (
         <div className="py-4">
@@ -58,6 +56,7 @@ export default function AdminLoginPage() {
                     </div>
                     <div className="outLoginForm lead">
                         <button type="button" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap"  onClick={handleLoginSubmit}>Login</button><br />
+                        New Admin? Click <Link className= "link-dark" to={"/admin-new-register"}>here</Link>.
                     </div>
                 </form>
             </div>

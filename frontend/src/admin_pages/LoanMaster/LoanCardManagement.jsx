@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios';
-import { useNavigate } from 'react-router';
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 export default function AdminLoanCardManagement() {
-
-  const navigate = useNavigate()
-  const [searchId, setSearchId] = useState("")
-  const [content, setContent] = useState([])
+  const navigate = useNavigate();
+  const [searchId, setSearchId] = useState("");
+  const [content, setContent] = useState([]);
+  const [nullTable, setNullTable] = useState(true);
 
   useEffect(() => {
+    console.log("Session " + sessionStorage.getItem("Session"));
 
-    console.log("Session " + (sessionStorage.getItem("Session")))
-
-    if ((sessionStorage.getItem("Session")) !== "Admin") {
-      navigate("/")
+    if (sessionStorage.getItem("Session") !== "Admin") {
+      navigate("/");
     }
 
-    setSearchId(JSON.parse(sessionStorage.getItem("UserID")))
+    setSearchId(JSON.parse(sessionStorage.getItem("UserID")));
 
-    console.log(searchId)
-    axios.get("http://localhost:8080/getLoanMasterList"
-      )
+    console.log(searchId);
+    axios
+      .get("http://localhost:8080/getLoanMasterList")
       .then((response) => {
         console.log(response.data)
         setContent(response.data)
@@ -33,18 +31,32 @@ export default function AdminLoanCardManagement() {
 
   const handleDelete = (e, arg) => {
     e.preventDefault();
-    console.log(arg)
-    axios.delete("http://localhost:8080/deleteLoanCard/"+ arg)
-    .then((response)=>{
-      console.log(response.data)
-      window.location.reload()
-    })
-  }
-
+    console.log(arg);
+    axios
+      .delete("http://localhost:8080/deleteLoanCard/" + arg)
+      .then((response) => {
+        console.log(response.data);
+        window.location.reload();
+      });
+  };
 
   return (
-    <div>
-      <br/>
+    <div className="lead">
+      {nullTable ? (
+        <>
+          <div>
+            <h2>The Loan card Data table is Empty</h2>
+            <h3 className="m-4">There are no records to display</h3>
+            Click here to go back to{" "}
+            <Link className="link-dark" to={"/home"}>
+              Home
+            </Link>
+            .
+          </div>
+        </>
+      ) : (
+        <>
+      <div>
       <h1>This is a list of Loan Card Details</h1>
       <table className="table table-striped mx-auto w-75 ">
         <thead className="thead-dark">
@@ -60,7 +72,7 @@ export default function AdminLoanCardManagement() {
         <tbody>
           {
             content.map((x, i) => (
-              <tr key={x.loanId}>
+              <tr>
                 <th scope="row">{i+1}</th>
                 <td>{x.loanId}</td>
                 <td>{x.loanType}</td>
@@ -73,7 +85,7 @@ export default function AdminLoanCardManagement() {
           }
         </tbody>
       </table>
-      <Link className="btn btn-outline-dark text-center mx-1" to='/admin/addLoanMaster'>Add Loan</Link>
+      <Link className="btn btn-outline-dark text-center mx-1 m-4" to='/admin/addLoanMaster'>Add Loan</Link>
     </div>
-  )
+  );
 }

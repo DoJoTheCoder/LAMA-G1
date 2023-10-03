@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from "react";
-import "./LoginPage.css"
+import React, { useState } from "react";
+import "./LoginPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function AdminLoginPage() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
-    const [userName, setUserName] = useState("")
-    const [password, setPassword] = useState("")
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  function handleLoginSubmit() {
+    console.log(userName);
+    console.log(password);
 
-    function handleLoginSubmit() {
-
-        console.log(userName);
-        console.log(password);
-
-        const sendBody = {
-            userName: userName,
-            password: password
-        };
+    const sendBody = {
+      userName: userName,
+      password: password,
+    };
 
         (async () => {
 
