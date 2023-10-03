@@ -55,37 +55,40 @@ export default function AdminLoanCardManagement() {
           </div>
         </>
       ) : (
-        <>
-      <div>
-      <h1>This is a list of Loan Card Details</h1>
-      <table className="table table-striped mx-auto w-75 ">
-        <thead className="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Loan ID</th>
-            <th scope="col">Loan Type</th>
-            <th scope="col">Duration</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {
-            content.map((x, i) => (
+        <div>
+          <h1>This is a list of Loan Card Details</h1>
+          <table className="table table-striped mx-auto w-75 ">
+            <thead className="thead-dark">
               <tr>
-                <th scope="row">{i+1}</th>
-                <td>{x.loanId}</td>
-                <td>{x.loanType}</td>
-                <td>{x.durationInYears}</td>
-                <td>
-                  <Link to={"/admin/addLoanMaster/"+x.loanId}>Edit</Link> <> </>
-                  <Link onClick={(e) => handleDelete(e, x.loanId)}>Delete</Link> </td>
+                <th scope="col">#</th>
+                <th scope="col">Loan ID</th>
+                <th scope="col">Loan Type</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Actions</th>
               </tr>
-            ))
-          }
-        </tbody>
-      </table>
-      <Link className="btn btn-outline-dark text-center mx-1 m-4" to='/admin/addLoanMaster'>Add Loan</Link>
+            </thead>
+
+            <tbody>
+              {
+                content.map((x, i) => (
+                  <tr>
+                    <th scope="row">{i + 1}</th>
+                    <td>{x.loanId}</td>
+                    <td>{x.loanType}</td>
+                    <td>{x.durationInYears}</td>
+                    <td>
+                      <Link to={"/admin/addLoanMaster/" + x.loanId}>Edit</Link> <> </>
+                      <Link onClick={(e) => handleDelete(e, x.loanId)}>Delete</Link> </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+          <Link className="btn btn-outline-dark text-center mx-1 m-4" to='/admin/addLoanMaster'>Add Loan</Link>
+        </div>
+      )
+      }
     </div>
-  );
+  )
+
 }

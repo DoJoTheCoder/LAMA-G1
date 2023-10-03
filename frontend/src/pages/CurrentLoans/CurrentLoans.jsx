@@ -71,9 +71,9 @@ export default function CurrentLoans() {
                 ))}
               </tbody>
             </table>
-          </div>
+        </div>
         </>
-      )}
+      }
     </div>
   );
 }

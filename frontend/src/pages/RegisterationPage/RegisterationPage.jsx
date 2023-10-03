@@ -70,7 +70,7 @@ export default function RegisterationPage(props) {
   return (
     <div className="py-5 lead">
       <div className="card col-lg-4 d-flex mx-auto p-3 lead fw-bold">
-        <h2 class="title">Registration Form</h2>
+        <h2 className="title">Registration Form</h2>
         <form onSubmit={onSubmit}>
           <label className="form-label fw-bold mt-4">Employee Id</label>
           <input
