@@ -71,11 +71,7 @@ export default function AddCustomer() {
         }
         console.log(sendBody);
         axios
-            .post("http://localhost:8080/addEmployeeMaster", sendBody
-                // title: "Hello World!",
-                // body: JSON.stringify(sendBody)
-                // }
-            )
+            .post("http://localhost:8080/addEmployeeMaster", sendBody)
             .then((response) => {
                 navigate("/admin/customer-data-management")
                 console.log(response);
@@ -86,7 +82,6 @@ export default function AddCustomer() {
     }
     const onSubmit = async (event) => {
         event.preventDefault(); // Prevent default submission
-        // console.log(doj.getYear()-dob.getYear())
         if (dob > doj) {
             alert("DOB must be less than DOJ!");
         }
@@ -97,6 +92,7 @@ export default function AddCustomer() {
 
     return (
         <div className="py-5">
+            <br></br>
             <div className="card col-lg-4 d-flex mx-auto p-3">
                 <form onSubmit={onSubmit}>
 

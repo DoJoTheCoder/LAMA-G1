@@ -32,7 +32,6 @@ export default function RoleSelect() {
             >
               User
             </button>
-            {/* <Link type="button" className="btn btn-primary btn-lg px-4 me-sm-3 bg-dark text-nowrap" to="/admin/customer-data-management">Customer Data Management</Link> */}
             <button
               onClick={() => handleRoleSelection("admin")}
               type="button"
@@ -41,7 +40,6 @@ export default function RoleSelect() {
             >
               Admin
             </button>
-            {/* <Link type="button" className="btn btn-primary btn-lg px-4 me-sm-3 bg-dark text-nowrap" to="/admin/item-master-data">Items Master Data</Link> */}
           </div>
         </div>
       </div>

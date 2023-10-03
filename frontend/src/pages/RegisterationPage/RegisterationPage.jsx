@@ -61,7 +61,7 @@ export default function RegisterationPage(props) {
   return (
     <div className="py-5">
       <div className="card col-lg-4 d-flex mx-auto p-3 lead fw-bold">
-        <h2 class="title">Registration Form</h2>
+        <h2 className="title">Registration Form</h2>
         <form  >
           <label className="form-label fw-bold mt-4">Employee Id</label>
           <input
@@ -124,9 +124,9 @@ export default function RegisterationPage(props) {
          
           ></input>
 
-          <label class="form-label fw-bold mt-4 ">Gender</label>
-          <div class="p-t-10 fw-light">
-            <label class="radio-container mx-3">Male</label>
+          <label className="form-label fw-bold mt-4 ">Gender</label>
+          <div className="p-t-10 fw-light">
+            <label className="radio-container mx-3">Male</label>
             <input
               type="radio"
               checked="checked"
@@ -135,16 +135,16 @@ export default function RegisterationPage(props) {
               
               onChange={(e) => setGender(e.target.value)}
             ></input>
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
 
-            <label class="radio-container mx-3">Female</label>
+            <label className="radio-container mx-3">Female</label>
             <input
               type="radio"
               name="gender"
               value="F"
               onChange={(e) => setGender(e.target.value)}
             ></input>
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </div>
 
           <label className="form-label fw-bold mt-4">Date of Birth</label>
@@ -175,7 +175,7 @@ export default function RegisterationPage(props) {
               setAccessType(e.target.value);
             }}
           ></input>
-
+          <br/>
           <button
             type="submit"
             className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap"

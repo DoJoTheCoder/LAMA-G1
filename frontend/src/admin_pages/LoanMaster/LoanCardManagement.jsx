@@ -44,6 +44,7 @@ export default function AdminLoanCardManagement() {
 
   return (
     <div>
+      <br/>
       <h1>This is a list of Loan Card Details</h1>
       <table className="table table-striped mx-auto w-75 ">
         <thead className="thead-dark">
@@ -59,8 +60,7 @@ export default function AdminLoanCardManagement() {
         <tbody>
           {
             content.map((x, i) => (
-              // Dummy values below
-              <tr>
+              <tr key={x.loanId}>
                 <th scope="row">{i+1}</th>
                 <td>{x.loanId}</td>
                 <td>{x.loanType}</td>

@@ -23,12 +23,7 @@ export default function AdminLoginPage() {
         (async () => {
 
             axios
-                .post("http://localhost:8080/validateLogin", sendBody
-                    // {
-                    //     title: "Hello World!",
-                    //     body: JSON.stringify(sendBody)
-                    // })
-                )
+                .post("http://localhost:8080/validateLogin", sendBody)
                 .then((response) => {
                     console.log(response.data)
                     if (response.data[0] === "User") {

@@ -75,10 +75,7 @@ export default function GetLoan() {
     }
 
     const getItemMakeData = (itemCatSelected) => {
-        // console.log("category selected:" + itemCatSelected)
         if (itemCatSelected !== "Null") {
-            // console.log("not null")
-            
             axios.get("http://localhost:8080/getItemMakes/"+itemCatSelected)
             .then((response) => {
                 setItemMakeArray(response.data)
@@ -100,7 +97,6 @@ export default function GetLoan() {
     const getItemDescriptionData = (itemMakeSelected) => {
         console.log("Make selected:" + itemMakeSelected)
         if (itemMakeSelected !== "Null") {
-            // console.log("not null")
             
             axios.get("http://localhost:8080/getItemDescriptions/"+itemCategory+"/"+itemMakeSelected)
             .then((response) => {
@@ -117,9 +113,7 @@ export default function GetLoan() {
     }
 
     const setItemValueField = (itemDescSelected) => {
-        // console.log("Desc selected:" + itemDescSelected)
         if (itemDescSelected !== "Null") {
-            // console.log("not null")
             
             axios.get("http://localhost:8080/getItemValue/"+itemDescSelected)
             .then((response) => {

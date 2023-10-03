@@ -9,7 +9,7 @@ export default function AddItem() {
     const [issueStatus, setIssueStatus] = useState('')
     const [itemMake, setItemMake] = useState("")
     const [itemCategory, setItemCategory] = useState("")
-    const [itemValuation, setItemValuation] = useState(0)
+    const [itemValuation, setItemValuation] = useState(1)
     const [disabledField, setDisabledField] = useState(false)
 
     const param = useParams()
@@ -58,11 +58,7 @@ export default function AddItem() {
         console.log(sendBody)
 
         axios
-            .post("http://localhost:8080/addItemMaster", sendBody
-                // title: "Hello World!",
-                // body: JSON.stringify(sendBody)
-                // }
-            )
+            .post("http://localhost:8080/addItemMaster", sendBody)
             .then((response) => {
                 console.log(response);
                 navigate("/admin/item-master-management")
@@ -78,6 +74,7 @@ export default function AddItem() {
 
     return (
         <div>
+            <br/>
             <div className="card col-lg-4 d-flex mx-auto p-3">
                 <form onSubmit={onSubmit}>
 
@@ -105,7 +102,7 @@ export default function AddItem() {
 
                     <label className="form-label fw-bold">Item Valuation</label>
                     <input type="text" className="form-control" required value={itemValuation} onChange={(e) => { setItemValuation(e.target.value) }}></input>
-
+                        <br/>
                     <button type="submit" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap">Submit</button>
                 </form>
             </div >

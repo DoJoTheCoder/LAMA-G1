@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import "./CurrentLoans.css"
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +10,7 @@ export default function CurrentLoans() {
   const [searchId, setSearchId] = useState("")
   const [content, setContent] = useState([])
   const [nullTable, setNullTable] = useState(true)
+  let count = 0
   useEffect(() => {
     console.log("Session " + sessionStorage.getItem("Session"));
 
@@ -38,6 +38,7 @@ export default function CurrentLoans() {
 
   return (
     <div>
+      <br/>
       {nullTable ? <>
         <div>
           <h2>The Loan Data table is Empty</h2>
@@ -47,11 +48,8 @@ export default function CurrentLoans() {
       </> : <>
         <div>
           <h1 className="mb-4">This is a list of Current Loans</h1>
-          {/* <button className="refreshButton" onClick={getLoanList}>Refresh Table</button> */}
           <table className="table table-striped mx-auto w-75 ">
             <thead className="thead-dark">
-              {/* TODO: Enhancement, after changing schema so that empIssue has issue id as primary key, 
-          update the below table to reflect that*/}
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Loan ID</th>
@@ -64,7 +62,7 @@ export default function CurrentLoans() {
             <tbody>
               {
                 content.map((x, i) => (
-                  <tr key={x.loan_id}>
+                  <tr key={count++}>
                     <td>{i + 1}</td>
                     <td>{x.loan_id}</td>
                     <td>{x.loan_type}</td>

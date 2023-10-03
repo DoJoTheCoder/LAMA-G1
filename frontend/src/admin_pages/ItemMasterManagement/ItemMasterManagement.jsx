@@ -11,7 +11,6 @@ export default function AdminItemMasterManagement() {
 
   useEffect(() => {
     console.log(sessionStorage.getItem("UserID"))
-    // getItemCategoryData("E10002");
 
     axios.get("http://localhost:8080/getAllItems")
       .then((response) => {
@@ -24,14 +23,6 @@ export default function AdminItemMasterManagement() {
       .catch(error => { alert("error happened:" + error) });
 
   }, [navigate]);
-
-  function checkLoginStatus() {
-    const isLoggedIn = localStorage.getItem('employeeId');
-    if (!isLoggedIn) {
-      alert("Please login to continue!")
-      navigate('/');
-    }
-  }
 
   const handleDelete = (e, arg) => {
     e.preventDefault();
@@ -51,6 +42,7 @@ export default function AdminItemMasterManagement() {
         <h3>There are no records to display</h3>
         Click here to go back to <Link to={"/home"}>Home</Link>.
       </div></> : <>
+        <br/>
         <h1>This is a list of Item Details</h1>
         <table className="table table-striped mx-auto w-75 ">
           <thead className="thead-dark">

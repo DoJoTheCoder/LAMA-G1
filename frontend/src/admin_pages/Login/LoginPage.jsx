@@ -24,10 +24,6 @@ export default function AdminLoginPage() {
 
             axios
                 .post("http://localhost:8080/validateLogin", sendBody
-                    // {
-                    //     title: "Hello World!",
-                    //     body: JSON.stringify(sendBody)
-                    // })
                 )
                 .then((response) => {
                     console.log(response)
@@ -49,22 +45,6 @@ export default function AdminLoginPage() {
                 });
 
         })();
-
-        // try {
-        //     (async () => {
-        //         const res = await fetch("http://localhost:8080/validateLogin", {
-        //             // mode: "no-cors",
-        //             method: "POST",
-        //             headers: { "Content-Type": "application/json" },
-        //             body: JSON.stringify(sendBody),
-        //         });
-        //         const data = res.body;
-        //         console.log(data);
-        //     })();
-        // }
-        // catch (e) {
-        //     console.log(e)
-        // }
     }
     return (
         <div className="py-4">
@@ -78,7 +58,6 @@ export default function AdminLoginPage() {
                     </div>
                     <div className="outLoginForm lead">
                         <button type="button" className="btn btn-dark btn-lg px-4 mb-4 me-sm-3 text-nowrap"  onClick={handleLoginSubmit}>Login</button><br />
-                        New Admin? Click <Link className= "link-dark" to={"/admin-new-register"}>here</Link>.
                     </div>
                 </form>
             </div>

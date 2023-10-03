@@ -9,11 +9,7 @@ export default function CustomerDataManagement() {
   function viewRecords() {
 
     axios
-      .get("http://localhost:8080/viewEmpRecords"
-        // title: "Hello World!",
-        // body: JSON.stringify(sendBody)
-        // }
-      )
+      .get("http://localhost:8080/viewEmpRecords")
       .then((response) => {
         console.log(response);
         setEmployeeArray(response.data);
@@ -45,11 +41,13 @@ export default function CustomerDataManagement() {
       {
         nullTable ? <>
           <div>
+            <br/>
             <h2>The Customer Data is Empty</h2>
             <h3>There are no records to display</h3>
             Click here to go back to <Link to={"/home"}>Home</Link>.
           </div></> : <>
 
+          <br/>
           <h1>This is a list of Customer Information</h1>
           <table className="table table-striped mx-auto w-75 ">
             <thead  className="thead-dark">
@@ -87,7 +85,6 @@ export default function CustomerDataManagement() {
                       <Link type="button" className="button1  mx-2" to={"/admin/addCustomer/" + employee.employeeId}>Edit</Link>
                       <Link onClick={(e) => handleDelete(e, employee.employeeId)}>Delete</Link>
                     </td>
-                    {/* <td><Link className="btn btn-outline-light text-center mx-1" to='/'>Home</Link></td> */}
                   </tr>
                 ))
               }

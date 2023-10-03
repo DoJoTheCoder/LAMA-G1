@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function AdminNavbar() {
-  // TODO: This part needs to be edited, since admin NAVBAR
   const navigate = useNavigate();
   const [username, setUserName] = useState("");
 
@@ -15,7 +14,6 @@ export default function AdminNavbar() {
     }
   }, [username, navigate]);
 
-  //TODO:check if sessionStorage needs to be fully cleared or just some fields
   function logoutAdmin() {
     sessionStorage.clear();
     console.log("login status:" + sessionStorage.getItem("Session"));

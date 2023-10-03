@@ -46,13 +46,8 @@ export default function AddLoan() {
 
         console.log(sendBody)
 
-        // if (param.id === undefined) {
         axios
-            .post("http://localhost:8080/addLoanCardMaster", sendBody
-                // title: "Hello World!",
-                // body: JSON.stringify(sendBody)
-                // }
-            )
+            .post("http://localhost:8080/addLoanCardMaster", sendBody)
             .then((response) => {
                 console.log(response);
 
@@ -61,53 +56,9 @@ export default function AddLoan() {
             }).catch(function (error) {
                 console.log(error);
             });
-    // }
-    // else{
-    //     console.log("edit-LoanCard")
-    //     axios
-    //         .put("http://localhost:8080/editLoan/"+{loanId}, sendBody
-    //             // title: "Hello World!",
-    //             // body: JSON.stringify(sendBody)
-    //             // }
-    //         )
-    //         .then((response) => {
-    //             console.log(response);
-
-
-    //             navigate("/admin/loan-card-management")
-    //         }).catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
-}
-    // if (param === {}) {
-
-    //     return (
-    //         <div>
-    //             {console.log(param)}
-    //             <div className="card col-lg-4 d-flex mx-auto p-3">
-    //                 <form>
-
-    //                     <label className="form-label fw-bold">Loan Id</label>
-    //                     <input type="text" className="form-control" onChange={(e) => { setLoanId(e.target.value) }}></input>
-
-
-    //                     <label className="form-label fw-bold">Loan type</label>
-    //                     <input type="text" className="form-control" onChange={(e) => { setLoanType(e.target.value) }}></input>
-
-
-    //                     <label className="form-label fw-bold">Duration in years</label>
-    //                     <input type="number" className="form-control" onChange={(e) => { setDurationInYears(e.target.value) }}></input>
-
-    //                     <button type="button" className="btn btn-primary" onClick={handleNewItemAddSubmit}>Submit</button>
-    //                 </form>
-    //             </div >
-    //         </div>
-    //     )
-    // }
-
-    // else {
-
+    
+    }
+    
     const onSubmit = async(event) => {
         event.preventDefault();
         handleNewLoanddSubmit()
@@ -115,7 +66,7 @@ export default function AddLoan() {
 
     return (
         <div>
-
+            <br/>
             <div className="card col-lg-4 d-flex mx-auto p-3">
                 <form onSubmit={onSubmit}>
 
